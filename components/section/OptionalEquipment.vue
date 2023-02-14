@@ -252,11 +252,6 @@ defineProps({
     }
 }
 @media (max-width:700px) {
-    .optional-equipment__wrapper {
-        margin: 36px auto 0;
-        max-width: 400px;
-        padding-bottom: 0;
-    }
     .optional-equipment__card {
         max-width: none;
         align-self: flex-start;

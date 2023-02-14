@@ -87,6 +87,7 @@
 @media (max-width:700px) {
     .container {
         width: 100%;
+        max-width: 500px;
     }
     .section--title {
         font-size: 26px;
@@ -102,7 +103,7 @@
     }
     .tent-card--image-inner {
         height: 70vw;
-        max-height: 210px;
+        max-height: 220px;
     }
     .tent-card--image {
         width: 100%;
@@ -120,7 +121,7 @@
         padding: 22px;
     }
     .swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
-        top: 225px;
+        top: 245px;
     }
 }
 @media (max-width:370px) {
@@ -158,9 +159,9 @@
         line-height: 20px;
     }
     .tent-card--image-inner {
-        max-height: 180px;
+        max-height: 200px;
     }
     .swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
-        top: 200px;
+        top: 220px;
     }
 }

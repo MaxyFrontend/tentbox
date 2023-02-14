@@ -249,7 +249,7 @@ defineProps({
 }
 @media (max-width:1200px) {
     .quick-choose__card_image-inner {
-        height: 30vw;
+        height: 70vw;
     }
 }
 @media (max-width:700px) {
