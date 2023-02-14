@@ -51,6 +51,9 @@ const advantages = ref([
 </script>
 
 <style lang="scss">
+.mobile-tents-primary__title {
+    max-width: none;
+}
 .mobile-tents-primary__btns-inner {
     display: flex;
     align-items: stretch;

@@ -13,7 +13,7 @@
                     type: 'progressbar',
                 }"
                 :breakpoints="{
-                    1300: {
+                    1500: {
                         allowTouchMove: false
                     }
                 }">
@@ -145,7 +145,6 @@ defineProps({
 <style lang="scss">
 .optional-equipment__wrapper {
     margin-top: 60px;
-    display: flex;
 }
 .optional-equipment__card {
     width: 28%;
@@ -203,20 +202,23 @@ defineProps({
     margin-top: 24px;
 }
 .swiper-pagination.optional-equipment__slider-pagination {
-    position: absolute;
     display: none;
+    margin-top: 15px;
 }
-@media (max-width:1300px) {
+@media (max-width:1500px) {
     .optional-equipment__card {
         width: 100%;
-        max-width: 400px;
+        max-width: 420px;
     }
     .optional-equipment__promo-accessories-item,
     .optional-equipment__mobile-umbrellas-item {
         max-width: 250px;
     }
     .optional-equipment__card_image-inner {
-        max-height: 450px;
+        max-height: 400px;
+    }
+    .swiper-pagination.optional-equipment__slider-pagination {
+        display: block;
     }
 }
 @media (max-width:700px) {
@@ -241,7 +243,9 @@ defineProps({
         margin-top: 45px;
     }
     .swiper-pagination.optional-equipment__slider-pagination {
-        top: 355px;
+        position: absolute;
+        top: 360px;
+        margin-top: 0;
         display: block;
     }
 }

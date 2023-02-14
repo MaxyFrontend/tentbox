@@ -277,9 +277,9 @@ const requestFormPopupStore = useRequestFormPopupStore()
         transform: rotate(-225deg) translateY(-50%);
     }
 }
-@media (max-width:1400px) {
+@media (max-width:1900px) {
     .header__nav {
-        margin-right: 50px;
+        margin-right: 55px;
     }
     .header__nav_list_item {
         margin-right: 50px;
@@ -294,7 +294,7 @@ const requestFormPopupStore = useRequestFormPopupStore()
         max-width: 240px;
     }
 }
-@media (max-width:1250px) {
+@media (max-width:1500px) {
     .header__nav {
         margin-right: 40px;
     }

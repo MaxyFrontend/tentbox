@@ -5,6 +5,7 @@
             <p class="mobile-tents-sizes__sub-title section--sub-title">И множество опций</p>
             <swiper :class="['mobile-tents-sizes__wrapper', { 'slider-touchmove': sliderTouchStart }]"
                 :modules="modules"
+                :speed="450"
                 :slidesPerView="1"
                 :allow-touch-move="true"
                 :space-between="40"
@@ -13,7 +14,7 @@
                     type: 'progressbar',
                 }"
                 :breakpoints="{
-                    1200: {
+                    1300: {
                         grid: {
                             rows: 2,
                         },
@@ -22,7 +23,7 @@
                         allowTouchMove:false
                     },
                     700:{
-                        slidesPerView:'auto',
+                        slidesPerView:2,
                     }
                 }"
                 @TouchStart="TouchStartHandle()"
@@ -166,16 +167,14 @@ const touchMoveOppositeHandle = () => {
     align-items: center;
 }
 .swiper-pagination.mobile-tents-sizes__slider-pagination {
-    position: absolute;
-    bottom: 0;
-    top: auto;
+    margin-top: 40px;
 }
 @media (max-width:1400px) {
     .mobile-tents-sizes__wrapper {
         margin-top: 100px;
     }
 }
-@media (min-width:1200px) {
+@media (min-width:1300px) {
     .mobile-tents-sizes__wrapper {
         margin-top: 80px;
     }

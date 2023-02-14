@@ -4,10 +4,7 @@
             <h2 class="our-clients__title section--title"> {{ sectionTitle }}</h2>
             <p class="our-clients__sub-title section--sub-title"> {{ sectionSubTitle }}</p>
             <swiper :class="['our-clients__wrapper', { 'slider-touchmove': sliderTouchStart }]"
-                @swiper="getSwiper"
-                @wheel="wheelHandle"
-                @reach-end="reachEnd"
-                @reach-beginning="reachBeginning"
+                @after-init="SwiperMouseControl"
                 :modules="modules"
                 :speed="450"
                 :slides-per-view="1"
@@ -99,34 +96,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/grid';
 import 'swiper/css/a11y';
 import { Pagination, Grid, Mousewheel, A11y } from 'swiper'
+import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
 const modules = [Pagination, Grid, Mousewheel, A11y]
-const swiperRef = ref('')
-const slidesIsEnd = ref(false)
-const getSwiper = (swiper) => {
-    swiperRef.value = swiper
-}
-const reachEnd = () => {
-    setTimeout(() => {
-        swiperRef.value.mousewheel.disable()
-        slidesIsEnd.value = true;
-    }, 500)
-}
-const reachBeginning = () => {
-    setTimeout(() => {
-        swiperRef.value.mousewheel.disable()
-        slidesIsEnd.value = false;
-    }, 500)
-}
-const wheelHandle = (e) => {
-    if (e.deltaY < 0 && slidesIsEnd.value) {
-        swiperRef.value.mousewheel.enable()
-        e.preventDefault();
-    }
-    if (e.deltaY > 0 && !slidesIsEnd.value) {
-        swiperRef.value.mousewheel.enable()
-        e.preventDefault();
-    }
-}
 const sliderTouchStart = ref(false)
 const TouchStartHandle = () => {
     sliderTouchStart.value = true

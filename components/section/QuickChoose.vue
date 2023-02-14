@@ -5,32 +5,39 @@
             <p class="section--sub-title quick-shoow__sub-title"> {{ sectionSubTitle }} </p>
             <swiper class="quick-choose__wrapper"
                 :modules="modules"
+                @after-init="SwiperMouseControl"
                 :speed="500"
                 :slidesPerView="1"
                 :spaceBetween="30"
+                :mousewheel="true"
                 :short-swipes="true"
                 :pagination="{
                     el: '.quick-choose__slider-pagination',
                     type: 'progressbar',
                 }"
                 :breakpoints="{
-                    1300: {
+                    1500: {
                         slidesPerView: 3,
                     },
                     1000: {
-                        slidesPerView: 2.2,
+                        slidesPerView: 2.5,
+                    },
+                    1000: {
+                        slidesPerView: 2,
                     },
                     700: {
-                        slidesPerView: 1.7,
+                        slidesPerView: 1.5,
                     }
                 }">
                 <swiper-slide class="quick-choose__card quick-choose__card_order">
                     <router-link to="/tent-order" class="quick-choose__card_image-inner tent-card--image-inner">
                         <img src="@/assets/img/tents/tent-1.png" alt="tent-white" class="quick-choose__card_image tent-card--image">
-                        <client-only><IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#000" :Animate="true" /></client-only>
+                        <client-only>
+                            <IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#000" :Animate="true" />
+                        </client-only>
                         <div class="quick-choose__card_image-inner_caption">1</div>
                     </router-link>
-                    <h4 class="quick-choose__card_title card--title">
+                    <h4 class="quick-choose__card_title card--title tent--card-title">
                         {{ quickChooseItems.orderTent.title }}
                     </h4>
                     <p class="quick-choose__card_sub-title card--sub-title">
@@ -48,10 +55,12 @@
                 <swiper-slide class="quick-choose__card quick-choose__card_rent">
                     <router-link to="/tent-rent" class="quick-choose__card_image-inner tent-card--image-inner">
                         <img src="@/assets/img/tents/tent-2.png" alt="tent-black" class="quick-choose__card_image tent-card--image">
-                        <client-only><IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#fff" :Animate="true" /></client-only>
+                        <client-only>
+                            <IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
+                        </client-only>
                         <div class="quick-choose__card_image-inner_caption">2</div>
                     </router-link>
-                    <h4 class="quick-choose__card_title card--title">
+                    <h4 class="quick-choose__card_title card--title tent--card-title">
                         {{ quickChooseItems.rentTent.title }}
                     </h4>
                     <p class="quick-choose__card_sub-title card--sub-title">
@@ -69,10 +78,12 @@
                 <swiper-slide class="quick-choose__card quick-choose__card_branding">
                     <router-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_image-inner tent-card--image-inner">
                         <img src="@/assets/img/tents/tent-comics.png" alt="tent-comics" class="quick-choose__card_image tent-card--image">
-                        <client-only><IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#000" :Animate="true" /></client-only>
+                        <client-only>
+                            <IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#000" :Animate="true" />
+                        </client-only>
                         <div class="quick-choose__card_image-inner_caption">+</div>
                     </router-link>
-                    <h4 class="quick-choose__card_title card--title">
+                    <h4 class="quick-choose__card_title card--title tent--card-title">
                         {{ quickChooseItems.branding.title }}
                     </h4>
                     <p class="quick-choose__card_sub-title card--sub-title">
@@ -87,7 +98,7 @@
                         </a>
                     </div>
                 </swiper-slide>
-                <div class="quick-choose__slider-pagination tent-card--progressbar swiper-pagination"></div>
+                <div class="quick-choose__slider-pagination tents-slider--progressbar swiper-pagination"></div>
             </swiper>
         </div>
     </section>
@@ -96,11 +107,12 @@
 <script setup>
 import { reactive } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Pagination, A11y } from 'swiper';
+import { Pagination, Mousewheel, A11y } from 'swiper';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css';
-const modules = [Pagination, A11y]
+import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
+const modules = [Pagination, Mousewheel, A11y]
 let quickChooseItems = reactive({
     orderTent: {
         title: 'Покупка шатра',
@@ -216,12 +228,7 @@ defineProps({
     margin-top: auto;
     justify-self: flex-end;
 }
-.quick-choose__slider-pagination {
-    &.swiper-pagination {
-        display: none;
-    }
-}
-@media (max-width:1300px) {
+@media (max-width:1500px) {
     .quick-choose__card_image-inner_caption {
         font-size: 187px;
     }
@@ -231,11 +238,7 @@ defineProps({
         }
     }
 }
-@media (min-width:1300px) {
-    .quick-choose__card_image-inner {
-        height: 16vw;
-    }
-}
+@media (min-width:1500px) {}
 @media (max-width:700px) {
     .quick-choose__wrapper {
         margin-top: 32px;

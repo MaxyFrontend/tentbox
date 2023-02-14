@@ -1,6 +1,8 @@
 <template>
     <swiper class="advantages"
         :modules="modules"
+        @after-init="SwiperMouseControl"
+        :mousewheel="true"
         :slides-per-view="'auto'"
         :pagination="{
             el: '.advantages__slider-pagination',
@@ -22,8 +24,9 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/grid';
 import 'swiper/css/a11y';
-import { Pagination, Grid, A11y } from 'swiper'
-const modules = [Pagination, Grid, A11y]
+import { Pagination, Grid, Mousewheel, A11y } from 'swiper'
+import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
+const modules = [Pagination, Grid, Mousewheel, A11y]
 defineProps({
     advantages: {
         type: Array,

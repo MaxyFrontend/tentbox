@@ -48,7 +48,7 @@ html {
 .primary--title {
     font-weight: 700;
     font-size: 48px;
-    font-size: 53px;
+    line-height: 53px;
     color: $dark-grey-color;
     margin-bottom: 30px;
 }
@@ -163,7 +163,7 @@ html {
     }
 }
 .tent-card--image-inner {
-    height: 60vw;
+    height: 17vw;
     max-height: 246px;
 }
 .tent-card--image {
@@ -194,12 +194,13 @@ html {
         border-radius: 1px;
     }
 }
-.swiper-pagination.swiper-pagination-progressbar.tent-card--progressbar {
+.swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
     position: absolute;
-    top: 260px;
+    top: 265px;
     bottom: auto;
     left: 0;
     width: 100%;
+    display: none;
 }
 .card--icon {
     position: absolute;

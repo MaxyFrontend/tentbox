@@ -2,6 +2,7 @@
     <nav class="nav primary__nav">
         <swiper @swiper="getRef" class="primary__nav_list"
             :modules="modules"
+            @after-init="SwiperMouseControl"
             :speed="400"
             :slides-per-view="'auto'"
             :space-between="20"
@@ -50,6 +51,7 @@ import { Pagination, Mousewheel, A11y, } from 'swiper';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
+import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
 const modules = [Pagination, Mousewheel, A11y,]
 const Slider = ref(null)
 const getRef = (swiperInstance) => {
@@ -60,7 +62,6 @@ const getRef = (swiperInstance) => {
 .primary__nav {
     position: relative;
     margin-top: 76px;
-    padding-bottom: 20px;
     touch-action: pan-x !important;
 }
 .primary__nav_list-item {
@@ -91,16 +92,25 @@ const getRef = (swiperInstance) => {
     display: none;
     margin-top: 15px;
 }
-@media (max-width:1400px) {
+@media (max-width:1900px) {
+    .primary__nav {
+        margin-top: 50px;
+    }
+}
+@media (max-width:1500px) {
     .primary__nav_list-item {
         font-size: 16px;
         line-height: 20px;
+    }
+    .primary__nav {
+        margin-top: 40px;
     }
 }
 @media (max-width:1200px) {
     .primary__nav {
         max-width: 970px;
         margin-top: 37px;
+        padding-bottom: 20px;
     }
 }
 @media (max-width:850px) {

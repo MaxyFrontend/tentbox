@@ -8,9 +8,12 @@
             <div class="some-new__wrapper">
                 <swiper
                     :modules="modules"
+                    @after-init="SwiperMouseControl"
+                    :speed="450"
                     :slides-per-view="'auto'"
                     :space-between="30"
                     :allow-touch-move="true"
+                    :mousewheel="true"
                     :pagination="{
                         el: '.some-new__slider-pagination',
                         type: 'progressbar',
@@ -23,7 +26,7 @@
                             </client-only>
                             <div class="some-new__card_image-inner_caption">ТВОШ</div>
                         </nuxt-link>
-                        <h4 class="some-new__card_title card--title">Чистка тентов</h4>
+                        <h4 class="some-new__card_title card--title tent--card-title">Чистка тентов</h4>
                         <p class="some-new__card_sub-title card--sub-title">
                             TentWashing или ТВОШ - наше новое направление по чистке крыш и стен из полиэстера. Сделаем всё сами в пять шагов:
                         </p>
@@ -44,14 +47,14 @@
                             </client-only>
                             <div class="some-new__card_image-inner_caption">СВЕТ</div>
                         </nuxt-link>
-                        <h4 class="some-new__card_title card--title">Модульное освещение</h4>
+                        <h4 class="some-new__card_title card--title tent--card-title">Модульное освещение</h4>
                         <p class="some-new__card_sub-title card--sub-title">
                             Легкие светодиодные модули, чтоб работать даже вечером.<br>
                             Для всех типоразмеров шатров
                         </p>
                         <nuxt-link to="/" class="blue-border-btn some-new__card_btn">Подробнее</nuxt-link>
                     </swiper-slide>
-                    <div class="swiper-pagination some-new__slider-pagination tent-card--progressbar"></div>
+                    <div class="swiper-pagination some-new__slider-pagination tents-slider--progressbar"></div>
                 </swiper>
             </div>
         </div>
@@ -60,13 +63,14 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, A11y } from 'swiper'
+import { Pagination, Mousewheel, A11y } from 'swiper'
 import { useRequestFormPopupStore } from '@/store/RequestFormPopupStore'
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
+import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
 const requestFormPopupStore = useRequestFormPopupStore()
-const modules = [Pagination, A11y]
+const modules = [Pagination, Mousewheel, A11y]
 defineProps({
     sectionTitle: {
         type: String,
@@ -163,7 +167,7 @@ defineProps({
 .swiper-pagination.some-new__slider-pagination {
     display: none;
 }
-@media (max-width:1400px) {
+@media (max-width:1500px) {
     .some-new__card_step {
         &::after {
             margin: 0 25px;
@@ -172,21 +176,13 @@ defineProps({
     .some-new__card_image-inner_caption {
         font-size: 140px;
     }
-}
-@media (min-width:1300px) {
-    .some-new__card_image-inner {
-        max-height: 276px;
-        height: 18vw;
-    }
-}
-@media (max-width:1200px) {
     .some-new__cleaning-card {
         width: 90%;
         max-width: 700px;
     }
     .some-new__light-card {
-        width: 80%;
-        max-width: 500px;
+        width: 100%;
+        max-width: 600px;
     }
     .some-new__card_title {
         margin-top: 46px;
@@ -196,12 +192,18 @@ defineProps({
             margin: 0 20px;
         }
     }
-    .swiper-pagination.some-new__slider-pagination {
-        display: block;
-    }
     .some-new__card_image.tent-card--image-ful {
         margin-right: 0;
     }
+}
+@media (min-width:1500px) {
+    .some-new__card_image-inner {
+        max-height: 276px;
+        height: 18vw;
+    }
+}
+@media (max-width:1300px) {
+  
 }
 @media (max-width:700px) {
     .some-new__wrapper {

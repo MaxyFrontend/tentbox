@@ -1,4 +1,39 @@
-@media (max-width:1400px) {
+@media (max-width:1900px) {
+    .container {
+        max-width: 1450px;
+    }
+    .primary--title {
+        font-size: 36px;
+        line-height: 42px;
+        max-width: 800px;
+    }
+    .primary--sub-title {
+        font-size: 20px;
+        line-height: 28px;
+    }
+    .section--title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
+@media (max-width:1500px) {
+    .container {
+        max-width: 1200px;
+    }
+    .primary--title {
+        font-size: 30px;
+        line-height: 36px;
+        max-width: 750px;
+        margin-bottom: 20px;
+    }
+    .primary--sub-title {
+        font-size: 16px;
+        line-height: 24px;
+        max-width: 600px;
+    }
+    .tent-card--image-inner {
+        height: 40vw;
+    }
     .blue-border-btn,
     .no-border-btn,
     .dashed-border-btn {
@@ -6,41 +41,40 @@
         line-height: 20px;
         padding: 8px 16px;
     }
-    .section--title {
-        font-size: 32px;
-        line-height: 40px;
+    .section {
+        padding: 60px 0;
     }
-    .primary--title {
-        font-size: 42px;
-        line-height: 48px;
-    }
-    .primary--sub-title {
-        font-size: 20px;
-        line-height: 28px;
-    }
-}
-@media (max-width:1200px) {
     .section--title {
         font-size: 28px;
         line-height: 36px;
     }
+    .tent--card-title {
+        margin-top: 46px;
+    }
+    .swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
+        display: block;
+    }
+}
+@media (max-width:1300px) {
+    .container {
+        max-width: 1100px;
+    }
+    .primary--title {
+        font-size: 28px;
+        line-height: 34px;
+        margin-bottom: 20px;
+        max-width: 650px;
+    }
+    .primary--sub-title {
+        font-size: 16px;
+        line-height: 24px;
+    }
     .section {
         padding: 60px 0;
     }
-    .primary--title {
-        font-size: 36px;
-        line-height: 42px;
-        margin-bottom: 20px;
-    }
-    .primary--sub-title {
-        font-size: 18px;
-        line-height: 28px;
-    }
-}
-@media (max-width:1000px) {
-    .primary--title {
-        font-size: 32px;
-        line-height: 38px;
+    .section--title {
+        font-size: 28px;
+        line-height: 36px;
     }
 }
 @media (max-width:700px) {
@@ -53,12 +87,8 @@
         line-height: 20px;
     }
     .primary--title {
-        font-size: 28px;
-        line-height: 34px;
-    }
-    .primary--sub-title {
-        font-size: 16px;
-        line-height: 24px;
+        font-size: 26px;
+        line-height: 30px;
     }
     .card--sub-title {
         font-size: 16px;
@@ -77,7 +107,9 @@
     .tent-card--image.tent-card--image-full {
         margin-right: -100px !important;
     }
-    .blue-border-btn, .no-border-btn, .dashed-border-btn {
+    .blue-border-btn,
+    .no-border-btn,
+    .dashed-border-btn {
         margin-right: 10px;
     }
     .section {
@@ -86,14 +118,8 @@
     .black--btn {
         padding: 22px;
     }
-    .swiper-pagination.swiper-pagination-progressbar.tent-card--progressbar {
+    .swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
         top: 225px;
-    }
-}
-@media (max-width:550px) {
-    .primary--title {
-        font-size: 26px;
-        line-height: 30px;
     }
 }
 @media (max-width:370px) {
@@ -133,7 +159,7 @@
     .tent-card--image-inner {
         max-height: 180px;
     }
-    .swiper-pagination.swiper-pagination-progressbar.tent-card--progressbar {
+    .swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
         top: 200px;
     }
 }
