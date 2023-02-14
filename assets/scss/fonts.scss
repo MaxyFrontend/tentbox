@@ -1,0 +1,30 @@
+@font-face {
+    font-display: swap;
+    font-family: "DINPro";
+    src: url(~/assets/fonts/DINPro-Regular.woff2) format('woff2'),
+        url(~/assets/fonts/DINPro-Regular.woff) format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "DINPro";
+    src: url(~/assets/fonts/DINPro-Medium.woff2) format('woff2'),
+        url(~/assets/fonts/DINPro-Medium.woff) format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: "DINPro";
+    src: url(~/assets/fonts/DINPro-Bold.woff2) format('woff2'),
+        url(~/assets/fonts/DINPro-Bold.woff) format('woff');
+    font-weight: 700;
+}
+@font-face {
+    font-display: swap;
+    font-family: "Montserrat";
+    src: url(~/assets/fonts/Montserrat-Bold.woff2) format('woff2'),
+        url(~/assets/fonts/Montserrat-Bold.woff) format('woff');
+    font-weight: 700;
+}
