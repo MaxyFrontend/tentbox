@@ -21,9 +21,9 @@
         padding-top: 120px;
     }
 }
-@media(max-width:1500px) {
+@media(max-width:1600px) {
     .primary-section {
-        padding-top: 60px;
+        padding-top: 8%;
     }
 }
 @media (max-width:700px) {

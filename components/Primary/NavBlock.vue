@@ -38,7 +38,7 @@
                 <a href="#promo-accessories">Аксессуары</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item primary__nav_list-item_highlited">
-                <nuxt-link to="/">Новинки</nuxt-link>
+                <nuxt-link to="/new">Новинки</nuxt-link>
             </swiper-slide>
         </swiper>
         <div class="swiper-pagination primary__nav_slider-pagination"></div>
@@ -80,7 +80,7 @@ const getRef = (swiperInstance) => {
         text-align: center;
         padding: 8px 18px;
     }
-    & .current-link,
+    & .router-link-active,
     &:hover {
         background: #F2F2F2;
     }
@@ -97,7 +97,7 @@ const getRef = (swiperInstance) => {
         margin-top: 50px;
     }
 }
-@media (max-width:1500px) {
+@media (max-width:1600px) {
     .primary__nav_list-item {
         font-size: 16px;
         line-height: 20px;
@@ -110,7 +110,6 @@ const getRef = (swiperInstance) => {
     .primary__nav {
         max-width: 970px;
         margin-top: 37px;
-        padding-bottom: 20px;
     }
 }
 @media (max-width:850px) {

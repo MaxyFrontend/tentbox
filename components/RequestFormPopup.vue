@@ -200,7 +200,6 @@ const mobileMenuStore = useMobileMenuStore()
     color: $grey-color;
     resize: none;
 }
-.black--btn {}
 .request-form__submit-btn {
     margin-top: 80px;
 }
@@ -235,7 +234,7 @@ const mobileMenuStore = useMobileMenuStore()
     object-position: right top;
     z-index: -1;
 }
-@media (max-width:1750px) {
+@media (max-width:1900px) {
     .request-form-popup {
         padding: 100px 100px 0;
     }
@@ -251,6 +250,24 @@ const mobileMenuStore = useMobileMenuStore()
 }
 @media (max-width:1600px) {
     .request-form-popup {
+        padding: 50px 80px 0;
+    }
+    .request-form__title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .request-form-caption {
+        font-size: calc(100px + 100 * (100vw / 1600));
+    }
+    .request-form__fields-wrapper {
+        margin-top: 60px;
+    }
+    .request-form__submit-btn {
+        margin-top: 30px;
+    }
+}
+@media (max-width:1400px) {
+    .request-form-popup {
         padding: 30px 80px 0;
     }
     .request-form__submit-btn {
@@ -258,12 +275,6 @@ const mobileMenuStore = useMobileMenuStore()
     }
     .request-form-image {
         max-width: 400px;
-    }
-}
-@media (max-width:1400px) {
-    .request-form__title {
-        font-size: 32px;
-        line-height: 40px;
     }
 }
 @media (max-width:1200px) {
@@ -328,6 +339,11 @@ const mobileMenuStore = useMobileMenuStore()
     .request-form__description {
         font-size: 12px;
         line-height: 16px;
+    }
+}
+@media (max-height:650px) {
+    .request-form {
+        padding-top: 60px;
     }
 }
 </style>

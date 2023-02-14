@@ -14,7 +14,7 @@
                     type: 'progressbar',
                 }"
                 :breakpoints="{
-                    1300: {
+                    1200: {
                         grid: {
                             rows: 2,
                         },
@@ -174,7 +174,7 @@ const touchMoveOppositeHandle = () => {
         margin-top: 100px;
     }
 }
-@media (min-width:1300px) {
+@media (min-width:1200px) {
     .mobile-tents-sizes__wrapper {
         margin-top: 80px;
     }

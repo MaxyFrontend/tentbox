@@ -10,13 +10,24 @@
                     :modules="modules"
                     @after-init="SwiperMouseControl"
                     :speed="450"
-                    :slides-per-view="'auto'"
+                    :slides-per-view="1"
                     :space-between="30"
                     :allow-touch-move="true"
                     :mousewheel="true"
                     :pagination="{
                         el: '.some-new__slider-pagination',
                         type: 'progressbar',
+                    }"
+                    :breakpoints="{
+                        1200: {
+                            slidesPerView: 'auto'
+                        },
+                        1000: {
+                            slidesPerView: 1.6
+                        },
+                        700: {
+                            slidesPerView: 1.3
+                        }
                     }">
                     <swiper-slide class="some-new__card some-new__cleaning-card">
                         <nuxt-link to="/" class="some-new__card_image-inner tent-card--image-inner">
@@ -146,6 +157,7 @@ defineProps({
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    gap: 12px 0;
 }
 .some-new__card_step {
     position: relative;
@@ -167,7 +179,7 @@ defineProps({
 .swiper-pagination.some-new__slider-pagination {
     display: none;
 }
-@media (max-width:1500px) {
+@media (max-width:1600px) {
     .some-new__card_step {
         &::after {
             margin: 0 25px;
@@ -175,17 +187,6 @@ defineProps({
     }
     .some-new__card_image-inner_caption {
         font-size: 140px;
-    }
-    .some-new__cleaning-card {
-        width: 90%;
-        max-width: 700px;
-    }
-    .some-new__light-card {
-        width: 100%;
-        max-width: 600px;
-    }
-    .some-new__card_title {
-        margin-top: 46px;
     }
     .some-new__card_step {
         &::after {
@@ -202,8 +203,21 @@ defineProps({
         height: 18vw;
     }
 }
-@media (max-width:1300px) {
-  
+@media (max-width:1200px) {
+    .some-new__card {
+        width: auto;
+    }
+    .some-new__card_step {
+        font-size: 16px;
+        &::after {
+            margin: 0 15px;
+        }
+    }
+}
+@media (max-width:1000px) {
+    .some-new__card_step {
+        font-size: 15px;
+    }
 }
 @media (max-width:700px) {
     .some-new__wrapper {

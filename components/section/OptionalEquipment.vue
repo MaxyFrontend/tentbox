@@ -4,7 +4,7 @@
             <h2 class="section--title optional-equipment__title">{{ Title }}</h2>
             <p class="section--sub-title optional-equipment__sub-title">{{ subTitle }}</p>
             <swiper class="optional-equipment__wrapper"
-            :modules="modules"
+                :modules="modules"
                 :speed="500"
                 :slidesPerView="'auto'"
                 :allow-touch-move="true"
@@ -13,7 +13,7 @@
                     type: 'progressbar',
                 }"
                 :breakpoints="{
-                    1500: {
+                    1200: {
                         allowTouchMove: false
                     }
                 }">
@@ -129,15 +129,15 @@ const notMobileTents = reactive({
     },
 })
 defineProps({
-    Title:{
-        type:String,
-        required:false,
-        default:'Не мобильные шатры'
+    Title: {
+        type: String,
+        required: false,
+        default: 'Не мобильные шатры'
     },
-    subTitle:{
-        type:String,
-        required:false,
-        default:'Дополнительное оборудование'
+    subTitle: {
+        type: String,
+        required: false,
+        default: 'Дополнительное оборудование'
     },
 })
 </script>
@@ -147,7 +147,7 @@ defineProps({
     margin-top: 60px;
 }
 .optional-equipment__card {
-    width: 28%;
+    width: 30%;
     flex-grow: 1;
     max-width: 530px;
     margin-right: 30px;
@@ -162,9 +162,12 @@ defineProps({
 }
 .optional-equipment__pagodas-item {
     align-self: flex-end;
+    & .optional-equipment__card_sub-title {
+        max-width: 300px;
+    }
 }
 .optional-equipment__mobile-umbrellas-item {
-    width: 40%;
+    width: 18%;
     max-width: 250px;
     & .optional-equipment__card_image {
         object-position: left center;
@@ -205,17 +208,44 @@ defineProps({
     display: none;
     margin-top: 15px;
 }
-@media (max-width:1500px) {
+@media (max-width:1600px) {
     .optional-equipment__card {
-        width: 100%;
-        max-width: 420px;
+        margin-right: 20px;
     }
-    .optional-equipment__promo-accessories-item,
+    .optional-equipment__mobile-flag-item,
+    .optional-equipment__pagodas-item {
+        max-width: 450px;
+        width: 30%;
+    }
+    .optional-equipment__promo-accessories-item {
+        width: 18%;
+        min-width: 210px;
+        max-width: 230px;
+    }
     .optional-equipment__mobile-umbrellas-item {
-        max-width: 250px;
+        width: 17%;
+        min-width: 200px;
     }
     .optional-equipment__card_image-inner {
-        max-height: 400px;
+        max-height: 450px;
+    }
+}
+@media (max-width:1350px) {
+    .optional-equipment__mobile-flag-item,
+    .optional-equipment__pagodas-item {
+        width: 27%;
+    }
+    .optional-equipment__card_type:nth-child(n + 4) {
+        display: none;
+    }
+}
+@media (max-width:1200px) {
+    .optional-equipment__card {
+        width: 100%;
+    }
+    .optional-equipment__mobile-flag-item,
+    .optional-equipment__pagodas-item {
+        max-width: 400px;
     }
     .swiper-pagination.optional-equipment__slider-pagination {
         display: block;
@@ -259,7 +289,7 @@ defineProps({
 @media (max-width:370px) {
     .optional-equipment__mobile-flag-item {
         & .optional-equipment__card_type:nth-child(n + 4) {
-            display: none;  
+            display: none;
         }
     }
 }

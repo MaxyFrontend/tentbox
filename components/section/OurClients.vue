@@ -15,7 +15,7 @@
                     type: 'progressbar',
                 }"
                 :breakpoints="{
-                    1300:{
+                    1200:{
                       slidesPerView:3  
                     },
                     1000:{

@@ -77,7 +77,7 @@ defineProps({
         margin-right: 50px;
     }
 }
-@media (max-width:1500px) {
+@media (max-width:1600px) {
     .advantages__item {
         margin-right: 30px;
     }

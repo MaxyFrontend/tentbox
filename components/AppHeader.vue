@@ -294,7 +294,7 @@ const requestFormPopupStore = useRequestFormPopupStore()
         max-width: 240px;
     }
 }
-@media (max-width:1500px) {
+@media (max-width:1600px) {
     .header__nav {
         margin-right: 40px;
     }
