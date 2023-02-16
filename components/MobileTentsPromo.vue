@@ -1,5 +1,5 @@
 <template>
-    <div class="mobile-tents-promo">
+    <div class="mobile-tents-promo" id="mobile-tents">
         <nuxt-link to="/mobile-tents" class="mobile-tents-promo__image-inner image-inner--hover">
             <img src="@/assets/img/yandex-tent.jpg" alt="tents-promo" class="mobile-tents-promo__image">
             <client-only>
@@ -31,7 +31,7 @@
     overflow: hidden;
     display: block;
     &:hover .mobile-tents-promo__image {
-        transform: scale(1.05);
+        transform: scale(1.025);
     }
 }
 .mobile-tents-promo__image {
@@ -71,6 +71,12 @@
     margin-right: 20px;
     &:last-child {
         margin-right: 0;
+    }
+}
+@media (max-width:1600px) {
+    .mobile-tents-promo__sub-title {
+        font-size: 16px;
+        line-height: 22px;
     }
 }
 @media (max-width:1000px) {

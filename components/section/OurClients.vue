@@ -28,58 +28,13 @@
                 @TouchStart="TouchStartHandle()"
                 @touchMoveOpposite="touchMoveOppositeHandle()"
                 >
-                <swiper-slide class="our-clients__item">
+                <swiper-slide class="our-clients__item" v-for="(client, idx) in clients" :key="idx">
                     <div class="our-clients__item_image-inner">
-                        <img src="@/assets/img/clients/rosa.jpg" alt="rosa" class="our-clients__item_image">
+                        <img :src="client.img" alt="rosa" class="our-clients__item_image">
                     </div>
-                    <h4 class="our-clients__item_title">Промо-акции и мероприятия</h4>
+                    <h4 class="our-clients__item_title"> {{ client.title }} </h4>
                     <p class="our-clients__item_text">
-                        Промо-акция марафона. Сочи.
-                    </p>
-                </swiper-slide>
-                <swiper-slide class="our-clients__item">
-                    <div class="our-clients__item_image-inner">
-                        <img src="@/assets/img/clients/tunning-factory.jpg" alt="tunning-factory" class="our-clients__item_image">
-                    </div>
-                    <h4 class="our-clients__item_title">Автоспорт, дрифт, мотоспорт</h4>
-                    <p class="our-clients__item_text">
-                        Чемпионат RDS. МО.
-                    </p>
-                </swiper-slide>
-                <swiper-slide class="our-clients__item">
-                    <div class="our-clients__item_image-inner">
-                        <img src="@/assets/img/clients/sport.jpg" alt="sport" class="our-clients__item_image">
-                    </div>
-                    <h4 class="our-clients__item_title">Спортивные мероприятия, марафоны</h4>
-                    <p class="our-clients__item_text">
-                        Московский марафон. Москва.
-                    </p>
-                </swiper-slide>
-                <swiper-slide class="our-clients__item">
-                    <div class="our-clients__item_image-inner">
-                        <img src="@/assets/img/clients/rosa.jpg" alt="rosa" class="our-clients__item_image">
-                    </div>
-                    <h4 class="our-clients__item_title">Промо-акции и мероприятия</h4>
-                    <p class="our-clients__item_text">
-                        Промо-акция марафона. Сочи.
-                    </p>
-                </swiper-slide>
-                <swiper-slide class="our-clients__item">
-                    <div class="our-clients__item_image-inner">
-                        <img src="@/assets/img/clients/tunning-factory.jpg" alt="tunning-factory" class="our-clients__item_image">
-                    </div>
-                    <h4 class="our-clients__item_title">Автоспорт, дрифт, мотоспорт</h4>
-                    <p class="our-clients__item_text">
-                        Чемпионат RDS. МО.
-                    </p>
-                </swiper-slide>
-                <swiper-slide class="our-clients__item">
-                    <div class="our-clients__item_image-inner">
-                        <img src="@/assets/img/clients/sport.jpg" alt="sport" class="our-clients__item_image">
-                    </div>
-                    <h4 class="our-clients__item_title">Спортивные мероприятия, марафоны</h4>
-                    <p class="our-clients__item_text">
-                        Московский марафон. Москва.
+                        {{ client.text }}
                     </p>
                 </swiper-slide>
                 <div class="swiper-pagination our-clients__slider-pagination"></div>
@@ -97,6 +52,9 @@ import 'swiper/css/grid';
 import 'swiper/css/a11y';
 import { Pagination, Grid, Mousewheel, A11y } from 'swiper'
 import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
+import rosaImage from '@/assets/img/clients/rosa.jpg'
+import sportImage from '@/assets/img/clients/sport.jpg'
+import tuningFactoryImage from '@/assets/img/clients/tunning-factory.jpg'
 const modules = [Pagination, Grid, Mousewheel, A11y]
 const sliderTouchStart = ref(false)
 const TouchStartHandle = () => {
@@ -116,12 +74,49 @@ defineProps({
         required: false,
         default: 'И в любых городах страны'
     },
+    clients:{
+        type:Array,
+        required:false,
+        default:[
+            {
+                title:'Промо-акции и мероприятия',
+                text:'Промо-акция марафона. Сочи.',
+                img:rosaImage
+            },
+            {
+                title:'Автоспорт, дрифт, мотоспорт',
+                text:'Чемпионат RDS. МО.',
+                img:tuningFactoryImage
+            },
+            {
+                title:'Спортивные мероприятия, марафоны',
+                text:'Московский марафон. Москва.',
+                img:sportImage
+            },
+            {
+                title:'Промо-акции и мероприятия',
+                text:'Промо-акция марафона. Сочи.',
+                img:rosaImage
+            },
+            {
+                title:'Автоспорт, дрифт, мотоспорт',
+                text:'Чемпионат RDS. МО.',
+                img:tuningFactoryImage
+            },
+            {
+                title:'Спортивные мероприятия, марафоны',
+                text:'Московский марафон. Москва.',
+                img:sportImage
+            },
+        ]
+    }
 })
 </script>
 
 <style lang="scss">
 .our-clients__wrapper {
     margin-top: 40px;
+    overflow: hidden;
     &.slider-touchmove .our-clients__item {
         touch-action: pan-x !important;
     }

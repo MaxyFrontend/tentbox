@@ -23,7 +23,7 @@
                 <nuxt-link to="/">Главная</nuxt-link>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item">
-                <nuxt-link to="mobile-tents">Шатры</nuxt-link>
+                <a href="#mobile-tents">Шатры</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item">
                 <a href="#mobile-flags">Флаги</a>
@@ -32,7 +32,7 @@
                 <a href="#pagodas">Пагоды</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item">
-                <a href="#mobile-ambrellas">Зонты</a>
+                <a href="#mobile-umbrellas">Зонты</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item">
                 <a href="#promo-accessories">Аксессуары</a>

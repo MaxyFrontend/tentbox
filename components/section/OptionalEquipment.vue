@@ -24,9 +24,9 @@
                             <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
                         </client-only>
                     </nuxt-link>
-                    <h4 class="optional-equipment__card_title card--title">{{ notMobileTents.mobileFlags.title }}</h4>
+                    <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.mobileFlags.title }}</nuxt-link>
                     <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.mobileFlags.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner">
+                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsColor($event)">
                         <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.mobileFlags.types"
                             :class="['quick-choose__item_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]"
                             :key="type">
@@ -41,7 +41,7 @@
                             <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
                         </client-only>
                     </nuxt-link>
-                    <h4 class="optional-equipment__card_title card--title">{{ notMobileTents.promoAccessories.title }}</h4>
+                    <nuxt-link to="/accessories" class="optional-equipment__card_title card--title">{{ notMobileTents.promoAccessories.title }}</nuxt-link>
                     <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.promoAccessories.subTitle }}</p>
                     <nuxt-link to="/accessories" class="optional-equipment__card_more-link blue-border-btn">Подробнее</nuxt-link>
                 </swiper-slide>
@@ -52,9 +52,9 @@
                             <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
                         </client-only>
                     </nuxt-link>
-                    <h4 class="optional-equipment__card_title card--title">{{ notMobileTents.pagodas.title }}</h4>
+                    <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.pagodas.title }}</nuxt-link>
                     <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.pagodas.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner">
+                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsColor($event)">
                         <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.pagodas.types"
                             :class="['quick-choose__item_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]"
                             :key="type">
@@ -69,9 +69,9 @@
                             <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
                         </client-only>
                     </nuxt-link>
-                    <h4 class="optional-equipment__card_title card--title">{{ notMobileTents.mobileUmbrellas.title }}</h4>
+                    <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.mobileUmbrellas.title }}</nuxt-link>
                     <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.mobileUmbrellas.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner">
+                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsColor($event)">
                         <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.mobileUmbrellas.types"
                             :class="['quick-choose__item_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]"
                             :key="type">
@@ -92,6 +92,7 @@ import { Pagination, A11y } from 'swiper';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
+import changeBtnsColor from '@/composables/ChangeBtnsColor.js';
 const modules = [Pagination, A11y]
 const notMobileTents = reactive({
     mobileFlags: {
@@ -159,6 +160,16 @@ defineProps({
     width: 20%;
     max-width: 250px;
     align-self: flex-start;
+    & .optional-equipment__card_image-inner_icon {
+        top: auto;
+        bottom: 25px;
+    }
+}
+.optional-equipment__card_title {
+    display: block;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 .optional-equipment__pagodas-item {
     align-self: flex-end;
@@ -177,14 +188,14 @@ defineProps({
     width: 100%;
     touch-action: pan-x !important;
     &:hover .optional-equipment__card_image {
-        transform: scale(1.05);
+        transform: scale(1.025);
     }
 }
 .optional-equipment__card_image {
     width: 100%;
     object-fit: cover;
     object-position: left bottom;
-    transition: 0.4s ease;
+    transition: 0.5s ease;
 }
 .optional-equipment__card_sub-title {
     max-width: 225px;
@@ -212,10 +223,13 @@ defineProps({
     .optional-equipment__card {
         margin-right: 20px;
     }
-    .optional-equipment__mobile-flag-item,
-    .optional-equipment__pagodas-item {
+    .optional-equipment__mobile-flag-item {
         max-width: 450px;
-        width: 30%;
+        width: 29%;
+    }
+    .optional-equipment__pagodas-item {
+        width: 32%;
+        max-width: 450px;
     }
     .optional-equipment__promo-accessories-item {
         width: 18%;
@@ -227,7 +241,7 @@ defineProps({
         min-width: 200px;
     }
     .optional-equipment__card_image-inner {
-        max-height: 450px;
+        max-height: 460px;
     }
 }
 @media (max-width:1350px) {

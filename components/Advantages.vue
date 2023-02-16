@@ -46,7 +46,10 @@ defineProps({
 }
 .advantages__item {
     width: 100%;
-    max-width: 150px;
+    max-width: 130px;
+    &:last-child {
+        max-width: 150px;
+    }
     margin-right: 90px;
     touch-action: pan-x !important;
     &:last-child {
@@ -72,14 +75,14 @@ defineProps({
         background: $grey-color;
     }
 }
-@media (max-width:1700px) {
+@media (max-width:1900px) {
     .advantages__item {
         margin-right: 50px;
     }
 }
 @media (max-width:1600px) {
     .advantages__item {
-        margin-right: 30px;
+        margin-right: 40px;
     }
     .advantages__item_name {
         font-size: 30px;

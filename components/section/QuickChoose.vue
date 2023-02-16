@@ -30,69 +30,69 @@
                     }
                 }">
                 <swiper-slide class="quick-choose__card quick-choose__card_order">
-                    <router-link to="/tent-order" class="quick-choose__card_image-inner tent-card--image-inner">
-                        <img src="@/assets/img/tents/tent-1.png" alt="tent-white" class="quick-choose__card_image tent-card--image">
+                    <nuxt-link to="/tent-order" class="quick-choose__card_image-inner card--image-inner">
+                        <img src="@/assets/img/tents/tent-1.png" alt="tent-white" class="quick-choose__card_image card--image">
                         <client-only>
                             <IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#000" :Animate="true" />
                         </client-only>
                         <div class="quick-choose__card_image-inner_caption">1</div>
-                    </router-link>
-                    <h4 class="quick-choose__card_title card--title tent--card-title">
+                    </nuxt-link>
+                    <nuxt-link to="/tent-order" class="quick-choose__card_title card--title slider--card-title">
                         {{ quickChooseItems.orderTent.title }}
-                    </h4>
+                    </nuxt-link>
                     <p class="quick-choose__card_sub-title card--sub-title">
                         {{ quickChooseItems.orderTent.subTitle }}
                     </p>
-                    <div class="quick-choose__card_sizes">
+                    <div class="quick-choose__card_sizes" @mousemove="changeBtnsColor($event)">
                         <client-only>
-                            <router-link to="/tent-order" v-for="(size, index) in quickChooseItems.orderTent.sizes" :key="size"
+                            <nuxt-link to="/tent-order" v-for="(size, index) in quickChooseItems.orderTent.sizes" :key="size"
                                 :class="['quick-choose__card_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]">
                                 {{ size }}
-                            </router-link>
+                            </nuxt-link>
                         </client-only>
                     </div>
                 </swiper-slide>
                 <swiper-slide class="quick-choose__card quick-choose__card_rent">
-                    <router-link to="/tent-rent" class="quick-choose__card_image-inner tent-card--image-inner">
-                        <img src="@/assets/img/tents/tent-2.png" alt="tent-black" class="quick-choose__card_image tent-card--image">
+                    <nuxt-link to="/tent-rent" class="quick-choose__card_image-inner card--image-inner">
+                        <img src="@/assets/img/tents/tent-2.png" alt="tent-black" class="quick-choose__card_image card--image">
                         <client-only>
                             <IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
                         </client-only>
                         <div class="quick-choose__card_image-inner_caption">2</div>
-                    </router-link>
-                    <h4 class="quick-choose__card_title card--title tent--card-title">
+                    </nuxt-link>
+                    <nuxt-link to="/tent-rent" class="quick-choose__card_title card--title slider--card-title">
                         {{ quickChooseItems.rentTent.title }}
-                    </h4>
+                    </nuxt-link>
                     <p class="quick-choose__card_sub-title card--sub-title">
                         {{ quickChooseItems.rentTent.subTitle }}
                     </p>
-                    <div class="quick-choose__card_sizes">
+                    <div class="quick-choose__card_sizes" @mousemove="changeBtnsColor($event)">
                         <client-only>
-                            <router-link to="/tent-rent" v-for="(size, index) in quickChooseItems.rentTent.sizes" :key="size"
+                            <nuxt-link to="/tent-rent" v-for="(size, index) in quickChooseItems.rentTent.sizes" :key="size"
                                 :class="['quick-choose__card_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]">
                                 {{ size }}
-                            </router-link>
+                            </nuxt-link>
                         </client-only>
                     </div>
                 </swiper-slide>
                 <swiper-slide class="quick-choose__card quick-choose__card_branding">
-                    <router-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_image-inner tent-card--image-inner">
-                        <img src="@/assets/img/tents/tent-comics.png" alt="tent-comics" class="quick-choose__card_image tent-card--image">
+                    <nuxt-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_image-inner card--image-inner">
+                        <img src="@/assets/img/tents/tent-comics.png" alt="tent-comics" class="quick-choose__card_image card--image">
                         <client-only>
                             <IconArrowRight Class="quick-choose__card_image-inner_icon card--icon" Color="#000" :Animate="true" />
                         </client-only>
                         <div class="quick-choose__card_image-inner_caption">+</div>
-                    </router-link>
-                    <h4 class="quick-choose__card_title card--title tent--card-title">
+                    </nuxt-link>
+                    <nuxt-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_title card--title slider--card-title">
                         {{ quickChooseItems.branding.title }}
-                    </h4>
+                    </nuxt-link>
                     <p class="quick-choose__card_sub-title card--sub-title">
                         {{ quickChooseItems.branding.subTitle }}
                     </p>
                     <div class="quick-choose__card_links-inner">
-                        <router-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_link blue-border-btn">
+                        <nuxt-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_link blue-border-btn">
                             Подробнее
-                        </router-link>
+                        </nuxt-link>
                         <a href="#" class="quick-shoose__item_link dashed-border-btn">
                             Скачать шаблон
                         </a>
@@ -112,6 +112,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
+import changeBtnsColor from '@/composables/ChangeBtnsColor.js';
 const modules = [Pagination, Mousewheel, A11y]
 let quickChooseItems = reactive({
     orderTent: {
@@ -213,6 +214,12 @@ defineProps({
         font-size: 382px;
         line-height: 0.45;
         left: 0;
+    }
+}
+.quick-choose__card_title {
+    display: block;
+    &:hover {
+        text-decoration: underline;
     }
 }
 .quick-choose__card_sub-title {

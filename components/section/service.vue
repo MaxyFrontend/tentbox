@@ -1,11 +1,11 @@
 <template>
-    <section class="section some-new">
-        <div class="container some-new__container">
-            <h2 class="section--title some-new__title"> {{ sectionTitle }} </h2>
-            <p class="section--sub-title some-new__sub-title">
+    <section class="section service">
+        <div class="container service__container">
+            <h2 class="section--title service__title"> {{ sectionTitle }} </h2>
+            <p class="section--sub-title service__sub-title">
                 {{ sectionSubTitle }}
             </p>
-            <div class="some-new__wrapper">
+            <div class="service__wrapper">
                 <swiper
                     :modules="modules"
                     @after-init="SwiperMouseControl"
@@ -15,7 +15,7 @@
                     :allow-touch-move="true"
                     :mousewheel="true"
                     :pagination="{
-                        el: '.some-new__slider-pagination',
+                        el: '.service__slider-pagination',
                         type: 'progressbar',
                     }"
                     :breakpoints="{
@@ -29,43 +29,43 @@
                             slidesPerView: 1.3
                         }
                     }">
-                    <swiper-slide class="some-new__card some-new__cleaning-card">
-                        <nuxt-link to="/" class="some-new__card_image-inner card--image-inner">
-                            <img src="@/assets/img/tents/tent-1-full.png" alt="tent-white" class="some-new__card_image card--image card--image-full">
+                    <swiper-slide class="service__card service__cleaning-card">
+                        <nuxt-link to="/" class="service__card_image-inner card--image-inner">
+                            <img src="@/assets/img/tents/tent-1-full.png" alt="tent-white" class="service__card_image card--image card--image-full">
                             <client-only>
-                                <IconPlus Color="$grey-color" Class="some-new__card_image-inner_icon card--icon" :Animate="true" />
+                                <IconPlus Color="$grey-color" Class="service__card_image-inner_icon card--icon" :Animate="true" />
                             </client-only>
-                            <div class="some-new__card_image-inner_caption">ТВОШ</div>
+                            <div class="service__card_image-inner_caption">ТВОШ</div>
                         </nuxt-link>
-                        <nuxt-link to="/" class="some-new__card_title card--title slider--card-title">Чистка тентов</nuxt-link>
-                        <p class="some-new__card_sub-title card--sub-title">
+                        <h4 class="service__card_title card--title slider--card-title">Чистка тентов</h4>
+                        <p class="service__card_sub-title card--sub-title">
                             TentWashing или ТВОШ - наше новое направление по чистке крыш и стен из полиэстера. Сделаем всё сами в пять шагов:
                         </p>
-                        <ul class="some-new__card_steps-list">
-                            <li class="some-new__card_step">Заберем</li>
-                            <li class="some-new__card_step">Очистим</li>
-                            <li class="some-new__card_step">Просушим</li>
-                            <li class="some-new__card_step">Сложим</li>
-                            <li class="some-new__card_step">Вернем</li>
+                        <ul class="service__card_steps-list">
+                            <li class="service__card_step">Заберем</li>
+                            <li class="service__card_step">Очистим</li>
+                            <li class="service__card_step">Просушим</li>
+                            <li class="service__card_step">Сложим</li>
+                            <li class="service__card_step">Вернем</li>
                         </ul>
-                        <button class="blue-border-btn some-new__card_btn" @click="requestFormPopupStore.open()">Заказать чистку</button>
+                        <button class="blue-border-btn service__card_btn" @click="requestFormPopupStore.open()">Заказать чистку</button>
                     </swiper-slide>
-                    <swiper-slide class="some-new__card some-new__light-card">
-                        <nuxt-link to="/" class="some-new__card_image-inner card--image-inner">
-                            <img src="@/assets/img/tents/tent-black-light.png" alt="tent-white" class="some-new__card_image card--image">
+                    <swiper-slide class="service__card service__light-card">
+                        <nuxt-link to="/" class="service__card_image-inner card--image-inner">
+                            <img src="@/assets/img/tents/spare-parts.png" alt="spare-parts" class="service__card_image card--image">
                             <client-only>
-                                <IconArrowRight Color="#fff" Class="some-new__card_image-inner_icon card--icon" :Animate="true" />
+                                <IconPlus Color="#fff" Class="service__card_image-inner_icon card--icon" :Animate="true" />
                             </client-only>
-                            <div class="some-new__card_image-inner_caption">СВЕТ</div>
+                            <div class="service__card_image-inner_caption">ДОП</div>
                         </nuxt-link>
-                        <nuxt-link to="/" class="some-new__card_title card--title slider--card-title">Модульное освещение</nuxt-link>
-                        <p class="some-new__card_sub-title card--sub-title">
-                            Легкие светодиодные модули, чтоб работать даже вечером.<br>
-                            Для всех типоразмеров шатров
+                        <h4 class="service__card_title card--title slider--card-title">Запасные элементы</h4>
+                        <p class="service__card_sub-title card--sub-title">
+                            Любые элементы шатра можно докупить, поменять <br>
+                            и доукомплектовать
                         </p>
-                        <nuxt-link to="/" class="blue-border-btn some-new__card_btn">Подробнее</nuxt-link>
+                        <nuxt-link to="/" class="blue-border-btn service__card_btn">Заказать элемент</nuxt-link>
                     </swiper-slide>
-                    <div class="swiper-pagination some-new__slider-pagination tents-slider--progressbar"></div>
+                    <div class="swiper-pagination service__slider-pagination tents-slider--progressbar"></div>
                 </swiper>
             </div>
         </div>
@@ -86,36 +86,36 @@ defineProps({
     sectionTitle: {
         type: String,
         required: false,
-        default: 'Что-то новенькое'
+        default: 'Обслуживание'
     },
     sectionSubTitle: {
         type: String,
         required: false,
-        default: 'Для мобильных шатров'
+        default: 'После приобретения'
     },
 })
 </script>
 
 <style lang="scss">
-.some-new__wrapper {
+.service__wrapper {
     margin-top: 50px;
 }
-.some-new__card {
+.service__card {
     width: 100%;
     height: auto;
     &:last-child {
         margin-right: 0;
     }
 }
-.some-new__cleaning-card {
+.service__cleaning-card {
     max-width: 950px;
     width: 57.5%;
 }
-.some-new__light-card {
+.service__light-card {
     width: 40%;
     max-width: 650px;
 }
-.some-new__card_image-inner {
+.service__card_image-inner {
     padding-top: 40px;
     display: flex;
     justify-content: flex-end;
@@ -123,11 +123,11 @@ defineProps({
     background: #F2F2F2;
     z-index: 10;
 }
-.some-new__light-card {
-    & .some-new__card_image-inner {
+.service__light-card {
+    & .service__card_image-inner {
         background: #363636;
     }
-    & .some-new__card_image-inner_caption {
+    & .service__card_image-inner_caption {
         background: linear-gradient(90deg, #3E3E3E 37.99%, #525252 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -135,10 +135,10 @@ defineProps({
         text-fill-color: transparent;
     }
 }
-.some-new__card_image.card--image-full {
+.service__card_image.card--image-full {
     margin-right: 30px;
 }
-.some-new__card_image-inner_caption {
+.service__card_image-inner_caption {
     font-family: 'Montserrat';
     position: absolute;
     bottom: 0;
@@ -149,23 +149,17 @@ defineProps({
     color: #F8F8F8;
     z-index: -1;
 }
-.some-new__card_title {
-    display: block;
-    &:hover {
-        text-decoration: underline;
-    }
-}
-.some-new__card_sub-title {
+.service__card_sub-title {
     max-width: 625px;
     margin-bottom: 12px;
 }
-.some-new__card_steps-list {
+.service__card_steps-list {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px 0;
 }
-.some-new__card_step {
+.service__card_step {
     position: relative;
     font-weight: 500;
     font-size: 18px;
@@ -179,69 +173,67 @@ defineProps({
         display: none;
     }
 }
-.some-new__card_btn {
+.service__card_btn {
     margin-top: 30px;
 }
-.swiper-pagination.some-new__slider-pagination {
+.swiper-pagination.service__slider-pagination {
     display: none;
 }
 @media (max-width:1600px) {
-    .some-new__card_step {
+    .service__card_step {
         &::after {
             margin: 0 25px;
         }
     }
-    .some-new__card_image-inner_caption {
+    .service__card_image-inner_caption {
         font-size: 140px;
     }
-    .some-new__card_step {
+    .service__card_step {
         &::after {
             margin: 0 20px;
         }
     }
-    .some-new__card_image.card--image-ful {
+    .service__card_image.card--image-ful {
         margin-right: 0;
-    }
-    .some-new__card_step {
-        font-size: 16px;
     }
 }
 @media (min-width:1500px) {
-    .some-new__card_image-inner {
+    .service__card_image-inner {
         max-height: 276px;
         height: 18vw;
     }
 }
 @media (max-width:1200px) {
-    .some-new__card {
+    .service__card {
         width: auto;
     }
-    .some-new__card_step {
+    .service__card_step {
+        font-size: 16px;
         &::after {
             margin: 0 15px;
         }
     }
 }
 @media (max-width:1000px) {
-    .some-new__card_step {
+    .service__card_step {
         font-size: 15px;
     }
 }
 @media (max-width:700px) {
-    .some-new__wrapper {
+    .service__wrapper {
         margin-top: 32px;
     }
-    .some-new__card {
+    .service__card {
         width: 100%;
         max-width: none;
     }
-    .some-new__card_image {
+    .service__card_image {
         max-width: 360px;
     }
-    .some-new__card_steps-list {
+    .service__card_steps-list {
         display: none;
     }
-    .some-new__card_image-inner_caption {
+    .service__card_image-inner_caption {
         font-size: 95px;
         left: 10px;
     }
