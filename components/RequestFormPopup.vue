@@ -6,9 +6,50 @@
                     <div class="request-form-wrapper">
                         <form action="#" class="request-form">
                             <button type="button" class="request-form__close-popup-btn" @click="requestFormPopupStore.close()"></button>
-                            <h3 class="request-form__title">Оставьте ваши данные</h3>
-                            <p class="request-form__sub-title">Мы свяжемся с вами практически сразу</p>
-                            <div class="request-form__fields-wrapper">
+                            <h3 class="request-form__title"
+                                v-motion="{
+                                    initial: {
+                                        y: 100,
+                                        opacity: 0
+                                    },
+                                    visible: {
+                                        y: 0,
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 200
+                                        }
+                                    }
+                                }">Оставьте ваши данные
+                            </h3>
+                            <p class="request-form__sub-title"
+                                v-motion="{
+                                    initial: {
+                                        y: 100,
+                                        opacity: 0
+                                    },
+                                    visible: {
+                                        y: 0,
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 400,
+                                        }
+                                    }
+                                }">Мы свяжемся с вами практически сразу
+                            </p>
+                            <div class="request-form__fields-wrapper"
+                                v-motion="{
+                                    initial: {
+                                        x: -200,
+                                        opacity: 0
+                                    },
+                                    visible: {
+                                        x: 0,
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 500,
+                                        }
+                                    }
+                                }">
                                 <label class="request-form__label">
                                     <strong>ФИО</strong>
                                     <input type="text" class="request-form__input" placeholder="Иван Иванов *" tabindex="0">
@@ -25,15 +66,65 @@
                                     <textarea class="request-form__textarea" placeholder="Ваш комментарий"></textarea>
                                 </label>
                             </div>
-                            <button class="black--btn request-form__submit-btn">Оставить заявку</button>
-                            <p class="request-form__description">
+                            <button class="black--btn request-form__submit-btn"
+                                v-motion="{
+                                    initial: {
+                                        x: -50,
+                                        opacity: 0
+                                    },
+                                    visible: {
+                                        x: 0,
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 700,
+                                        }
+                                    }
+                                }">Оставить заявку</button>
+                            <p class="request-form__description"
+                                v-motion="{
+                                    initial: {
+                                        opacity: 0
+                                    },
+                                    visible: {
+                                        opacity: 1,
+                                        transition: {
+                                            delay: 900,
+                                            duration: 500
+                                        }
+                                    }
+                                }">
                                 Оставляя заявку, вы даете согласие на обработку
                                 персональных данных
                             </p>
                         </form>
                     </div>
-                    <span class="request-form-caption">ЗАЯВКА</span>
-                    <img src="@/assets/img/tents/tent-1-full.png" alt="tent" class="request-form-image">
+                    <span class="request-form-caption"
+                        v-motion="{
+                            initial: {
+                                opacity: 0
+                            },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    delay: 800,
+                                    duration: 400
+                                }
+                            }
+                        }">ЗАЯВКА
+                    </span>
+                    <img src="@/assets/img/tents/tent-1-full.png" alt="tent" class="request-form-image"
+                        v-motion="{
+                            initial: {
+                                opacity: 0
+                            },
+                            visible: {
+                                opacity: 1,
+                                transition: {
+                                    delay: 800,
+                                    duration: 400
+                                }
+                            }
+                        }">
                 </div>
             </div>
         </transition>

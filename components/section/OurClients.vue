@@ -1,8 +1,38 @@
 <template>
     <section class="our-clients">
         <div class="container our-clients__container">
-            <h2 class="our-clients__title section--title"> {{ sectionTitle }}</h2>
-            <p class="our-clients__sub-title section--sub-title"> {{ sectionSubTitle }}</p>
+            <h2 class="our-clients__title section--title"
+                v-motion="{
+                    initial: {
+                        y: 100,
+                        opacity: 0
+                    },
+                    visibleOnce: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                            delay: 200
+                        }
+                    }
+                }">
+                {{ sectionTitle }}
+            </h2>
+            <p class="our-clients__sub-title section--sub-title"
+                v-motion="{
+                    initial: {
+                        y: 100,
+                        opacity: 0
+                    },
+                    visibleOnce: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                            delay: 300
+                        }
+                    }
+                }">
+                {{ sectionSubTitle }}
+            </p>
             <swiper :class="['our-clients__wrapper', { 'slider-touchmove': sliderTouchStart }]"
                 @after-init="SwiperMouseControl"
                 :modules="modules"
@@ -15,19 +45,29 @@
                     type: 'progressbar',
                 }"
                 :breakpoints="{
-                    1200:{
-                      slidesPerView:3  
+                    1200: {
+                        slidesPerView: 3
                     },
-                    1000:{
-                      slidesPerView:2.5  
+                    1000: {
+                        slidesPerView: 2.5
                     },
-                    700:{
-                        slidesPerView:2  
+                    700: {
+                        slidesPerView: 2
                     }
                 }"
                 @TouchStart="TouchStartHandle()"
                 @touchMoveOpposite="touchMoveOppositeHandle()"
-                >
+                v-motion="{
+                    initial: {
+                        opacity: 0
+                    },
+                    visibleOnce: {
+                        opacity: 1,
+                        transition: {
+                            delay: 500
+                        }
+                    }
+                }">
                 <swiper-slide class="our-clients__item" v-for="(client, idx) in clients" :key="idx">
                     <div class="our-clients__item_image-inner">
                         <img :src="client.img" alt="rosa" class="our-clients__item_image">
@@ -74,39 +114,39 @@ defineProps({
         required: false,
         default: 'И в любых городах страны'
     },
-    clients:{
-        type:Array,
-        required:false,
-        default:[
+    clients: {
+        type: Array,
+        required: false,
+        default: [
             {
-                title:'Промо-акции и мероприятия',
-                text:'Промо-акция марафона. Сочи.',
-                img:rosaImage
+                title: 'Промо-акции и мероприятия',
+                text: 'Промо-акция марафона. Сочи.',
+                img: rosaImage
             },
             {
-                title:'Автоспорт, дрифт, мотоспорт',
-                text:'Чемпионат RDS. МО.',
-                img:tuningFactoryImage
+                title: 'Автоспорт, дрифт, мотоспорт',
+                text: 'Чемпионат RDS. МО.',
+                img: tuningFactoryImage
             },
             {
-                title:'Спортивные мероприятия, марафоны',
-                text:'Московский марафон. Москва.',
-                img:sportImage
+                title: 'Спортивные мероприятия, марафоны',
+                text: 'Московский марафон. Москва.',
+                img: sportImage
             },
             {
-                title:'Промо-акции и мероприятия',
-                text:'Промо-акция марафона. Сочи.',
-                img:rosaImage
+                title: 'Промо-акции и мероприятия',
+                text: 'Промо-акция марафона. Сочи.',
+                img: rosaImage
             },
             {
-                title:'Автоспорт, дрифт, мотоспорт',
-                text:'Чемпионат RDS. МО.',
-                img:tuningFactoryImage
+                title: 'Автоспорт, дрифт, мотоспорт',
+                text: 'Чемпионат RDS. МО.',
+                img: tuningFactoryImage
             },
             {
-                title:'Спортивные мероприятия, марафоны',
-                text:'Московский марафон. Москва.',
-                img:sportImage
+                title: 'Спортивные мероприятия, марафоны',
+                text: 'Московский марафон. Москва.',
+                img: sportImage
             },
         ]
     }
@@ -150,14 +190,24 @@ defineProps({
 .swiper-pagination.our-clients__slider-pagination {
     margin-top: 60px;
 }
+@media (max-width:1600px) {
+    .our-clients__item_title {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
 @media (max-width:1300px) {
     .our-clients__item_image-inner {
         height: 20vw;
+    }
+    .swiper-pagination.our-clients__slider-pagination {
+        margin-top: 32px;
     }
 }
 @media (max-width:1000px) {
     .our-clients__item_image-inner {
         height: 30vw;
+        max-height: 220px;
     }
 }
 @media (max-width:700px) {
@@ -168,6 +218,9 @@ defineProps({
     .our-clients__item_text {
         font-size: 16px;
         line-height: 20px;
+    }
+    .swiper-pagination.our-clients__slider-pagination {
+        margin-top: 24px;
     }
 }
 @media (max-width:370px) {

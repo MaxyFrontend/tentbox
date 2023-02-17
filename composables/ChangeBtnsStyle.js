@@ -1,15 +1,19 @@
-const changeBtnsColor = (e) => {
+const changeBtnsStyle = (e) => {
     const inner = e.currentTarget
-    const firstBtn = inner.querySelector('.blue-border-btn, .no-border-btn')
-    if(e.target.closest('.no-border-btn')) {
+    const firstBtn = inner.querySelector('.blue-border-btn, .no-border-btn, .dashed-border-btn')
+    if (e.target.closest('.no-border-btn')) {
         firstBtn.classList.add('no-border-btn')
         firstBtn.classList.remove('blue-border-btn')
     }
-    else if(e.target.closest('.blue-border-btn')) {
+    else if (e.target.closest('.dashed-border-btn')) {
         firstBtn.classList.add('no-border-btn')
         firstBtn.classList.remove('blue-border-btn')
     }
-    else if(!e.target.closest('.blue-border-btn, .no-border-btn')) {
+    else if (e.target.closest('.blue-border-btn')) {
+        firstBtn.classList.add('no-border-btn')
+        firstBtn.classList.remove('blue-border-btn')
+    }
+    else if (!e.target.closest('.blue-border-btn, .no-border-btn')) {
         firstBtn.classList.remove('no-border-btn')
         firstBtn.classList.add('blue-border-btn')
     }
@@ -20,4 +24,4 @@ const changeBtnsColor = (e) => {
         inner.removeEventListener('mouseleave', returnBtnsColor)
     }
 }
-export default changeBtnsColor
+export default changeBtnsStyle

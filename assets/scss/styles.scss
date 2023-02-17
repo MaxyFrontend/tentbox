@@ -102,8 +102,8 @@ html {
     transition: $base-transition;
     cursor: pointer;
     &:hover {
-        border-color: $blue-color;
-        color: $blue-color;
+        background-color: $blue-color;
+        color: #fff;
     }
     &:last-child {
         margin-right: 0;
@@ -133,11 +133,27 @@ html {
     }
 }
 .card--title {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
     font-weight: 500;
     font-size: 22px;
     line-height: 27px;
     color: $dark-grey-color;
     margin: 26px 0 12px;
+    &::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        width: 0;
+        height: 2px;
+        background: $dark-grey-color;
+        transition: 0.2s ease;
+    }
+    &:hover::before {
+        width: 100%;
+    }
 }
 .card--sub-title {
     font-weight: 400;

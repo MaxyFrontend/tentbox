@@ -12,6 +12,7 @@ export default defineNuxtConfig({
         ],
       },
     ],
+      '@vueuse/motion/nuxt'
   ],
   
     build: {

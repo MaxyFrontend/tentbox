@@ -2,8 +2,35 @@
     <section class="section make-order">
         <div class="container make-order__container">
             <div class="make-order__wrapper">
-                <button class="make-order__btn black--btn" @click="requestFormPopupStore.open()">Сделать заказ</button>
-                <p class="make-order__description">
+                <button class="make-order__btn black--btn" @click="requestFormPopupStore.open()"
+                    v-motion="{
+                        initial: {
+                            y: 50,
+                            opacity: 0
+                        },
+                        visible: {
+                            y: 0,
+                            opacity: 1,
+                            transition: {
+                                delay: 200
+                            }
+                        }
+                    }">
+                    Сделать заказ
+                </button>
+                <p class="make-order__description"
+                    v-motion="{
+                        initial: {
+                            opacity: 0
+                        },
+                        visible: {
+                            opacity: 1,
+                            transition: {
+                                delay: 300,
+                                duration: 400
+                            }
+                        }
+                    }">
                     или позвоните нам: <a href="tel:+74957406584">+7 495 740-65-84</a>
                 </p>
             </div>

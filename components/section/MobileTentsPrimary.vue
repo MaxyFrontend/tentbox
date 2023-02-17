@@ -1,13 +1,75 @@
 <template>
     <section class="mobile-tents-primary section">
         <div class="container mobile-tents-primary__container">
-            <h1 class="mobile-tents-primary__title primary--title">Собственное производство и лучшие поставщики</h1>
-            <p class="mobile-tents-primary__sub-title primary--sub-title">
+            <h1 class="mobile-tents-primary__title primary--title"
+                v-motion="{
+                    initial: {
+                        y: 100,
+                        opacity: 0
+                    },
+                    enter: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                            delay: 0
+                        }
+                    }
+                }">Собственное производство и лучшие поставщики</h1>
+            <p class="mobile-tents-primary__sub-title primary--sub-title"
+                v-motion="{
+                    initial: {
+                        y: 100,
+                        opacity: 0
+                    },
+                    enter: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                            delay: 200
+                        }
+                    }
+                }">
                 Усиленные раздвижные каркасы из анодированного алюминия по австрийской технологии. Ткань крыши и стен из плотного Оксфорда (полиэстера с полиуретановой пропиткой).
             </p>
-            <div class="mobile-tents-primary__btns-inner">
-                <router-link to="/tent-order" class="mobile-tents-primary__button blue-border-btn">Рассчитать</router-link>
-                <button type="button" class="mobile-tents-primary__button no-border-btn" @click="requestFormPopupStore.open()">Оставить заявку</button>
+            <div class="mobile-tents-primary__btns-inner" @mousemove="changeBtnsStyle($event)">
+                <router-link to="/tent-order" class="mobile-tents-primary__button blue-border-btn"
+                    v-motion="{
+                        initial: {
+                            x: -50,
+                            opacity: 0
+                        },
+                        enter: {
+                            x: 0,
+                            opacity: 1,
+                            transition: {
+                                duration: 300,
+                                type: 'keyframes',
+                                ease: 'ease',
+                                delay: 300
+                            }
+                        }
+                    }">Рассчитать
+                </router-link>
+                <button type="button" class="mobile-tents-primary__button no-border-btn"
+                    @click="requestFormPopupStore.open()"
+                    v-motion="{
+                        initial: {
+                            x: 50,
+                            opacity: 0
+                        },
+                        enter: {
+                            x: 0,
+                            opacity: 1,
+                            transition: {
+                                duration: 300,
+                                type: 'keyframes',
+                                ease: 'ease',
+                                delay: 300
+                            }
+                        }
+                    }">
+                    Оставить заявку
+                </button>
             </div>
             <Advantages :advantages="advantages" />
         </div>
@@ -17,35 +79,36 @@
 <script setup>
 import { ref } from 'vue'
 import { useRequestFormPopupStore } from '@/store/RequestFormPopupStore'
+import changeBtnsStyle from '@/composables/ChangeBtnsStyle.js';
 const requestFormPopupStore = useRequestFormPopupStore()
 const advantages = ref([
     {
-        key:'5 мин',
-        value:'Монтаж любого шатра'
+        key: '5 мин',
+        value: 'Монтаж любого шатра'
     },
     {
-        key:'32 м2',
-        value:'Макс. площадь одного шатра'
+        key: '32 м2',
+        value: 'Макс. площадь одного шатра'
     },
     {
-        key:'80 кг',
-        value:'Макс. вес одного шатра'
+        key: '80 кг',
+        value: 'Макс. вес одного шатра'
     },
     {
-        key:'2 года',
-        value:'Обслуживание и гарантия'
+        key: '2 года',
+        value: 'Обслуживание и гарантия'
     },
     {
-        key:'6',
-        value:'Типоразмеров шатров'
+        key: '6',
+        value: 'Типоразмеров шатров'
     },
     {
-        key:'2 м',
-        value:'Макс. длина при перевозке'
+        key: '2 м',
+        value: 'Макс. длина при перевозке'
     },
     {
-        key:'0,25 м2',
-        value:'Площадь хранения одного шатра'
+        key: '0,25 м2',
+        value: 'Площадь хранения одного шатра'
     },
 ])
 </script>
@@ -65,8 +128,6 @@ const advantages = ref([
 .mobile-tents-primary__button {
     height: 100%;
 }
-.blue-border-btn {
-}
-.no-border-btn {
-}
+.blue-border-btn {}
+.no-border-btn {}
 </style>

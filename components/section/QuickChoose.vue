@@ -1,8 +1,32 @@
 <template>
     <section class="section quick-choose">
         <div class="container quick-choose__container">
-            <h2 class="section--title quick-choose__title">{{ sectionTitle }}</h2>
-            <p class="section--sub-title quick-shoow__sub-title"> {{ sectionSubTitle }} </p>
+            <h2 class="section--title quick-choose__title"
+                v-motion="{
+                    initial: {
+                        y: 100,
+                        opacity: 0
+                    },
+                    visibleOnce: {
+                        y: 0,
+                        opacity: 1,
+                    }
+                }">{{ sectionTitle }}</h2>
+            <p class="section--sub-title quick-shoow__sub-title"
+                v-motion="{
+                    initial: {
+                        x: -100,
+                        opacity: 0
+                    },
+                    visibleOnce: {
+                        x: 0,
+                        opacity: 1,
+                        transition: {
+                            duration: 300,
+                            delay: 300
+                        }
+                    }
+                }"> {{ sectionSubTitle }} </p>
             <swiper class="quick-choose__wrapper"
                 :modules="modules"
                 @after-init="SwiperMouseControl"
@@ -28,6 +52,20 @@
                     700: {
                         slidesPerView: 1.5,
                     }
+                }"
+                v-motion="{
+                    initial: {
+                        opacity: 0
+                    },
+                    visibleOnce: {
+                        opacity: 1,
+                        transition: {
+                            duration: 400,
+                            type: 'keyframes',
+                            ease: 'ease',
+                            delay: 300
+                        }
+                    }
                 }">
                 <swiper-slide class="quick-choose__card quick-choose__card_order">
                     <nuxt-link to="/tent-order" class="quick-choose__card_image-inner card--image-inner">
@@ -43,7 +81,7 @@
                     <p class="quick-choose__card_sub-title card--sub-title">
                         {{ quickChooseItems.orderTent.subTitle }}
                     </p>
-                    <div class="quick-choose__card_sizes" @mousemove="changeBtnsColor($event)">
+                    <div class="quick-choose__card_sizes" @mousemove="changeBtnsStyle($event)">
                         <client-only>
                             <nuxt-link to="/tent-order" v-for="(size, index) in quickChooseItems.orderTent.sizes" :key="size"
                                 :class="['quick-choose__card_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]">
@@ -66,7 +104,7 @@
                     <p class="quick-choose__card_sub-title card--sub-title">
                         {{ quickChooseItems.rentTent.subTitle }}
                     </p>
-                    <div class="quick-choose__card_sizes" @mousemove="changeBtnsColor($event)">
+                    <div class="quick-choose__card_sizes" @mousemove="changeBtnsStyle($event)">
                         <client-only>
                             <nuxt-link to="/tent-rent" v-for="(size, index) in quickChooseItems.rentTent.sizes" :key="size"
                                 :class="['quick-choose__card_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]">
@@ -89,7 +127,7 @@
                     <p class="quick-choose__card_sub-title card--sub-title">
                         {{ quickChooseItems.branding.subTitle }}
                     </p>
-                    <div class="quick-choose__card_links-inner">
+                    <div class="quick-choose__card_links-inner" @mousemove="changeBtnsStyle($event)">
                         <nuxt-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_link blue-border-btn">
                             Подробнее
                         </nuxt-link>
@@ -112,7 +150,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
-import changeBtnsColor from '@/composables/ChangeBtnsColor.js';
+import changeBtnsStyle from '@/composables/ChangeBtnsStyle.js';
 const modules = [Pagination, Mousewheel, A11y]
 let quickChooseItems = reactive({
     orderTent: {
@@ -214,12 +252,6 @@ defineProps({
         font-size: 382px;
         line-height: 0.45;
         left: 0;
-    }
-}
-.quick-choose__card_title {
-    display: block;
-    &:hover {
-        text-decoration: underline;
     }
 }
 .quick-choose__card_sub-title {

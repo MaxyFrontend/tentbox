@@ -166,6 +166,14 @@
     line-height: 22px;
     color: $grey-color;
 }
+@media (max-width:1600px) {
+    .questions__item_title {
+        font-size: 20px;
+    }
+    .accordion__trigger.accordion__trigger_active {
+        margin-bottom: 20px;
+    }
+}
 @media (max-width:700px) {
     .questions__wrapper {
         margin-top: 60px;

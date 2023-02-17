@@ -1,6 +1,13 @@
 @font-face {
     font-display: swap;
     font-family: "DINPro";
+    src: url(~/assets/fonts/DINPro-Light.woff2) format('woff2'),
+        url(~/assets/fonts/DINPro-Light.woff) format('woff');
+    font-weight: 300;
+}
+@font-face {
+    font-display: swap;
+    font-family: "DINPro";
     src: url(~/assets/fonts/DINPro-Regular.woff2) format('woff2'),
         url(~/assets/fonts/DINPro-Regular.woff) format('woff');
     font-weight: 400;

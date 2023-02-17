@@ -1,5 +1,16 @@
 <template>
-    <nav class="nav primary__nav">
+    <nav class="nav primary__nav"
+        v-motion="{
+            initial: {
+                opacity: 0
+            },
+            enter: {
+                opacity: 1,
+                transition: {
+                    delay: 700,
+                }
+            }
+        }">
         <swiper @swiper="getRef" class="primary__nav_list"
             :modules="modules"
             @after-init="SwiperMouseControl"
@@ -14,9 +25,9 @@
                 type: 'progressbar',
             }"
             :breakpoints="{
-                850:{
-                    mousewheel:false,
-                    slidesOffsetAfter:0
+                850: {
+                    mousewheel: false,
+                    slidesOffsetAfter: 0
                 }
             }">
             <swiper-slide class="primary__nav_list-item">

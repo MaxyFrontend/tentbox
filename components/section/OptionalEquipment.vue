@@ -1,8 +1,34 @@
 <template>
     <section class="section optional-equipment" id="optional-equipment">
         <div class="container optional-equipment__container">
-            <h2 class="section--title optional-equipment__title">{{ Title }}</h2>
-            <p class="section--sub-title optional-equipment__sub-title">{{ subTitle }}</p>
+            <h2 class="section--title optional-equipment__title"
+            v-motion="{
+                initial: {
+                    y: 100,
+                    opacity: 0
+                },
+                visibleOnce: {
+                    y: 0,
+                    opacity: 1,
+                }
+            }"
+            >{{ Title }}</h2>
+            <p class="section--sub-title optional-equipment__sub-title"
+            v-motion="{
+                initial: {
+                    x: 100,
+                    opacity: 0
+                },
+                visibleOnce: {
+                    x: 0,
+                    opacity: 1,
+                    transition: {
+                        duration: 300,
+                        delay:300
+                    }
+                }
+            }"
+            >{{ subTitle }}</p>
             <swiper class="optional-equipment__wrapper"
                 :modules="modules"
                 :speed="500"
@@ -16,7 +42,22 @@
                     1200: {
                         allowTouchMove: false
                     }
-                }">
+                }"
+                v-motion="{
+                    initial: {
+                        opacity: 0
+                    },
+                    visibleOnce: {
+                        opacity: 1,
+                        transition: {
+                            duration: 400,
+                            type: 'keyframes',
+                            ease: 'ease',
+                            delay:300
+                        }
+                    }
+                }"
+                >
                 <swiper-slide class="optional-equipment__card optional-equipment__mobile-flag-item" id="mobile-flags">
                     <nuxt-link to="/" class="optional-equipment__card_image-inner image-inner--hover">
                         <img src="@/assets/img/mobile-flags.jpg" alt="mobile-flags" class="optional-equipment__card_image">
@@ -26,7 +67,7 @@
                     </nuxt-link>
                     <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.mobileFlags.title }}</nuxt-link>
                     <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.mobileFlags.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsColor($event)">
+                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsStyle($event)">
                         <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.mobileFlags.types"
                             :class="['quick-choose__item_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]"
                             :key="type">
@@ -54,7 +95,7 @@
                     </nuxt-link>
                     <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.pagodas.title }}</nuxt-link>
                     <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.pagodas.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsColor($event)">
+                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsStyle($event)">
                         <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.pagodas.types"
                             :class="['quick-choose__item_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]"
                             :key="type">
@@ -71,7 +112,7 @@
                     </nuxt-link>
                     <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.mobileUmbrellas.title }}</nuxt-link>
                     <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.mobileUmbrellas.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsColor($event)">
+                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsStyle($event)">
                         <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.mobileUmbrellas.types"
                             :class="['quick-choose__item_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]"
                             :key="type">
@@ -82,7 +123,7 @@
                 <div class="optional-equipment__slider-pagination swiper-pagination"></div>
             </swiper>
         </div>
-    </section>
+</section>
 </template>
 
 <script setup>
@@ -92,7 +133,7 @@ import { Pagination, A11y } from 'swiper';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
-import changeBtnsColor from '@/composables/ChangeBtnsColor.js';
+import changeBtnsStyle from '@/composables/ChangeBtnsStyle.js';
 const modules = [Pagination, A11y]
 const notMobileTents = reactive({
     mobileFlags: {
@@ -156,10 +197,18 @@ defineProps({
         margin-right: 0;
     }
 }
+.optional-equipment__mobile-flag-item {
+    & .optional-equipment__card_image-inner {
+        min-height: 470px;
+    }
+}
 .optional-equipment__promo-accessories-item {
-    width: 20%;
+    width: 16%;
     max-width: 250px;
     align-self: flex-start;
+    & .optional-equipment__card_image-inner {
+        min-height: 250px;
+    }
     & .optional-equipment__card_image-inner_icon {
         top: auto;
         bottom: 25px;
@@ -167,18 +216,18 @@ defineProps({
 }
 .optional-equipment__card_title {
     display: block;
-    &:hover {
-        text-decoration: underline;
-    }
 }
 .optional-equipment__pagodas-item {
     align-self: flex-end;
     & .optional-equipment__card_sub-title {
         max-width: 300px;
     }
+    & .optional-equipment__card_image-inner {
+        min-height: 220px;
+    }
 }
 .optional-equipment__mobile-umbrellas-item {
-    width: 18%;
+    width: 16%;
     max-width: 250px;
     & .optional-equipment__card_image {
         object-position: left center;
@@ -186,6 +235,7 @@ defineProps({
 }
 .optional-equipment__card_image-inner {
     width: 100%;
+    display: flex;
     touch-action: pan-x !important;
     &:hover .optional-equipment__card_image {
         transform: scale(1.025);
@@ -193,8 +243,9 @@ defineProps({
 }
 .optional-equipment__card_image {
     width: 100%;
+    height: auto;
     object-fit: cover;
-    object-position: left bottom;
+    object-position: center center;
     transition: 0.5s ease;
 }
 .optional-equipment__card_sub-title {
@@ -219,35 +270,40 @@ defineProps({
     display: none;
     margin-top: 15px;
 }
+@media (max-width:1900px) {
+    .optional-equipment__card_image-inner {
+        max-height: 470px;
+    }
+}
 @media (max-width:1600px) {
     .optional-equipment__card {
         margin-right: 20px;
     }
-    .optional-equipment__mobile-flag-item {
+    .optional-equipment__mobile-flag-item,
+    .optional-equipment__pagodas-item {
         max-width: 450px;
         width: 29%;
     }
-    .optional-equipment__pagodas-item {
-        width: 32%;
-        max-width: 450px;
+    .optional-equipment__pagodas-item  {
+        width: 31%;
     }
     .optional-equipment__promo-accessories-item {
         width: 18%;
-        min-width: 210px;
-        max-width: 230px;
+        max-width: 220px;
     }
     .optional-equipment__mobile-umbrellas-item {
-        width: 17%;
-        min-width: 200px;
+        width: 20%;
+        max-width: 230px;
     }
-    .optional-equipment__card_image-inner {
-        max-height: 460px;
+    .optional-equipment__pagodas-item {
+        & .optional-equipment__card_image-inner {
+            min-height: 200px;
+        }
     }
 }
 @media (max-width:1350px) {
-    .optional-equipment__mobile-flag-item,
-    .optional-equipment__pagodas-item {
-        width: 27%;
+    .optional-equipment__card {
+        margin-right: 15px;
     }
     .optional-equipment__card_type:nth-child(n + 4) {
         display: none;
@@ -257,9 +313,22 @@ defineProps({
     .optional-equipment__card {
         width: 100%;
     }
+    .optional-equipment__pagodas-item {
+        & .optional-equipment__card_image-inner {
+            min-height: 170px;
+        }
+    }
+    .optional-equipment__promo-accessories-item {
+        & .optional-equipment__card_image-inner {
+            min-height: 170px;
+        }
+    }
     .optional-equipment__mobile-flag-item,
     .optional-equipment__pagodas-item {
         max-width: 400px;
+    }
+    .optional-equipment__card_type:nth-child(n+4) {
+        display: block;
     }
     .swiper-pagination.optional-equipment__slider-pagination {
         display: block;
@@ -269,6 +338,16 @@ defineProps({
     .optional-equipment__card {
         max-width: none;
         align-self: flex-start;
+    }
+    .optional-equipment__mobile-flag-item {
+        &  .optional-equipment__card_image-inner {
+            min-height: auto;
+        }
+    }
+    .optional-equipment__pagodas-item {
+        & .optional-equipment__card_image-inner {
+            min-height: auto;
+        }
     }
     .optional-equipment__card_image-inner {
         height: 100vw;

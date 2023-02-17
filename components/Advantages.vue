@@ -7,7 +7,19 @@
         :pagination="{
             el: '.advantages__slider-pagination',
             type: 'progressbar',
-        }">
+        }"
+        v-motion="{
+            initial: {
+                opacity: 0
+            },
+            enter: {
+                opacity: 1,
+                transition: {
+                    delay: 500
+                }
+            }
+        }"
+        >
         <swiper-slide class="advantages__item" v-for="(advantage, idx) in advantages" :key="idx" v-if="advantages.length > 0">
             <strong class="advantages__item_name">{{ advantage.key }}</strong>
             <p class="advantages__item_value">
@@ -80,21 +92,23 @@ defineProps({
         margin-right: 50px;
     }
 }
+@media (max-width:1900px) {
+    .advantages__item_name {
+        font-size: 32px;
+        line-height: 40px;
+    }
+}
 @media (max-width:1600px) {
     .advantages__item {
         margin-right: 40px;
     }
     .advantages__item_name {
-        font-size: 30px;
-        line-height: 40px;
+        font-size: 26px;
     }
 }
 @media (max-width:700px) {
     .advantages__item {
         width: auto;
-    }
-    .advantages__item_name {
-        font-size: 26px;
     }
 }
 @media (max-width:370px) {
