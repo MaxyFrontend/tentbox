@@ -8,7 +8,7 @@
                             y: 50,
                             opacity: 0
                         },
-                        visible: {
+                        visibleOnce: {
                             y: 0,
                             opacity: 1,
                             transition: {
@@ -23,7 +23,7 @@
                         initial: {
                             opacity: 0
                         },
-                        visible: {
+                        visibleOnce: {
                             opacity: 1,
                             transition: {
                                 delay: 300,

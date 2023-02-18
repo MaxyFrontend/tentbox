@@ -29,6 +29,13 @@
                         transition: {
                             delay: 300
                         }
+                    },
+                    leave: {
+                        y: 0,
+                        opacity: 1,
+                        transition: {
+                            delay: 300
+                        }
                     }
                 }">
                 {{ sectionSubTitle }}

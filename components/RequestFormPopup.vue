@@ -1,7 +1,7 @@
 <template>
     <Teleport to="body">
         <transition name="fade-in">
-            <div class="request-form-popup" v-show="requestFormPopupStore.PopupOpened">
+            <div class="request-form-popup" v-if="requestFormPopupStore.PopupOpened">
                 <div class="request-form-popup__content">
                     <div class="request-form-wrapper">
                         <form action="#" class="request-form">
@@ -12,7 +12,7 @@
                                         y: 100,
                                         opacity: 0
                                     },
-                                    visible: {
+                                    enter: {
                                         y: 0,
                                         opacity: 1,
                                         transition: {
@@ -27,7 +27,7 @@
                                         y: 100,
                                         opacity: 0
                                     },
-                                    visible: {
+                                    enter: {
                                         y: 0,
                                         opacity: 1,
                                         transition: {
@@ -42,7 +42,7 @@
                                         x: -200,
                                         opacity: 0
                                     },
-                                    visible: {
+                                    enter: {
                                         x: 0,
                                         opacity: 1,
                                         transition: {
@@ -72,7 +72,7 @@
                                         x: -50,
                                         opacity: 0
                                     },
-                                    visible: {
+                                    enter: {
                                         x: 0,
                                         opacity: 1,
                                         transition: {
@@ -85,7 +85,7 @@
                                     initial: {
                                         opacity: 0
                                     },
-                                    visible: {
+                                    enter: {
                                         opacity: 1,
                                         transition: {
                                             delay: 900,
@@ -103,7 +103,7 @@
                             initial: {
                                 opacity: 0
                             },
-                            visible: {
+                            enter: {
                                 opacity: 1,
                                 transition: {
                                     delay: 800,
@@ -117,7 +117,7 @@
                             initial: {
                                 opacity: 0
                             },
-                            visible: {
+                            enter: {
                                 opacity: 1,
                                 transition: {
                                     delay: 800,

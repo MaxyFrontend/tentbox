@@ -335,18 +335,21 @@ defineProps({
     }
 }
 @media (max-width:700px) {
+    .optional-equipment__wrapper {
+        margin-top: 36px;
+    }
     .optional-equipment__card {
         max-width: none;
         align-self: flex-start;
     }
     .optional-equipment__mobile-flag-item {
         &  .optional-equipment__card_image-inner {
-            min-height: auto;
+            min-height: 340px;
         }
     }
     .optional-equipment__pagodas-item {
         & .optional-equipment__card_image-inner {
-            min-height: auto;
+            min-height: 340px;
         }
     }
     .optional-equipment__card_image-inner {
