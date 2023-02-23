@@ -1,94 +1,35 @@
 <template>
     <div class="mobile-tents-promo" id="mobile-tents">
-        <nuxt-link to="/mobile-tents" class="mobile-tents-promo__image-inner image-inner--hover"
-        v-motion="{
-            initial: {
-                opacity: 0
-            },
-            enter: {
-                opacity: 1,
-                transition: {
-                    delay: 800,
-                    duration:500
-                }
-            }
-        }"
-        >
+        <nuxt-link to="/mobile-tents" class="mobile-tents-promo__image-inner image-inner--hover">
             <img src="@/assets/img/yandex-tent.jpg" alt="tents-promo" class="mobile-tents-promo__image">
             <client-only>
                 <IconArrowRight Class="mobile-tents-promo__icon" :Animate="true" />
             </client-only>
         </nuxt-link>
-        <h4 class="mobile-tents-promo__title"
-            v-motion="{
+        <h4 class="mobile-tents-promo__title overflow--hidden">
+            <span v-motion="{
                 initial: {
-                    y: 100,
+                    y: '50%',
+                    display:'block',
                     opacity: 0
                 },
                 visibleOnce: {
                     y: 0,
                     opacity: 1,
                     transition: {
-                        delay: 0
+                        delay: 0,
+                        duration: 500,
                     }
                 }
-            }">Мобильные шатры
+            }">Мобильные шатры</span>
         </h4>
-        <p class="mobile-tents-promo__sub-title"
-        v-motion="{
-            initial: {
-                y: 100,
-                opacity: 0
-            },
-            visibleOnce: {
-                y: 0,
-                opacity: 1,
-                transition: {
-                    delay: 200
-                }
-            }
-        }"
-        >
+        <p class="mobile-tents-promo__sub-title">
             Монтаж за 2 минуты, компактное хранение и
             удобная транспортировка
         </p>
         <div class="mobile-tents-promo__links-inner" @mousemove="changeBtnsStyle($event)">
-            <nuxt-link to="/mobile-tents" class="mobile-tents-promo__link blue-border-btn"
-                v-motion="{
-                    initial: {
-                        x: -50,
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        x: 0,
-                        opacity: 1,
-                        transition: {
-                            duration: 300,
-                            type: 'keyframes',
-                            ease: 'ease',
-                            delay:300
-                        }
-                    }
-                }">Подробнее
-            </nuxt-link>
-            <nuxt-link to="#" class="mobile-tents-promo__link no-border-btn"
-                v-motion="{
-                    initial: {
-                        x: 50,
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        x: 0,
-                        opacity: 1,
-                        transition: {
-                            duration: 300,
-                            type: 'keyframes',
-                            ease: 'ease',
-                            delay:300
-                        }
-                    }
-                }">Выбрать размер
-            </nuxt-link>
+            <nuxt-link to="/mobile-tents" class="mobile-tents-promo__link blue-border-btn current--btn-active">Подробнее</nuxt-link>
+            <nuxt-link to="#" class="mobile-tents-promo__link no-border-btn">Выбрать размер</nuxt-link>
         </div>
     </div>
 </template>

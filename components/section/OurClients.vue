@@ -1,43 +1,26 @@
 <template>
-    <section class="our-clients">
+    <section class="section our-clients">
         <div class="container our-clients__container">
-            <h2 class="our-clients__title section--title"
-                v-motion="{
+            <h2 class="our-clients__title section--title overflow--hidden">
+                <span v-motion="{
                     initial: {
-                        y: 100,
+                        y: '100%',
+                        display: 'block',
                         opacity: 0
                     },
                     visibleOnce: {
                         y: 0,
                         opacity: 1,
                         transition: {
-                            delay: 200
+                            delay: 100,
+                            duration: 400,
                         }
                     }
                 }">
                 {{ sectionTitle }}
+                </span>
             </h2>
-            <p class="our-clients__sub-title section--sub-title"
-                v-motion="{
-                    initial: {
-                        y: 100,
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        y: 0,
-                        opacity: 1,
-                        transition: {
-                            delay: 300
-                        }
-                    },
-                    leave: {
-                        y: 0,
-                        opacity: 1,
-                        transition: {
-                            delay: 300
-                        }
-                    }
-                }">
+            <p class="our-clients__sub-title section--sub-title">
                 {{ sectionSubTitle }}
             </p>
             <swiper :class="['our-clients__wrapper', { 'slider-touchmove': sliderTouchStart }]"
@@ -63,18 +46,7 @@
                     }
                 }"
                 @TouchStart="TouchStartHandle()"
-                @touchMoveOpposite="touchMoveOppositeHandle()"
-                v-motion="{
-                    initial: {
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        opacity: 1,
-                        transition: {
-                            delay: 500
-                        }
-                    }
-                }">
+                @touchMoveOpposite="touchMoveOppositeHandle()">
                 <swiper-slide class="our-clients__item" v-for="(client, idx) in clients" :key="idx">
                     <div class="our-clients__item_image-inner">
                         <img :src="client.img" alt="rosa" class="our-clients__item_image">

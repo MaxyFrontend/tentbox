@@ -1,73 +1,32 @@
 <template>
     <section class="mobile-tents-primary section">
         <div class="container mobile-tents-primary__container">
-            <h1 class="mobile-tents-primary__title primary--title"
-                v-motion="{
+            <h1 class="mobile-tents-primary__title primary--title overflow--hidden">
+                <span v-motion="{
                     initial: {
-                        y: 100,
-                        opacity: 0
+                        y: 110,
+                        display: 'block',
                     },
                     enter: {
                         y: 0,
-                        opacity: 1,
                         transition: {
-                            delay: 0
-                        }
-                    }
-                }">Собственное производство и лучшие поставщики</h1>
-            <p class="mobile-tents-primary__sub-title primary--sub-title"
-                v-motion="{
-                    initial: {
-                        y: 100,
-                        opacity: 0
-                    },
-                    enter: {
-                        y: 0,
-                        opacity: 1,
-                        transition: {
-                            delay: 200
+                            delay: 100,
+                            duration: 500,
                         }
                     }
                 }">
+                    Собственное производство и лучшие поставщики
+                </span>
+            </h1>
+            <p class="mobile-tents-primary__sub-title primary--sub-title">
                 Усиленные раздвижные каркасы из анодированного алюминия по австрийской технологии. Ткань крыши и стен из плотного Оксфорда (полиэстера с полиуретановой пропиткой).
             </p>
             <div class="mobile-tents-primary__btns-inner" @mousemove="changeBtnsStyle($event)">
-                <router-link to="/tent-order" class="mobile-tents-primary__button blue-border-btn"
-                    v-motion="{
-                        initial: {
-                            x: -50,
-                            opacity: 0
-                        },
-                        enter: {
-                            x: 0,
-                            opacity: 1,
-                            transition: {
-                                duration: 300,
-                                type: 'keyframes',
-                                ease: 'ease',
-                                delay: 300
-                            }
-                        }
-                    }">Рассчитать
+                <router-link to="/tent-order" class="mobile-tents-primary__button blue-border-btn current--btn-active">
+                    Рассчитать
                 </router-link>
                 <button type="button" class="mobile-tents-primary__button no-border-btn"
-                    @click="requestFormPopupStore.open()"
-                    v-motion="{
-                        initial: {
-                            x: 50,
-                            opacity: 0
-                        },
-                        enter: {
-                            x: 0,
-                            opacity: 1,
-                            transition: {
-                                duration: 300,
-                                type: 'keyframes',
-                                ease: 'ease',
-                                delay: 300
-                            }
-                        }
-                    }">
+                    @click="requestFormPopupStore.open()">
                     Оставить заявку
                 </button>
             </div>

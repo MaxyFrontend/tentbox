@@ -1,5 +1,5 @@
 <template>
-    <section class="breadcrumbs">
+    <section :class="['breadcrumbs', Class]">
         <div class="container breadcrumbs__container">
             <ul class="breadcrumbs-list">
                 <li class="breadcrumbs-list__item" v-for="(item, idx) in items" :key="idx">
@@ -12,6 +12,10 @@
 
 <script setup>
 defineProps({
+    Class:{
+        type:String,
+        required:false
+    },
     items: {
         type: Array,
         required: true,
@@ -22,6 +26,9 @@ defineProps({
 <style lang="scss">
 .breadcrumbs {
     margin: 100px 0 40px;
+    &.card--breadcrumbs {
+        margin: 0;
+    }
 }
 .container {}
 .breadcrumbs__container {}
@@ -62,12 +69,34 @@ defineProps({
 }
 @media (max-width:1900px) {
     .breadcrumbs {
-        margin-top: 5%;
+        margin-top: 7%;
     }
 }
 @media (max-width:1300px) {
     .breadcrumbs {
         margin-bottom: 30px;
+    }
+}
+@media (max-width:1000px) {
+    .breadcrumbs {
+        margin-top: 54px;
+    }
+}
+@media (max-width:700px) {
+    .breadcrumbs-list__item {
+        & a {
+            padding: 0;
+            text-transform: none;
+        }
+        & a.router-link-active {
+            background: #F2F2F2;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 1px;
+        }
+        &::after {
+            margin: 0 18px;
+        }
     }
 }
 </style>

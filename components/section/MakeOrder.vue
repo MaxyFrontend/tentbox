@@ -2,35 +2,26 @@
     <section class="section make-order">
         <div class="container make-order__container">
             <div class="make-order__wrapper">
-                <button class="make-order__btn black--btn" @click="requestFormPopupStore.open()"
-                    v-motion="{
-                        initial: {
-                            y: 50,
-                            opacity: 0
-                        },
-                        visibleOnce: {
-                            y: 0,
-                            opacity: 1,
-                            transition: {
-                                delay: 200
+                <div class="make-order__btn-wrapper overflow--hidden">
+                    <button class="make-order__btn black--btn" @click="requestFormPopupStore.open()"
+                        v-motion="{
+                            initial: {
+                                y: '100%',
+                                opacity:0,
+                            },
+                            visibleOnce: {
+                                y: 0,
+                                opacity:1,
+                                transition: {
+                                    delay: 100,
+                                    duration: 400,
+                                }
                             }
-                        }
-                    }">
-                    Сделать заказ
-                </button>
-                <p class="make-order__description"
-                    v-motion="{
-                        initial: {
-                            opacity: 0
-                        },
-                        visibleOnce: {
-                            opacity: 1,
-                            transition: {
-                                delay: 300,
-                                duration: 400
-                            }
-                        }
-                    }">
+                        }">
+                        Сделать заказ
+                    </button>
+                </div>
+                <p class="make-order__description">
                     или позвоните нам: <a href="tel:+74957406584">+7 495 740-65-84</a>
                 </p>
             </div>

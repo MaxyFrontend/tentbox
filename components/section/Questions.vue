@@ -1,7 +1,23 @@
 <template>
     <section class="questions">
         <div class="container questions__container">
-            <h2 class="questions__title section--title">Ответы на вопросы</h2>
+            <h2 class="questions__title section--title overflow--hidden">
+                <span v-motion="{
+                    initial: {
+                        y: '100%',
+                        display: 'block',
+                    },
+                    visibleOnce: {
+                        y: 0,
+                        transition: {
+                            delay: 100,
+                            duration: 400,
+                        }
+                    }
+                }">
+                Ответы на вопросы
+                </span>
+            </h2>
             <div class="questions__wrapper">
                 <Accordion>
                     <AccordionItem class="questions__item">

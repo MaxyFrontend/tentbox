@@ -6,80 +6,129 @@
                     <div class="request-form-wrapper">
                         <form action="#" class="request-form">
                             <button type="button" class="request-form__close-popup-btn" @click="requestFormPopupStore.close()"></button>
-                            <h3 class="request-form__title"
-                                v-motion="{
+                            <h3 class="request-form__title overflow--hidden">
+                                <span v-motion="{
                                     initial: {
+                                        display: 'block',
                                         y: 100,
-                                        opacity: 0
                                     },
                                     enter: {
                                         y: 0,
-                                        opacity: 1,
                                         transition: {
+                                            duration: 400,
                                             delay: 200
                                         }
                                     }
-                                }">Оставьте ваши данные
+                                }">
+                                    Оставьте ваши данные
+                                </span>
                             </h3>
-                            <p class="request-form__sub-title"
-                                v-motion="{
+                            <p class="request-form__sub-title overflow--hidden">
+                                <span v-motion="{
                                     initial: {
+                                        display: 'block',
                                         y: 100,
-                                        opacity: 0
                                     },
                                     enter: {
                                         y: 0,
-                                        opacity: 1,
                                         transition: {
+                                            duration: 400,
                                             delay: 400,
                                         }
                                     }
-                                }">Мы свяжемся с вами практически сразу
-                            </p>
-                            <div class="request-form__fields-wrapper"
-                                v-motion="{
-                                    initial: {
-                                        x: -200,
-                                        opacity: 0
-                                    },
-                                    enter: {
-                                        x: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            delay: 500,
-                                        }
-                                    }
                                 }">
-                                <label class="request-form__label">
-                                    <strong>ФИО</strong>
-                                    <input type="text" class="request-form__input" placeholder="Иван Иванов *" tabindex="0">
-                                </label>
-                                <label class="request-form__label">
-                                    <strong>E-mail</strong>
-                                    <input type="text" class="request-form__input" placeholder="ivanov@mail.ru *">
-                                </label>
-                                <label class="request-form__label">
-                                    <strong>Телефон</strong>
-                                    <input type="text" class="request-form__input" placeholder="8 929 507-79-64 *">
-                                </label>
-                                <label class="request-form__label">
-                                    <textarea class="request-form__textarea" placeholder="Ваш комментарий"></textarea>
-                                </label>
+                                    Мы свяжемся с вами практически сразу
+                                </span>
+                            </p>
+                            <div class="request-form__fields-wrapper">
+                                <div class="request-form__label-wrapper overflow--hidden">
+                                    <label class="request-form__label"
+                                        v-motion="{
+                                            initial: {
+                                                y: 100,
+                                            },
+                                            enter: {
+                                                y: 0,
+                                                transition: {
+                                                    duration: 400,
+                                                    delay: 400,
+                                                }
+                                            }
+                                        }">
+                                        <strong>ФИО</strong>
+                                        <input type="text" class="request-form__input" placeholder="Иван Иванов *" tabindex="0">
+                                    </label>
+                                </div>
+                                <div class="request-form__label-wrapper overflow--hidden">
+                                    <label class="request-form__label"
+                                        v-motion="{
+                                            initial: {
+                                                y: 100,
+                                            },
+                                            enter: {
+                                                y: 0,
+                                                transition: {
+                                                    duration: 400,
+                                                    delay: 400,
+                                                }
+                                            }
+                                        }">
+                                        <strong>E-mail</strong>
+                                        <input type="text" class="request-form__input" placeholder="ivanov@mail.ru *">
+                                    </label>
+                                </div>
+                                <div class="request-form__label-wrapper overflow--hidden">
+                                    <label class="request-form__label"
+                                        v-motion="{
+                                            initial: {
+                                                y: 100,
+                                            },
+                                            enter: {
+                                                y: 0,
+                                                transition: {
+                                                    duration: 400,
+                                                    delay: 400,
+                                                }
+                                            }
+                                        }">
+                                        <strong>Телефон</strong>
+                                        <input type="text" class="request-form__input" placeholder="8 929 507-79-64 *">
+                                    </label>
+                                </div>
+                                <div class="request-form__label-wrapper overflow--hidden">
+                                    <label class="request-form__label"
+                                        v-motion="{
+                                            initial: {
+                                                y: 100,
+                                            },
+                                            enter: {
+                                                y: 0,
+                                                transition: {
+                                                    duration: 400,
+                                                    delay: 400,
+                                                }
+                                            }
+                                        }">
+                                        <textarea class="request-form__textarea" placeholder="Ваш комментарий"></textarea>
+                                    </label>
+                                </div>
                             </div>
-                            <button class="black--btn request-form__submit-btn"
-                                v-motion="{
-                                    initial: {
-                                        x: -50,
-                                        opacity: 0
-                                    },
-                                    enter: {
-                                        x: 0,
-                                        opacity: 1,
-                                        transition: {
-                                            delay: 700,
+                            <div class="request-form__submit-btn-wrapper overflow--hidden">
+                                <button class="black--btn request-form__submit-btn"
+                                    v-motion="{
+                                        initial: {
+                                            y: 100,
+                                        },
+                                        enter: {
+                                            y: 0,
+                                            transition: {
+                                                duration: 400,
+                                                delay: 400,
+                                            }
                                         }
-                                    }
-                                }">Оставить заявку</button>
+                                    }">Оставить заявку
+                                </button>
+                            </div>
                             <p class="request-form__description"
                                 v-motion="{
                                     initial: {
@@ -88,7 +137,7 @@
                                     enter: {
                                         opacity: 1,
                                         transition: {
-                                            delay: 900,
+                                            delay: 400,
                                             duration: 500
                                         }
                                     }
@@ -106,7 +155,7 @@
                             enter: {
                                 opacity: 1,
                                 transition: {
-                                    delay: 800,
+                                    delay: 600,
                                     duration: 400
                                 }
                             }
@@ -120,7 +169,7 @@
                             enter: {
                                 opacity: 1,
                                 transition: {
-                                    delay: 800,
+                                    delay: 600,
                                     duration: 400
                                 }
                             }
@@ -251,12 +300,17 @@ const mobileMenuStore = useMobileMenuStore()
     max-width: 300px;
     margin-top: 85px;
 }
+.request-form__label-wrapper {
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
 .request-form__label {
     display: flex;
     align-items: center;
     font-size: 18px;
     line-height: 22px;
-    margin-bottom: 20px;
     cursor: pointer;
     & strong {
         display: flex;
@@ -269,9 +323,6 @@ const mobileMenuStore = useMobileMenuStore()
         font-weight: 300;
         display: block;
         margin: 0 7px;
-    }
-    &:last-child {
-        margin-bottom: 0;
     }
 }
 .request-form__input {
@@ -291,8 +342,11 @@ const mobileMenuStore = useMobileMenuStore()
     color: $grey-color;
     resize: none;
 }
+.request-form__submit-btn-wrapper {
+    width: 100%;
+}
 .request-form__submit-btn {
-    margin-top: 80px;
+    margin: 80px auto 0;
 }
 .request-form__description {
     width: 100%;

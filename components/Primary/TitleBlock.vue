@@ -1,36 +1,24 @@
 <template>
     <div class="primary__title-block">
-        <h1 class="primary__title primary--title"
-            v-motion="{
+        <h1 class="primary__title primary--title overflow--hidden">
+            <span v-motion="{
                 initial: {
-                    y: 200,
-                    opacity: 0
+                    y: 110,
+                    display:'block'
                 },
                 enter: {
                     y: 0,
-                    opacity: 1,
                     transition: {
-                        delay: 200,
+                        duration: 500,
+                        delay: 100,
                     }
                 }
             }">
-            Мобильные шатры и визуальное оборудование
-            для вашего бизнеса
+                Мобильные шатры и визуальное оборудование
+                для вашего бизнеса
+            </span>
         </h1>
-        <p class="primary__sub-title primary--sub-title"
-            v-motion="{
-                initial: {
-                    y: 200,
-                    opacity: 0
-                },
-                enter: {
-                    y: 0,
-                    opacity: 1,
-                    transition: {
-                        delay: 400,
-                    }
-                }
-            }">
+        <p class="primary__sub-title primary--sub-title">
             Мы занимаемся изготовлением и дизайном визуального оборудования
             для мероприятий различных форматов
         </p>

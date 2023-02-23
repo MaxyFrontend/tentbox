@@ -1,36 +1,25 @@
 <template>
     <section class="mobile-tents-sizes section">
         <div class="container mobile-tents-sizes__container">
-            <h2 class="mobile-tents-sizes__title section--title"
-                v-motion="{
+            <h2 class="mobile-tents-sizes__title section--title overflow--hidden">
+                <span v-motion="{
                     initial: {
-                        y: 100,
-                        opacity: 0
+                        y: '100%',
+                        display: 'block',
                     },
                     visibleOnce: {
                         y: 0,
-                        opacity: 1,
                         transition: {
-                            delay: 200
+                            delay: 100,
+                            duration: 400,
                         }
                     }
                 }">
                 Шесть типоразмеров
+                </span>
             </h2>
-            <p class="mobile-tents-sizes__sub-title section--sub-title"
-                v-motion="{
-                    initial: {
-                        x: 50,
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        x: 0,
-                        opacity: 1,
-                        transition: {
-                            delay: 400
-                        }
-                    }
-                }">И множество опций
+            <p class="mobile-tents-sizes__sub-title section--sub-title">
+                И множество опций
             </p>
             <swiper :class="['mobile-tents-sizes__wrapper', { 'slider-touchmove': sliderTouchStart }]"
                 :modules="modules"
@@ -65,18 +54,7 @@
                     }
                 }"
                 @TouchStart="TouchStartHandle()"
-                @touchMoveOpposite="touchMoveOppositeHandle()"
-                v-motion="{
-                    initial: {
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        opacity: 1,
-                        transition: {
-                            delay: 200
-                        }
-                    }
-                }">
+                @touchMoveOpposite="touchMoveOppositeHandle()">
                 <swiper-slide class="mobile-tents-sizes__item">
                     <div class="mobile-tents-sizes__item_image-inner">
                         <img src="@/assets/img/tents-sizes/four-x-four.png" alt="four-x-four" class="mobile-tents-sizes__item_image">
@@ -85,7 +63,7 @@
                         3,0х3,0м — <span class="mobile-tents-sizes__item_price">от 70 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn">Подробный расчет</router-link>
+                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -97,7 +75,7 @@
                         3,0х4,5м — <span class="mobile-tents-sizes__item_price">от 85 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn">Подробный расчет</router-link>
+                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -109,7 +87,7 @@
                         3,0х6,0м — <span class="mobile-tents-sizes__item_price">от 115 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn">Подробный расчет</router-link>
+                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -121,7 +99,7 @@
                         4,0х4,0м — <span class="mobile-tents-sizes__item_price">от 85 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn">Подробный расчет</router-link>
+                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -133,7 +111,7 @@
                         4,0х6,0м — <span class="mobile-tents-sizes__item_price">от 120 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn">Подробный расчет</router-link>
+                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -145,7 +123,7 @@
                         4,0х8,0м — <span class="mobile-tents-sizes__item_price">от 135 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn">Подробный расчет</router-link>
+                        <router-link to="/tent-order" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn">Быстрый заказ</button>
                     </div>
                 </swiper-slide>

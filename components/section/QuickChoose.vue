@@ -1,32 +1,24 @@
 <template>
     <section class="section quick-choose">
         <div class="container quick-choose__container">
-            <h2 class="section--title quick-choose__title"
-                v-motion="{
-                    initial: {
-                        y: 100,
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        y: 0,
-                        opacity: 1,
+            <h2 class="section--title quick-choose__title overflow--hidden">
+            <span v-motion="{
+                initial: {
+                    y: '100%',
+                    display:'block',
+                },
+                visibleOnce: {
+                    y: 0,
+                    transition: {
+                        delay: 100,
+                        duration: 400,
                     }
-                }">{{ sectionTitle }}</h2>
-            <p class="section--sub-title quick-shoow__sub-title"
-                v-motion="{
-                    initial: {
-                        x: -100,
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        x: 0,
-                        opacity: 1,
-                        transition: {
-                            duration: 300,
-                            delay: 300
-                        }
-                    }
-                }"> {{ sectionSubTitle }} </p>
+                }
+            }">
+                {{ sectionTitle }}
+            </span>
+        </h2>
+            <p class="section--sub-title quick-shoow__sub-title"> {{ sectionSubTitle }} </p>
             <swiper class="quick-choose__wrapper"
                 :modules="modules"
                 @after-init="SwiperMouseControl"
@@ -52,20 +44,6 @@
                     700: {
                         slidesPerView: 1.5,
                     }
-                }"
-                v-motion="{
-                    initial: {
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        opacity: 1,
-                        transition: {
-                            duration: 400,
-                            type: 'keyframes',
-                            ease: 'ease',
-                            delay: 300
-                        }
-                    }
                 }">
                 <swiper-slide class="quick-choose__card quick-choose__card_order">
                     <nuxt-link to="/tent-order" class="quick-choose__card_image-inner card--image-inner">
@@ -84,7 +62,7 @@
                     <div class="quick-choose__card_sizes" @mousemove="changeBtnsStyle($event)">
                         <client-only>
                             <nuxt-link to="/tent-order" v-for="(size, index) in quickChooseItems.orderTent.sizes" :key="size"
-                                :class="['quick-choose__card_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]">
+                                :class="['quick-choose__card_size', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]">
                                 {{ size }}
                             </nuxt-link>
                         </client-only>
@@ -107,7 +85,7 @@
                     <div class="quick-choose__card_sizes" @mousemove="changeBtnsStyle($event)">
                         <client-only>
                             <nuxt-link to="/tent-rent" v-for="(size, index) in quickChooseItems.rentTent.sizes" :key="size"
-                                :class="['quick-choose__card_size', { 'blue-border-btn': index === 0, 'no-border-btn': index !== 0 }]">
+                                :class="['quick-choose__card_size', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]">
                                 {{ size }}
                             </nuxt-link>
                         </client-only>
@@ -128,7 +106,7 @@
                         {{ quickChooseItems.branding.subTitle }}
                     </p>
                     <div class="quick-choose__card_links-inner" @mousemove="changeBtnsStyle($event)">
-                        <nuxt-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_link blue-border-btn">
+                        <nuxt-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_link blue-border-btn current--btn-active">
                             Подробнее
                         </nuxt-link>
                         <a href="#" class="quick-shoose__item_link dashed-border-btn">

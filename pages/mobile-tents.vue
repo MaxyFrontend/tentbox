@@ -11,7 +11,7 @@
 const breadcrumbs = [
     {
         path: '/',
-        name: 'ГЛАВНАЯ'
+        name: 'Главная'
     },
     {
         path: '/mobile-tents',

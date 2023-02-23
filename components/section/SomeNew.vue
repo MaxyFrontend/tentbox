@@ -1,32 +1,26 @@
 <template>
     <section class="section some-new">
         <div class="container some-new__container">
-            <h2 class="section--title some-new__title"
-                v-motion="{
+            <h2 class="section--title some-new__title overflow--hidden">
+                <span v-motion="{
                     initial: {
-                        y: 100,
+                        y: '100%',
+                        display:'block',
                         opacity: 0
                     },
                     visibleOnce: {
                         y: 0,
                         opacity: 1,
-                    }
-                }"> {{ sectionTitle }} </h2>
-            <p class="section--sub-title some-new__sub-title"
-                v-motion="{
-                    initial: {
-                        x: -100,
-                        opacity: 0
-                    },
-                    visibleOnce: {
-                        x: 0,
-                        opacity: 1,
                         transition: {
-                            duration: 300,
-                            delay: 300
+                            delay: 0,
+                            duration: 500,
                         }
                     }
                 }">
+                {{ sectionTitle }}
+                </span>
+            </h2>
+            <p class="section--sub-title some-new__sub-title">
                 {{ sectionSubTitle }}
             </p>
             <div class="some-new__wrapper">
@@ -51,20 +45,6 @@
                         },
                         700: {
                             slidesPerView: 1.3
-                        }
-                    }"
-                    v-motion="{
-                        initial: {
-                            opacity: 0
-                        },
-                        visibleOnce: {
-                            opacity: 1,
-                            transition: {
-                                duration: 400,
-                                type: 'keyframes',
-                                ease: 'ease',
-                                delay: 300
-                            }
                         }
                     }">
                     <swiper-slide class="some-new__card some-new__cleaning-card">

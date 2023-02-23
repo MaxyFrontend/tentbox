@@ -1,16 +1,5 @@
 <template>
-    <nav class="nav primary__nav"
-        v-motion="{
-            initial: {
-                opacity: 0
-            },
-            enter: {
-                opacity: 1,
-                transition: {
-                    delay: 700,
-                }
-            }
-        }">
+    <nav class="nav primary__nav">
         <swiper @swiper="getRef" class="primary__nav_list"
             :modules="modules"
             @after-init="SwiperMouseControl"

@@ -5,16 +5,13 @@ export default defineNuxtConfig({
       '@pinia/nuxt',
       {
         autoImports: [
-          // automatically imports `defineStore`
           'defineStore', // import { defineStore } from 'pinia'
-          // automatically imports `defineStore` as `definePiniaStore`
           ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
         ],
       },
     ],
       '@vueuse/motion/nuxt'
   ],
-  
     build: {
         transpile: ['swiper']
       },
@@ -25,6 +22,12 @@ export default defineNuxtConfig({
               additionalData: '@use "@/assets/scss/_variables.scss" as *;'
             }
           }
+        }
+      },
+      nitro: {
+        prerender: {
+          routes: ['/tent-order/3х3', '/tentrder/3х4', '/tentrder/3х6', '/tentrder/4х4', '/tentrder/4х6', '/tentrder/4х8'],
+          ignore:['/tent-order/3%D1%853','/tent-order/3%D1%854','/tent-order/3%D1%856','/tent-order/4%D1%854','/tent-order/4%D1%856','/tent-order/4%D1%858', '/tent-order/mobile-flags', '/tent-order/tent-rent']
         }
       },
 })

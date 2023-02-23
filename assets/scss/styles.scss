@@ -68,6 +68,7 @@ html {
 }
 .blue-border-btn {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: fit-content;
@@ -91,6 +92,7 @@ html {
 }
 .no-border-btn {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: fit-content;
@@ -105,8 +107,32 @@ html {
     transition: $base-transition;
     cursor: pointer;
     &:hover {
-        background-color: $blue-color;
-        color: #fff;
+        border-color: $blue-color;
+        color: $blue-color;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+.grey-border-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 8px 18px;
+    margin-right: 20px;
+    color: $dark-grey-color;
+    border-radius: 2px;
+    border: 1px solid $light-grey-color;
+    transition: $base-transition;
+    cursor: pointer;
+    &:hover {
+        border-color: $blue-color;
+        color: $blue-color;
     }
     &:last-child {
         margin-right: 0;
@@ -114,6 +140,7 @@ html {
 }
 .dashed-border-btn {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: fit-content;
@@ -272,4 +299,7 @@ html {
     max-width: 290px;
     font-weight: 400;
     color: #888888;
+}
+.overflow--hidden {
+    overflow: hidden;
 }

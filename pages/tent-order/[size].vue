@@ -1,5 +1,6 @@
 <template>
-    <Breadcrumbs :items="breadcrumbs"/>
+    <Breadcrumbs :items="breadcrumbs" Class="card--breadcrumbs" />
+    <SectionTentOrderCard />
     <SectionOurClients />
     <SectionService />
     <SectionQuestions />
@@ -23,6 +24,4 @@ const breadcrumbs = [
 ]
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
