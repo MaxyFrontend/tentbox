@@ -1,4 +1,4 @@
-import data from "./tent-sizes.json"
+import data from "./tent-order-sizes.json"
 export default defineEventHandler(() => {
     return {
         data

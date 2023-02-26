@@ -11,7 +11,7 @@
                     y: 0,
                     transition: {
                         delay: 100,
-                        duration: 400,
+                        duration: 600,
                     }
                 }
             }">
@@ -257,6 +257,14 @@ defineProps({
         & .quick-choose__card_image-inner_caption {
             font-size: 300px;
         }
+    }
+    .quick-choose__card_size {
+        margin-right: 15px;
+    }
+}
+@media (max-width:1400px) {
+    .quick-choose__card_size {
+        margin-right: 10px;
     }
 }
 @media (max-width:1300px) {

@@ -162,11 +162,13 @@
         margin-left: 6px;
     }
 }
-@media (max-width:1200px) {
+@media (max-width:1600px) {
     .footer {
         font-size: 16px;
         line-height: 20px;
     }
+}
+@media (max-width:1200px) {
     .footer__nav_list_item,
     .footer__contacts_item {
         margin-bottom: 20px;

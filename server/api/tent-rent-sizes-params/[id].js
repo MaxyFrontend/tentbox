@@ -1,4 +1,4 @@
-import data from "./tent-sizes-params.json"
+import data from "./tent-rent-sizes-params.json"
 export default defineEventHandler((event) => {
     if(event.context.params) {
         if(typeof event.context.params.id !== undefined) {

@@ -1,7 +1,23 @@
 <template>
     <section class="section service">
         <div class="container service__container">
-            <h2 class="section--title service__title"> {{ sectionTitle }} </h2>
+            <h2 class="section--title service__title overflow--hidden">
+                <span v-motion="{
+                    initial: {
+                        y: '100%',
+                        display: 'block',
+                    },
+                    visibleOnce: {
+                        y: 0,
+                        transition: {
+                            delay: 100,
+                            duration: 600,
+                        }
+                    }
+                }">
+                {{ sectionTitle }}
+                </span>
+            </h2>
             <p class="section--sub-title service__sub-title">
                 {{ sectionSubTitle }}
             </p>

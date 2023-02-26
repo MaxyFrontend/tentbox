@@ -1,0 +1,27 @@
+<template>
+    <svg :class="[Class, 'arrow-bottom-corner']" width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10.8995 11.8995C11.4518 11.8995 11.8995 11.4518 11.8995 10.8995L11.8995 1.89949C11.8995 1.34721 11.4518 0.899495 10.8995 0.899495C10.3472 0.899495 9.89949 1.34721 9.89949 1.89949L9.8995 9.8995L1.89949 9.89949C1.34721 9.89949 0.899495 10.3472 0.899495 10.8995C0.899495 11.4518 1.34721 11.8995 1.89949 11.8995L10.8995 11.8995ZM0.292893 1.70711L10.1924 11.6066L11.6066 10.1924L1.70711 0.292893L0.292893 1.70711Z" :fill="Color" />
+    </svg>
+</template>
+  
+<script setup>
+defineProps({
+    Color: {
+        type: String,
+        required: false,
+        default: '#888888'
+    },
+    Class: {
+        type: String,
+        required: false
+    },
+})
+</script>
+  
+<style lang="scss">
+.arrow-bottom-corner {
+    & path {
+        transition: .2s ease;
+    }
+}
+</style>

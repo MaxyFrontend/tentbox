@@ -1,5 +1,5 @@
 let sizesArr = []
-export const useTentSizesStore = defineStore('TentSizesStore', {
+export const useTentOrderSizesStore = defineStore('TentOrderSizesStore', {
     state: () => {
         return {
             sizes: [],
@@ -8,7 +8,7 @@ export const useTentSizesStore = defineStore('TentSizesStore', {
     },
     actions: {
         async fetchData() {
-            const { data: response } = await useFetch('/api/tent-sizes-params')
+            const { data: response } = await useFetch('/api/tent-order-sizes-params')
             sizesArr = response.value.data
             for (const size of sizesArr) {
                 size.price = size.basePrice

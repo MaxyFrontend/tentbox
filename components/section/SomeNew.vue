@@ -6,14 +6,12 @@
                     initial: {
                         y: '100%',
                         display:'block',
-                        opacity: 0
                     },
                     visibleOnce: {
                         y: 0,
-                        opacity: 1,
                         transition: {
-                            delay: 0,
-                            duration: 500,
+                            delay: 100,
+                            duration: 600,
                         }
                     }
                 }">

@@ -26,7 +26,7 @@ export default defineNuxtConfig({
       },
       nitro: {
         prerender: {
-          routes: ['/tent-order/3х3', '/tentrder/3х4', '/tentrder/3х6', '/tentrder/4х4', '/tentrder/4х6', '/tentrder/4х8'],
+          routes: ['/tent-order/','/tent-order/3х3', '/tentrder/3х4', '/tentrder/3х6', '/tentrder/4х4', '/tentrder/4х6', '/tentrder/4х8'],
           ignore:['/tent-order/3%D1%853','/tent-order/3%D1%854','/tent-order/3%D1%856','/tent-order/4%D1%854','/tent-order/4%D1%856','/tent-order/4%D1%858', '/tent-order/mobile-flags', '/tent-order/tent-rent']
         }
       },

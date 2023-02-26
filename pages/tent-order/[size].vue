@@ -1,7 +1,8 @@
 <template>
     <Breadcrumbs :items="breadcrumbs" Class="card--breadcrumbs" />
     <SectionTentOrderCard />
-    <SectionOurClients />
+    <SectionTentsBranding />
+    <SectionOurClients sectionTitle="Наши клиенты" sectionSubTitle="На мероприятиях Москвы и Московской области" />
     <SectionService />
     <SectionQuestions />
     <SectionOptionalEquipment subTitle="Дополнительное оборудование" />

@@ -1,5 +1,5 @@
 <template>
-    <section class="questions">
+    <section class="section questions">
         <div class="container questions__container">
             <h2 class="questions__title section--title overflow--hidden">
                 <span v-motion="{

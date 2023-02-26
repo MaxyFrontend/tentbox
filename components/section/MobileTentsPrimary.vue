@@ -11,7 +11,7 @@
                         y: 0,
                         transition: {
                             delay: 100,
-                            duration: 500,
+                            duration: 600,
                         }
                     }
                 }">

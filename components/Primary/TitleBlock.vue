@@ -3,13 +3,13 @@
         <h1 class="primary__title primary--title overflow--hidden">
             <span v-motion="{
                 initial: {
-                    y: 110,
+                    y: 120,
                     display:'block'
                 },
                 enter: {
                     y: 0,
                     transition: {
-                        duration: 500,
+                        duration: 600,
                         delay: 100,
                     }
                 }

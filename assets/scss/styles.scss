@@ -80,7 +80,7 @@ html {
     color: $blue-color;
     border-radius: 2px;
     border: 1px solid $blue-color;
-    transition: $base-transition;
+    transition: color, border-color, background-color, .2s ease;
     cursor: pointer;
     &:hover {
         background: $blue-color;
@@ -104,7 +104,7 @@ html {
     color: $dark-grey-color;
     border-radius: 2px;
     border: 1px solid transparent;
-    transition: $base-transition;
+    transition: color, border-color, background-color, .2s ease;
     cursor: pointer;
     &:hover {
         border-color: $blue-color;
@@ -128,7 +128,7 @@ html {
     color: $dark-grey-color;
     border-radius: 2px;
     border: 1px solid $light-grey-color;
-    transition: $base-transition;
+    transition: color, border-color, background-color, .2s ease;
     cursor: pointer;
     &:hover {
         border-color: $blue-color;
@@ -152,7 +152,7 @@ html {
     color: $dark-grey-color;
     border-radius: 2px;
     border: 1px dashed $light-grey-color;
-    transition: $base-transition;
+    transition: color, border-color, background-color, .2s ease;
     cursor: pointer;
     &:hover {
         border-color: $dark-grey-color;
@@ -198,6 +198,7 @@ html {
     display: block;
     width: 100%;
     overflow: hidden;
+    cursor: pointer;
     &:hover {
         .card--image {
             transform: translate(0);

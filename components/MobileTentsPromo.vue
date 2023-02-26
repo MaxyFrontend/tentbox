@@ -1,7 +1,7 @@
 <template>
     <div class="mobile-tents-promo" id="mobile-tents">
         <nuxt-link to="/mobile-tents" class="mobile-tents-promo__image-inner image-inner--hover">
-            <img src="@/assets/img/yandex-tent.jpg" alt="tents-promo" class="mobile-tents-promo__image">
+            <img src="@/assets/img/yandex-tent.jpg" width="1650" alt="tents-promo" class="mobile-tents-promo__image">
             <client-only>
                 <IconArrowRight Class="mobile-tents-promo__icon" :Animate="true" />
             </client-only>
@@ -11,14 +11,12 @@
                 initial: {
                     y: '50%',
                     display:'block',
-                    opacity: 0
                 },
                 visibleOnce: {
                     y: 0,
-                    opacity: 1,
                     transition: {
-                        delay: 0,
-                        duration: 500,
+                        delay: 100,
+                        duration: 600,
                     }
                 }
             }">Мобильные шатры</span>
@@ -29,7 +27,7 @@
         </p>
         <div class="mobile-tents-promo__links-inner" @mousemove="changeBtnsStyle($event)">
             <nuxt-link to="/mobile-tents" class="mobile-tents-promo__link blue-border-btn current--btn-active">Подробнее</nuxt-link>
-            <nuxt-link to="#" class="mobile-tents-promo__link no-border-btn">Выбрать размер</nuxt-link>
+            <nuxt-link to="/mobile-tents#tent-sizes" class="mobile-tents-promo__link no-border-btn">Выбрать размер</nuxt-link>
         </div>
     </div>
 </template>

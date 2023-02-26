@@ -2,7 +2,7 @@
     <header :class="['header', { 'mobile-menu-visible': mobileMenuStore.MobileMenuOpened }]">
         <div class="container header__container">
             <nuxt-link to="/" class="logo header__logo">
-                <img src="@/assets/img/logo.svg" alt="logo">
+                <img src="@/assets/img/logo.svg" alt="logo" width="104" height="34">
             </nuxt-link>
             <nav class="nav header__nav">
                 <ul class="nav--list header__nav_list">
@@ -72,7 +72,7 @@ const requestFormPopupStore = useRequestFormPopupStore()
 <style lang="scss">
 .header {
     position: relative;
-    padding: 43px 0;
+    padding: 30px 0;
     z-index: 600;
     &.mobile-menu-visible {
         position: fixed;
@@ -129,7 +129,7 @@ const requestFormPopupStore = useRequestFormPopupStore()
 }
 .nav-list__item_dropdown-trigger {
     cursor: pointer;
-    padding: 15px 0;
+    padding: 30px 0;
     &:hover .nav-list__item_dropdown {
         opacity: 1;
         visibility: visible;
@@ -199,7 +199,7 @@ const requestFormPopupStore = useRequestFormPopupStore()
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     &:last-child {
         margin-bottom: 0;
     }
@@ -329,7 +329,7 @@ const requestFormPopupStore = useRequestFormPopupStore()
     }
     .nav-list__item_contacts-dropdown {
         padding: 45px;
-        max-width: 380px;
+        max-width: 400px;
     }
 }
 @media (max-width:1300px) {

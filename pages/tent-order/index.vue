@@ -1,5 +1,5 @@
 <template>
-    <Breadcrumbs :items="breadcrumbs" />
+    <Breadcrumbs :items="breadcrumbs" Class="card--breadcrumbs" />
     <SectionTentOrderCard />
     <SectionOurClients />
     <SectionService />

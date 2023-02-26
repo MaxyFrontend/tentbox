@@ -15,7 +15,7 @@
                                     enter: {
                                         y: 0,
                                         transition: {
-                                            duration: 400,
+                                            duration: 500,
                                             delay: 200
                                         }
                                     }
@@ -32,7 +32,7 @@
                                     enter: {
                                         y: 0,
                                         transition: {
-                                            duration: 400,
+                                            duration: 500,
                                             delay: 400,
                                         }
                                     }
@@ -50,7 +50,7 @@
                                             enter: {
                                                 y: 0,
                                                 transition: {
-                                                    duration: 400,
+                                                    duration: 500,
                                                     delay: 400,
                                                 }
                                             }
@@ -68,7 +68,7 @@
                                             enter: {
                                                 y: 0,
                                                 transition: {
-                                                    duration: 400,
+                                                    duration: 500,
                                                     delay: 400,
                                                 }
                                             }
@@ -86,7 +86,7 @@
                                             enter: {
                                                 y: 0,
                                                 transition: {
-                                                    duration: 400,
+                                                    duration: 500,
                                                     delay: 400,
                                                 }
                                             }
@@ -104,7 +104,7 @@
                                             enter: {
                                                 y: 0,
                                                 transition: {
-                                                    duration: 400,
+                                                    duration: 500,
                                                     delay: 400,
                                                 }
                                             }
@@ -122,7 +122,7 @@
                                         enter: {
                                             y: 0,
                                             transition: {
-                                                duration: 400,
+                                                duration: 500,
                                                 delay: 400,
                                             }
                                         }
@@ -156,7 +156,7 @@
                                 opacity: 1,
                                 transition: {
                                     delay: 600,
-                                    duration: 400
+                                    duration: 500
                                 }
                             }
                         }">ЗАЯВКА
@@ -170,7 +170,7 @@
                                 opacity: 1,
                                 transition: {
                                     delay: 600,
-                                    duration: 400
+                                    duration: 500
                                 }
                             }
                         }">

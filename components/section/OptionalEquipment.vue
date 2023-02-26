@@ -6,14 +6,12 @@
                     initial: {
                         y: '100%',
                         display:'block',
-                        opacity: 0
                     },
                     visibleOnce: {
                         y: 0,
-                        opacity: 1,
                         transition: {
-                            delay: 100,
-                            duration: 400,
+                            delay: 0,
+                            duration: 600,
                         }
                     }
                 }">
@@ -276,6 +274,9 @@ defineProps({
             min-height: 200px;
         }
     }
+    .optional-equipment__card_type {
+        margin-right: 15px;
+    }
 }
 @media (max-width:1350px) {
     .optional-equipment__card {
@@ -283,6 +284,11 @@ defineProps({
     }
     .optional-equipment__card_type:nth-child(n + 4) {
         display: none;
+    }
+}
+@media (max-width:1300px) {
+    .optional-equipment__card_type {
+        margin-right: 10px;
     }
 }
 @media (max-width:1200px) {
@@ -328,7 +334,7 @@ defineProps({
             min-height: 340px;
         }
     }
-    .optional-equipment__card_image-inner {
+   .optional-equipment__card .optional-equipment__card_image-inner {
         height: 100vw;
         max-height: 340px;
         min-height: 340px;

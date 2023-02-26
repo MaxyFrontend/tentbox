@@ -7,14 +7,14 @@
                         v-motion="{
                             initial: {
                                 y: '100%',
-                                opacity:0,
+                                visibility:'hidden'
                             },
                             visibleOnce: {
                                 y: 0,
-                                opacity:1,
+                                visibility:'visible',
                                 transition: {
                                     delay: 100,
-                                    duration: 400,
+                                    duration: 500,
                                 }
                             }
                         }">
