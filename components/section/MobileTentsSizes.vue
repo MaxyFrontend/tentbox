@@ -60,10 +60,10 @@
                         <img src="@/assets/img/tents-sizes/four-x-four.png" alt="four-x-four" class="mobile-tents-sizes__item_image">
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
-                        <strong class="mobile-tents-sizes__item_title-value">3,0х3,0м</strong> <span class="mobile-tents-sizes__item_price">от 70 000 ₽</span>
+                        <strong class="mobile-tents-sizes__item_title-value">3,0x3,0м</strong> <span class="mobile-tents-sizes__item_price">от 70 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order/3х3" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
+                        <router-link to="/tent-order/3x3" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn" @click="requestFormPopupStore.open()">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -72,10 +72,10 @@
                         <img src="@/assets/img/tents-sizes/four-x-six.png" alt="four-x-six" class="mobile-tents-sizes__item_image">
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
-                        <strong class="mobile-tents-sizes__item_title-value">3,0х4,5м</strong> <span class="mobile-tents-sizes__item_price">от 85 000 ₽</span>
+                        <strong class="mobile-tents-sizes__item_title-value">3,0x4,5м</strong> <span class="mobile-tents-sizes__item_price">от 85 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order/3х4" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
+                        <router-link to="/tent-order/3x4" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn" @click="requestFormPopupStore.open()">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -84,10 +84,10 @@
                         <img src="@/assets/img/tents-sizes/four-x-eight.png" alt="four-x-eight" class="mobile-tents-sizes__item_image">
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
-                        <strong class="mobile-tents-sizes__item_title-value">3,0х6,0м</strong> <span class="mobile-tents-sizes__item_price">от 115 000 ₽</span>
+                        <strong class="mobile-tents-sizes__item_title-value">3,0x6,0м</strong> <span class="mobile-tents-sizes__item_price">от 115 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order/3х6" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
+                        <router-link to="/tent-order/3x6" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn" @click="requestFormPopupStore.open()">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -96,10 +96,10 @@
                         <img src="@/assets/img/tents-sizes/four-x-four.png" alt="four-x-four" class="mobile-tents-sizes__item_image">
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
-                        <strong class="mobile-tents-sizes__item_title-value">4,0х4,0м</strong> <span class="mobile-tents-sizes__item_price">от 85 000 ₽</span>
+                        <strong class="mobile-tents-sizes__item_title-value">4,0x4,0м</strong> <span class="mobile-tents-sizes__item_price">от 85 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order/4х4" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
+                        <router-link to="/tent-order/4x4" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn" @click="requestFormPopupStore.open()">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -108,10 +108,10 @@
                         <img src="@/assets/img/tents-sizes/four-x-six.png" alt="four-x-six" class="mobile-tents-sizes__item_image">
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
-                        <strong class="mobile-tents-sizes__item_title-value">4,0х6,0м</strong> <span class="mobile-tents-sizes__item_price">от 120 000 ₽</span>
+                        <strong class="mobile-tents-sizes__item_title-value">4,0x6,0м</strong> <span class="mobile-tents-sizes__item_price">от 120 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order/4х6" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
+                        <router-link to="/tent-order/4x6" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn" @click="requestFormPopupStore.open()">Быстрый заказ</button>
                     </div>
                 </swiper-slide>
@@ -120,10 +120,10 @@
                         <img src="@/assets/img/tents-sizes/four-x-eight.png" alt="four-x-eight" class="mobile-tents-sizes__item_image">
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
-                        <strong class="mobile-tents-sizes__item_title-value">4,0х8,0м</strong> <span class="mobile-tents-sizes__item_price">от 135 000 ₽</span>
+                        <strong class="mobile-tents-sizes__item_title-value">4,0x8,0м</strong> <span class="mobile-tents-sizes__item_price">от 135 000 ₽</span>
                     </h4>
                     <div class="mobile-tents-sizes__item_btns-inner" @mousemove="changeBtnsStyle($event)">
-                        <router-link to="/tent-order/4х8" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
+                        <router-link to="/tent-order/4x8" class="mobile-tents-sizes__item_btn blue-border-btn current--btn-active">Подробный расчет</router-link>
                         <button type="button" class="mobile-tents-sizes__item_btn no-border-btn" @click="requestFormPopupStore.open()">Быстрый заказ</button>
                     </div>
                 </swiper-slide>

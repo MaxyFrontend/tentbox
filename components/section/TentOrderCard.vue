@@ -264,6 +264,7 @@ import { Pagination, Mousewheel, A11y, } from 'swiper';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
+import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
 import image3x3 from '@/assets/img/tents-models/3x3.png'
 import image3x45 from '@/assets/img/tents-models/3x45.png'
 import image3x6 from '@/assets/img/tents-models/3x6.png'
@@ -283,7 +284,6 @@ const requestFormPopupStore = useRequestFormPopupStore()
 const TentOrderSizesStore = useTentOrderSizesStore()
 if (!TentOrderSizesStore.dataFetched) {
     await TentOrderSizesStore.fetchData()
-    TentOrderSizesStore.dataFetched
     TentOrderSizesStore.dataFetched = true
 }
 const { size } = useRoute().params
@@ -342,18 +342,13 @@ const chooseColorFunc = (idx) => {
 }
 const tentPrice = ref(formatPrice(TentOrderSizesStore.sizes[currentSizeIdx.value].price))
 const priceAnimate = ref(false)
-/* watch(TentOrderSizesStore.sizes[currentSizeIdx.value].price, () => {
-    
-}) */
-TentOrderSizesStore.$subscribe((mutation)=> {
-    if(mutation.events.key == 'price' && mutation.events.target.price !== 0) {
-        priceAnimate.value = true
+TentOrderSizesStore.$subscribe(()=> {
+    priceAnimate.value = true
         setTimeout(() => {
             priceAnimate.value = false
         }, 200)
         tentPrice.value = TentOrderSizesStore.sizes[currentSizeIdx.value].price
         tentPrice.value = formatPrice(tentPrice.value)
-    }
 })
 </script>
 <style src="@/assets/scss/tent-card.scss" lang="scss">

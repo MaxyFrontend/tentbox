@@ -88,22 +88,22 @@ const requestFormPopupStore = useRequestFormPopupStore()
 const modules = [Pagination, Mousewheel, A11y]
 const samples = [
     {
-        name: 'Шаблон 3,0х3,0м'
+        name: 'Шаблон 3,0x3,0м'
     },
     {
-        name: 'Шаблон 3,0х4,5м'
+        name: 'Шаблон 3,0x4,5м'
     },
     {
-        name: 'Шаблон 3,0х6,0м'
+        name: 'Шаблон 3,0x6,0м'
     },
     {
-        name: 'Шаблон 4,0х4,0м'
+        name: 'Шаблон 4,0x4,0м'
     },
     {
-        name: 'Шаблон 4,0х6,0м'
+        name: 'Шаблон 4,0x6,0м'
     },
     {
-        name: 'Шаблон 4,0х8,0м'
+        name: 'Шаблон 4,0x8,0м'
     },
 ]
 </script>

@@ -72,6 +72,6 @@ export const useTentRentSizesStore = defineStore('TentRentSizesStore', {
         calcPrice(sizeIdx) {
             this.sizes[sizeIdx].price =
             this.sizes[sizeIdx].basePrice + this.sizes[sizeIdx].optionsPrice + this.sizes[sizeIdx].daysPrice + this.sizes[sizeIdx].colorPrice
-        },
+        }
     },
 })

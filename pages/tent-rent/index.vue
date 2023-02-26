@@ -1,5 +1,6 @@
 <template>
     <Breadcrumbs :items="breadcrumbs" Class="card--breadcrumbs" />
+    <SectionTentRentCard />
     <SectionOurClients :clients="clients" sectionTitle="Наши клиенты" sectionSubTitle="В самых разных городах страны" />
     <SectionQuestions />
     <SectionOptionalEquipment subTitle="Дополнительное оборудование" />
