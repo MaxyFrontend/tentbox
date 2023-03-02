@@ -15,7 +15,7 @@
                         }
                     }
                 }">
-                {{ Title }}
+                {{ title }}
                 </span>
             </h2>
             <p class="section--sub-title optional-equipment__sub-title">{{ subTitle }}</p>
@@ -33,67 +33,25 @@
                         allowTouchMove: false
                     }
                 }">
-                <swiper-slide class="optional-equipment__card optional-equipment__mobile-flag-item" id="mobile-flags">
-                    <nuxt-link to="/" class="optional-equipment__card_image-inner image-inner--hover">
-                        <img src="@/assets/img/mobile-flags.jpg" alt="mobile-flags" class="optional-equipment__card_image">
+                <swiper-slide :class="['optional-equipment__card', item.additionalClass]" :id="item.id" v-for="(item, idx) of optionalEquipmentArr" :key="idx">
+                    <nuxt-link :to="item.pathTo" class="optional-equipment__card_image-inner image-inner--hover">
+                        <img :src="item.image" alt="mobile-flags" class="optional-equipment__card_image">
                         <client-only>
                             <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
                         </client-only>
                     </nuxt-link>
-                    <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.mobileFlags.title }}</nuxt-link>
-                    <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.mobileFlags.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsStyle($event)">
-                        <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.mobileFlags.types"
-                            :class="['quick-choose__item_size', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]"
+                    <nuxt-link :to="item.pathTo" class="optional-equipment__card_title card--title">{{ item.title }}</nuxt-link>
+                    <p class="optional-equipment__card_sub-title card--sub-title">{{ item.subTitle }}</p>
+                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsStyle($event)" v-if="item.types">
+                        <li class="optional-equipment__card_type" v-for="(type, index) in item.types"
+                            :class="['optional-equipment__item_size btn--hover', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]"
                             :key="type">
-                            <nuxt-link to="/">{{ type }}</nuxt-link>
+                            <nuxt-link :to="item.pathTo">{{ type }}</nuxt-link>
                         </li>
                     </ul>
-                </swiper-slide>
-                <swiper-slide class="optional-equipment__card optional-equipment__promo-accessories-item" id="promo-accessories">
-                    <nuxt-link to="/accessories" class="optional-equipment__card_image-inner image-inner--hover">
-                        <img src="@/assets/img/promo-accessories.jpg" alt="mobile-flags" class="optional-equipment__card_image">
-                        <client-only>
-                            <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
-                        </client-only>
-                    </nuxt-link>
-                    <nuxt-link to="/accessories" class="optional-equipment__card_title card--title">{{ notMobileTents.promoAccessories.title }}</nuxt-link>
-                    <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.promoAccessories.subTitle }}</p>
-                    <nuxt-link to="/accessories" class="optional-equipment__card_more-link blue-border-btn">Подробнее</nuxt-link>
-                </swiper-slide>
-                <swiper-slide class="optional-equipment__card optional-equipment__other-tents-item" id="other-tents">
-                    <nuxt-link to="/" class="optional-equipment__card_image-inner image-inner--hover">
-                        <img src="@/assets/img/pagodas.jpg" alt="mobile-flags" class="optional-equipment__card_image">
-                        <client-only>
-                            <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
-                        </client-only>
-                    </nuxt-link>
-                    <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.otherTents.title }}</nuxt-link>
-                    <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.otherTents.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsStyle($event)">
-                        <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.otherTents.types"
-                            :class="['quick-choose__item_size', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]"
-                            :key="type">
-                            <nuxt-link to="/">{{ type }}</nuxt-link>
-                        </li>
-                    </ul>
-                </swiper-slide>
-                <swiper-slide class="optional-equipment__card optional-equipment__mobile-umbrellas-item" id="mobile-umbrellas">
-                    <nuxt-link to="/" class="optional-equipment__card_image-inner image-inner--hover">
-                        <img src="@/assets/img/mobile-ambrella.jpg" alt="mobile-flags" class="optional-equipment__card_image">
-                        <client-only>
-                            <IconArrowRight Class="optional-equipment__card_image-inner_icon card--icon" Color="#fff" :Animate="true" />
-                        </client-only>
-                    </nuxt-link>
-                    <nuxt-link to="/" class="optional-equipment__card_title card--title">{{ notMobileTents.mobileUmbrellas.title }}</nuxt-link>
-                    <p class="optional-equipment__card_sub-title card--sub-title">{{ notMobileTents.mobileUmbrellas.subTitle }}</p>
-                    <ul class="optional-equipment__card_types-inner" @mousemove="changeBtnsStyle($event)">
-                        <li class="optional-equipment__card_type" v-for="(type, index) in notMobileTents.mobileUmbrellas.types"
-                            :class="['quick-choose__item_size', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]"
-                            :key="type">
-                            <nuxt-link to="/">{{ type }}</nuxt-link>
-                        </li>
-                    </ul>
+                    <div class="optional-equipment__card_btns-inner" v-else>
+                        <nuxt-link :to="item.pathTo" class="optional-equipment__card_link blue-border-btn">Подробнее</nuxt-link>
+                    </div>
                 </swiper-slide>
                 <div class="optional-equipment__slider-pagination swiper-pagination"></div>
             </swiper>
@@ -102,16 +60,19 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, A11y } from 'swiper';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
 import changeBtnsStyle from '@/composables/ChangeBtnsStyle.js';
+import mobileFlagsImage from '@/assets/img/mobile-flags.jpg'
+import promoAccessoriesImage from '@/assets/img/promo-accessories.jpg'
+import pagodasImage from '@/assets/img/pagodas.jpg'
+import mobileUmbrellaImage from '@/assets/img/mobile-umbrella.jpg'
 const modules = [Pagination, A11y]
-const notMobileTents = reactive({
-    mobileFlags: {
+const optionalEquipmentArr = ref([
+    {
         title: 'Мобильные флаги',
         subTitle: 'Быстросборные виндеры в четырех формах',
         types: [
@@ -119,33 +80,49 @@ const notMobileTents = reactive({
             'Перо',
             'Бриз',
             'Капля'
-        ]
+        ],
+        additionalClass: 'optional-equipment__mobile-flag-item',
+        id:'mobile-flags',
+        image:mobileFlagsImage,
+        pathTo:'/'
     },
-    otherTents: {
+    {
+        title: 'Промо-аксессуары',
+        subTitle: 'Сумки, зонты, дождевики и дизайн',
+        additionalClass: 'optional-equipment__promo-accessories-item',
+        id:'promo-accessories',
+        image:promoAccessoriesImage,
+        pathTo:'/accessories'
+    },
+    {
         title: 'Прочие шатры',
         subTitle: 'Если не увидели подходящий шатер или требуется индивидуальное решение',
         types: [
             'Пагоды',
             'Павильоны',
-            'Другое',
-        ]
+            'Другие',
+        ],
+        additionalClass: 'optional-equipment__other-tents-item',
+        id:'other-tents',
+        image:pagodasImage,
+        pathTo:'/'
     },
-    mobileUmbrellas: {
+    {
         title: 'Мобильные зонты',
         subTitle: 'Если шатер слишком крупный',
         types: [
             '2,0',
             '2,5',
             '3,0',
-        ]
+        ],
+        additionalClass: 'optional-equipment__mobile-umbrellas-item',
+        id:'mobile-umbrellas',
+        image:mobileUmbrellaImage,
+        pathTo:'/mobile-flags'
     },
-    promoAccessories: {
-        title: 'Промо-аксессуары',
-        subTitle: 'Сумки, зонты, дождевики и дизайн',
-    },
-})
+])
 defineProps({
-    Title: {
+    title: {
         type: String,
         required: false,
         default: 'Не мобильные шатры'
@@ -156,6 +133,9 @@ defineProps({
         default: 'Дополнительное оборудование'
     },
 })
+defineExpose({
+    optionalEquipmentArr
+})
 </script>
 
 <style lang="scss">
@@ -163,7 +143,7 @@ defineProps({
     margin-top: 60px;
 }
 .optional-equipment__card {
-    width: 30%;
+    width: 31%;
     flex-grow: 1;
     max-width: 530px;
     margin-right: 30px;
@@ -193,9 +173,6 @@ defineProps({
 }
 .optional-equipment__other-tents-item {
     align-self: flex-end;
-    & .optional-equipment__card_sub-title {
-        max-width: 300px;
-    }
     & .optional-equipment__card_image-inner {
         min-height: 220px;
     }
@@ -203,6 +180,7 @@ defineProps({
 .optional-equipment__mobile-umbrellas-item {
     width: 16%;
     max-width: 250px;
+    min-width: 230px;
     & .optional-equipment__card_image {
         object-position: left center;
     }
@@ -223,13 +201,22 @@ defineProps({
     transition: 0.5s ease;
 }
 .optional-equipment__card_sub-title {
-    max-width: 225px;
+    max-width: 340px;
+}
+.optional-equipment__mobile-tents-item .optional-equipment__card_sub-title {
+    max-width: 370px;
 }
 .optional-equipment__card_types-inner {
     margin-top: 24px;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    &.mouse-entered {
+        & .blue-border-btn {
+         border-color: transparent;
+         color: $dark-grey-color;
+        }
+     }
 }
 .optional-equipment__card_type {
     margin-bottom: 20px;
@@ -237,8 +224,10 @@ defineProps({
         margin-bottom: 0;
     }
 }
-.optional-equipment__card_more-link {
-    margin-top: 24px;
+.optional-equipment__card_btns-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
 }
 .swiper-pagination.optional-equipment__slider-pagination {
     display: none;
@@ -252,14 +241,12 @@ defineProps({
 @media (max-width:1600px) {
     .optional-equipment__card {
         margin-right: 20px;
+        width: 29%;
     }
     .optional-equipment__mobile-flag-item,
     .optional-equipment__other-tents-item {
         max-width: 450px;
         width: 29%;
-    }
-    .optional-equipment__other-tents-item {
-        width: 31%;
     }
     .optional-equipment__promo-accessories-item {
         width: 18%;
@@ -269,18 +256,29 @@ defineProps({
         width: 20%;
         max-width: 230px;
     }
+    .optional-equipment__card_image-inner {
+        max-height: 450px;
+    }
     .optional-equipment__other-tents-item {
         & .optional-equipment__card_image-inner {
             min-height: 200px;
+        }
+    }
+    .optional-equipment__mobile-tents-item {
+        & .optional-equipment__card_image-inner {
+            height: 50vw;
         }
     }
     .optional-equipment__card_type {
         margin-right: 15px;
     }
 }
-@media (max-width:1350px) {
+@media (max-width:1400px) {
     .optional-equipment__card {
         margin-right: 15px;
+    }
+    .optional-equipment__card_type {
+        margin-right: 10px;
     }
     .optional-equipment__card_type:nth-child(n + 4) {
         display: none;
@@ -289,6 +287,11 @@ defineProps({
 @media (max-width:1300px) {
     .optional-equipment__card_type {
         margin-right: 10px;
+    }
+    .optional-equipment__other-tents-item {
+        & .optional-equipment__card_image-inner {
+            min-height: 180px;
+        }
     }
 }
 @media (max-width:1200px) {

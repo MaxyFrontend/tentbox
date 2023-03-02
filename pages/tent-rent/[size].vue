@@ -1,6 +1,11 @@
 <template>
     <Breadcrumbs :items="breadcrumbs" Class="card--breadcrumbs" />
-    <SectionTentRentCard />
+    <SectionTentRentCard v-if="IsPageExist" />
+    <section v-else>
+        <div class="container">
+            <h1>Этого размера не существует</h1>
+        </div>
+    </section>
     <SectionOurClients :clients="clients" sectionTitle="Наши клиенты" sectionSubTitle="В самых разных городах страны" />
     <SectionQuestions />
     <SectionOptionalEquipment subTitle="Дополнительное оборудование" />
@@ -10,6 +15,19 @@
 import fullColorImprintImage from '@/assets/img/clients/full-color-imprint.jpg'
 import logosDrawingImage from '@/assets/img/clients/logos-drawing.jpg'
 import logosDrawing2Image from '@/assets/img/clients/logos-drawing-2.jpg'
+const { size } = useRoute().params
+const { data: rentSizesData } = await useFetch('/api/tent-rent-sizes')
+const rentSizes = rentSizesData.value.data
+const IsPageExist = ref(false)
+const isPageExistFunc = () => {
+    for (let rentSize of rentSizes) {
+        if (rentSize.path === size) {
+            return true
+        }
+    }
+    return false
+}
+IsPageExist.value = isPageExistFunc()
 const breadcrumbs = [
     {
         path: '/',

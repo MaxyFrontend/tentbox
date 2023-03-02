@@ -136,6 +136,7 @@
     width: 100%;
     max-width: 1050px;
     margin-top: 90px;
+    padding-left: 90px;
 }
 .questions__item_title {
     font-weight: 500;
@@ -188,6 +189,12 @@
     }
     .accordion__trigger.accordion__trigger_active {
         margin-bottom: 20px;
+    }
+}
+@media (max-width:1300px) {
+    .questions__wrapper {
+        padding-left: 0;
+        margin: 90px auto 0;
     }
 }
 @media (max-width:700px) {

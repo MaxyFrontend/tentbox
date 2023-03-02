@@ -26,8 +26,8 @@
             удобная транспортировка
         </p>
         <div class="mobile-tents-promo__links-inner" @mousemove="changeBtnsStyle($event)">
-            <nuxt-link to="/mobile-tents" class="mobile-tents-promo__link blue-border-btn current--btn-active">Подробнее</nuxt-link>
-            <nuxt-link to="/mobile-tents#tent-sizes" class="mobile-tents-promo__link no-border-btn">Выбрать размер</nuxt-link>
+            <nuxt-link to="/mobile-tents" class="mobile-tents-promo__link blue-border-btn current--btn-active btn--hover">Подробнее</nuxt-link>
+            <nuxt-link to="/tent-order" class="mobile-tents-promo__link no-border-btn btn--hover">Выбрать размер</nuxt-link>
         </div>
     </div>
 </template>
@@ -81,6 +81,12 @@ import changeBtnsStyle from '@/composables/ChangeBtnsStyle.js';
     margin-top: 30px;
     display: flex;
     align-items: center;
+    &.mouse-entered {
+        & .mobile-tents-promo__link.current--btn-active {
+            border-color: transparent;
+            color: $dark-grey-color;
+        }
+    }
 }
 .mobile-tents-promo__link {
     margin-right: 20px;

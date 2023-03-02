@@ -144,11 +144,12 @@ const samples = [
     margin-right: 25px;
 }
 .tents-branding__item_image-inner_caption {
+    font-family: 'Montserrat';
+    font-weight: 700;
     position: absolute;
     bottom: 0;
     left: 20px;
     line-height: 0.7;
-    font-weight: 500;
     font-size: 260px;
     letter-spacing: -0.075em;
     text-transform: uppercase;
@@ -182,7 +183,7 @@ const samples = [
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap:20px 0;
+    gap: 20px 0;
 }
 .tents-branding__for-designer_sample {
     position: relative;
@@ -198,7 +199,7 @@ const samples = [
         border-style: solid;
     }
     &:hover .tents-branding__for-designer_sample_icon path {
-        fill:#4076CC;
+        fill: #4076CC;
     }
 }
 .tents-branding__for-designer_sample_name {
@@ -270,14 +271,16 @@ const samples = [
     .tents-branding__item_image-inner {
         max-height: 220px;
     }
-    .tents-branding__item-volumetric_image {
-        margin-right: -50px;
-    }
-    .tents-branding__item-flat_image {
-        margin-right: -30px;
+    .tents-branding__item_image {
+        width: 90%;
+        transform: translateX(20%);
+        margin-right: 0;
     }
     .tents-branding__for-designer {
         display: none;
+    }
+    .tents-branding__item_image-inner_caption {
+        font-size: 187px;
     }
 }
 @media (max-width:370px) {

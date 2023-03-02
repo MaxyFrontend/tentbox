@@ -147,33 +147,8 @@
                             </p>
                         </form>
                     </div>
-                    <span class="request-form-caption"
-                        v-motion="{
-                            initial: {
-                                opacity: 0
-                            },
-                            enter: {
-                                opacity: 1,
-                                transition: {
-                                    delay: 600,
-                                    duration: 500
-                                }
-                            }
-                        }">ЗАЯВКА
-                    </span>
-                    <img src="@/assets/img/tents/tent-1-full.png" alt="tent" class="request-form-image"
-                        v-motion="{
-                            initial: {
-                                opacity: 0
-                            },
-                            enter: {
-                                opacity: 1,
-                                transition: {
-                                    delay: 600,
-                                    duration: 500
-                                }
-                            }
-                        }">
+                    <span class="request-form-caption">ЗАЯВКА</span>
+                    <img src="@/assets/img/tents/tent-1-full.png" alt="tent" class="request-form-image">
                 </div>
             </div>
         </transition>
@@ -315,6 +290,7 @@ const mobileMenuStore = useMobileMenuStore()
     & strong {
         display: flex;
         align-items: center;
+        white-space: nowrap;
         font-weight: 500;
         color: $dark-grey-color;
     }
@@ -359,10 +335,11 @@ const mobileMenuStore = useMobileMenuStore()
     margin-top: 17px;
 }
 .request-form-caption {
+    font-family: 'Montserrat';
+    font-weight: 700;
     position: absolute;
     left: 0;
     bottom: 0;
-    font-weight: 700;
     font-size: 329px;
     line-height: .8;
     color: #F8F8F8;

@@ -62,7 +62,7 @@
                     <div class="quick-choose__card_sizes" @mousemove="changeBtnsStyle($event)">
                         <client-only>
                             <nuxt-link to="/tent-order" v-for="(size, index) in quickChooseItems.orderTent.sizes" :key="size"
-                                :class="['quick-choose__card_size', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]">
+                                :class="['quick-choose__card_size btn--hover', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]">
                                 {{ size }}
                             </nuxt-link>
                         </client-only>
@@ -85,7 +85,7 @@
                     <div class="quick-choose__card_sizes" @mousemove="changeBtnsStyle($event)">
                         <client-only>
                             <nuxt-link to="/tent-rent" v-for="(size, index) in quickChooseItems.rentTent.sizes" :key="size"
-                                :class="['quick-choose__card_size', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]">
+                                :class="['quick-choose__card_size btn--hover', { 'blue-border-btn current--btn-active': index === 0, 'no-border-btn': index !== 0 }]">
                                 {{ size }}
                             </nuxt-link>
                         </client-only>
@@ -109,7 +109,7 @@
                         <nuxt-link :to="{ path: '/tent-rent', hash: '#branding' }" class="quick-choose__card_link blue-border-btn current--btn-active">
                             Подробнее
                         </nuxt-link>
-                        <a href="#" class="quick-shoose__item_link dashed-border-btn">
+                        <a href="#" class="quick-shoose__item_link dashed-border-btn btn--hover">
                             Скачать шаблон
                         </a>
                     </div>
@@ -145,9 +145,9 @@ let quickChooseItems = reactive({
         title: 'Аренда шатра',
         subTitle: 'Три типоразмера в аренду, белые и даже черные',
         sizes: [
-            '4,0x8,0',
-            '4,0x4,0',
             '3,0x3,0',
+            '4,0x4,0',
+            '4,0x8,0',
         ]
     },
     branding: {
@@ -188,7 +188,6 @@ defineProps({
     position: relative;
     display: block;
     display: flex;
-    border-radius: 4px 4px 0 0;
     padding-top: 60px;
     overflow: hidden;
     touch-action: pan-x !important;
@@ -244,6 +243,12 @@ defineProps({
     gap: 12px 0;
     margin-top: auto;
     justify-self: flex-end;
+    &.mouse-entered {
+       & .blue-border-btn {
+        border-color: transparent;
+        color: $dark-grey-color;
+       }
+    }
 }
 @media (max-width:1600px) {
     .quick-choose__card_image-inner {

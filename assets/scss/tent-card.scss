@@ -14,6 +14,13 @@
     width: fit-content;
     touch-action: pan-x !important;
 }
+.tent--card__size_link {
+    &:active {
+        border-color: $blue-color;
+        background: $blue-color;
+        color: #fff;
+    }
+}
 .swiper-pagination.tent--card__size-slider-pagination {
     margin-top: 17px;
     height: 2px;
@@ -37,6 +44,12 @@
 }
 .tent--card__sizes {
     margin-bottom: 35px;
+    &.mouse-entered {
+        & .blue-border-btn {
+         border-color: #BDBDBD;
+         color: $dark-grey-color;
+        }
+     }
 }
 .tent--card__name {
     font-weight: 700;
@@ -117,12 +130,6 @@
     display: flex;
     margin-right: 50px;
 }
-.tent--card__frame_btn {
-    &.is-choosen {
-        color: $blue-color;
-        border-color: $blue-color;
-    }
-}
 .tent--card__additional_item_description {
     font-weight: 400;
     max-width: 60%;
@@ -144,14 +151,28 @@
     align-items: flex-start;
     margin: 0;
     transition: 0.2s ease;
-    &.is-choosen {
+}
+.tent--card__additional_btn {
+    &.is-choosen,
+    &.is-choosen:focus {
         border-color: $blue-color;
         color: $blue-color;
     }
-    &:hover .tent--card__tent-type_btn_additional-price,
-    &.is-choosen .tent--card__tent-type_btn_additional-price {
+    &:focus {
+        color: $dark-grey-color;
+        border-color: #BDBDBD;
+        & .tent--card__options_btn_price{
+            color: #888888;
+        }
+    }
+    &.is-choosen .tent--card__options_btn_price,
+    &:hover .tent--card__options_btn_price,
+    &.is-choosen:focus .tent--card__options_btn_price{
         color: $blue-color;
-        transition: 0.2s ease;
+    }
+    &:active {
+        border-color: $blue-color;
+        color: $blue-color;
     }
 }
 .tent--card__tent-type_btn_additional-price {
@@ -198,14 +219,6 @@
     min-width: 220px;
     text-align: left;
     margin-right: 0;
-    &.is-choosen {
-        border-color: $blue-color;
-        color: $blue-color;
-    }
-    &.is-choosen .tent--card__options_btn_price,
-    &:hover .tent--card__options_btn_price {
-        color: $blue-color;
-    }
 }
 .tent--card__color_btn {
     &.is-choosen {
@@ -244,9 +257,9 @@
     color: $dark-grey-color;
     margin-bottom: 0;
     &.price-animate>span {
-        -webkit-animation: spinit 0.2s ease-out;
-        -moz-animation: spinit 0.2s ease-out;
-        animation: spinit 0.2s ease-out;
+        -webkit-animation: spinit 0.3s ease-out;
+        -moz-animation: spinit 0.3s ease-out;
+        animation: spinit 0.3s ease-out;
     }
 }
 @keyframes shake {
@@ -322,6 +335,8 @@
     max-width: none;
     padding: 25px;
     text-align: center;
+    height: 100%;
+    border-radius: 1px;
     &:last-child {
         margin-right: 0;
     }

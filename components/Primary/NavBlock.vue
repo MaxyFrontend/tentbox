@@ -1,5 +1,5 @@
 <template>
-    <nav class="nav primary__nav">
+    <nav class="nav primary__nav" @mousemove="changeBtnsStyle($event)">
         <swiper @swiper="getRef" class="primary__nav_list"
             :modules="modules"
             @after-init="SwiperMouseControl"
@@ -18,26 +18,27 @@
                     mousewheel: false,
                     slidesOffsetAfter: 0
                 }
-            }">
-            <swiper-slide class="primary__nav_list-item">
+            }"
+            >
+            <swiper-slide class="primary__nav_list-item btn--hover current--btn-active">
                 <nuxt-link to="/">Главная</nuxt-link>
             </swiper-slide>
-            <swiper-slide class="primary__nav_list-item">
+            <swiper-slide class="primary__nav_list-item btn--hover">
                 <a href="#mobile-tents">Шатры</a>
             </swiper-slide>
-            <swiper-slide class="primary__nav_list-item">
+            <swiper-slide class="primary__nav_list-item btn--hover">
                 <a href="#mobile-flags">Флаги</a>
             </swiper-slide>
-            <swiper-slide class="primary__nav_list-item">
+            <swiper-slide class="primary__nav_list-item btn--hover">
                 <a href="#pagodas">Пагоды</a>
             </swiper-slide>
-            <swiper-slide class="primary__nav_list-item">
+            <swiper-slide class="primary__nav_list-item btn--hover">
                 <a href="#mobile-umbrellas">Зонты</a>
             </swiper-slide>
-            <swiper-slide class="primary__nav_list-item">
+            <swiper-slide class="primary__nav_list-item btn--hover">
                 <a href="#promo-accessories">Аксессуары</a>
             </swiper-slide>
-            <swiper-slide class="primary__nav_list-item primary__nav_list-item_highlited">
+            <swiper-slide class="primary__nav_list-item primary__nav_list-item_highlited btn--hover">
                 <nuxt-link to="/new">Новинки</nuxt-link>
             </swiper-slide>
         </swiper>
@@ -52,6 +53,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
 import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
+import changeBtnsStyle from '@/composables/ChangeBtnsStyle.js';
 const modules = [Pagination, Mousewheel, A11y,]
 const Slider = ref(null)
 const getRef = (swiperInstance) => {
@@ -63,6 +65,16 @@ const getRef = (swiperInstance) => {
     position: relative;
     margin-top: 76px;
     touch-action: pan-x !important;
+    &.mouse-entered {
+        & .current--btn-active a {
+            background: transparent;
+        }
+        & .primary__nav_list-item {
+            &:hover {
+                //background: $blue-color;
+            }
+        }
+    }
 }
 .primary__nav_list-item {
     width: auto;
@@ -79,14 +91,19 @@ const getRef = (swiperInstance) => {
         display: block;
         text-align: center;
         padding: 8px 18px;
+        border: 1px solid transparent;
+        transition: 0.2s ease;
     }
     & .router-link-active,
-    &:hover {
+    &:hover a{
         background: #F2F2F2;
+        border-color: transparent;
     }
 }
 .primary__nav_list-item_highlited {
-    border: 1px dashed #BDBDBD;
+    & a {
+        border: 1px dashed #BDBDBD;
+    }
 }
 .primary__nav_slider-pagination {
     display: none;

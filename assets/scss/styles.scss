@@ -82,8 +82,9 @@ html {
     border: 1px solid $blue-color;
     transition: color, border-color, background-color, .2s ease;
     cursor: pointer;
-    &:hover {
+    &:active {
         background: $blue-color;
+        border-color: $blue-color;
         color: #fff;
     }
     &:last-child {
@@ -109,6 +110,11 @@ html {
     &:hover {
         border-color: $blue-color;
         color: $blue-color;
+    }
+    &:active {
+        background: $blue-color;
+        border-color: $blue-color;
+        color: #fff;
     }
     &:last-child {
         margin-right: 0;
@@ -235,7 +241,7 @@ html {
     top: auto;
     bottom: auto;
     left: auto;
-    height: 3px;
+    height: 2px !important;
     background: #E5E5E5;
     border-radius: 1px;
     & .swiper-pagination-progressbar-fill {
@@ -303,4 +309,8 @@ html {
 }
 .overflow--hidden {
     overflow: hidden;
+}
+.ruble {
+    font-family: 'Finlandica';
+    font-weight: 400;
 }

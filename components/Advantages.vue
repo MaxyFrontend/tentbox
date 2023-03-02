@@ -21,7 +21,7 @@
         }"
         >
         <swiper-slide class="advantages__item" v-for="(advantage, idx) in advantages" :key="idx" v-if="advantages.length > 0">
-            <strong class="advantages__item_name">{{ advantage.key }}</strong>
+            <strong class="advantages__item_name" v-html="advantage.key"></strong>
             <p class="advantages__item_value">
                 {{ advantage.value }}
             </p>
@@ -69,10 +69,19 @@ defineProps({
     }
 }
 .advantages__item_name {
+    position: relative;
     font-weight: 500;
     font-size: 36px;
     line-height: 45px;
     color: $dark-grey-color;
+    & sup {
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(100%, 20%);
+        font-size: .7em;
+        line-height: 1;
+    }
 }
 .advantages__item_value {
     font-weight: 400;

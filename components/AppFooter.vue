@@ -20,13 +20,13 @@
                                 <nuxt-link to="/mobile-tents">Мобильные шатры</nuxt-link>
                             </li>
                             <li class="nav-list__item footer__nav_list_item">
-                                <nuxt-link to="mobile-flags">Мобильные флаги</nuxt-link>
+                                <nuxt-link to="/mobile-flags">Мобильные флаги</nuxt-link>
                             </li>
                             <li class="nav-list__item footer__nav_list_item">
-                                <a href="#promo-accessories">Аксессуары</a>
+                                <a href="/accessories">Аксессуары</a>
                             </li>
                             <li class="nav-list__item footer__nav_list_item">
-                                <a href="#pagodas">Пагоды</a>
+                                <a href="#other-tents">Пагоды</a>
                             </li>
                         </ul>
                         <ul class="footer__nav_list">
@@ -34,7 +34,7 @@
                                 <a href="#mobile-umbrellas">Мобильные зонты</a>
                             </li>
                             <li class="nav-list__item footer__nav_list_item">
-                                <nuxt-link to="tent-rent">Аренда</nuxt-link>
+                                <nuxt-link to="/tent-rent">Аренда</nuxt-link>
                             </li>
                         </ul>
                     </nav>

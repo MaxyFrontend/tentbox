@@ -10,10 +10,10 @@
                         <span>КАТАЛОГ</span>
                         <div class="nav-list__item_dropdown nav-list__item_catalog-dropdown header__nav_list_item_dropdown">
                             <nuxt-link to="/mobile-tents" class="nav-list__item_dropdown_link">Мобильные шатры</nuxt-link>
-                            <nuxt-link to="mobile-flags" class="nav-list__item_dropdown_link">Мобильные флаги</nuxt-link>
+                            <nuxt-link to="/mobile-flags" class="nav-list__item_dropdown_link">Мобильные флаги</nuxt-link>
                             <nuxt-link to="/accessories" class="nav-list__item_dropdown_link">Аксессуары</nuxt-link>
-                            <nuxt-link to="/" class="nav-list__item_dropdown_link">Пагоды</nuxt-link>
-                            <nuxt-link to="/" class="nav-list__item_dropdown_link">Мобильные зонты</nuxt-link>
+                            <nuxt-link to="#other-tents" class="nav-list__item_dropdown_link">Пагоды</nuxt-link>
+                            <nuxt-link to="#mobile-umbrellas" class="nav-list__item_dropdown_link">Мобильные зонты</nuxt-link>
                         </div>
                     </li>
                     <li class="nav-list__item header__nav_list_item">
