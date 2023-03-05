@@ -5,10 +5,12 @@
                 <span v-motion="{
                     initial: {
                         y: '100%',
+                        opacity:0,
                         display:'block',
                     },
                     visibleOnce: {
                         y: 0,
+                        opacity:1,
                         transition: {
                             delay: 0,
                             duration: 600,
@@ -155,6 +157,9 @@ defineExpose({
     & .optional-equipment__card_image-inner {
         min-height: 470px;
     }
+    & .optional-equipment__card_sub-title {
+        max-width: 230px;
+    }
 }
 .optional-equipment__promo-accessories-item {
     width: 16%;
@@ -184,6 +189,9 @@ defineExpose({
     & .optional-equipment__card_image {
         object-position: left center;
     }
+    & .optional-equipment__card_sub-title {
+        max-width: 180px;
+    }
 }
 .optional-equipment__card_image-inner {
     width: 100%;
@@ -211,18 +219,13 @@ defineExpose({
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    gap:20px 0;
     &.mouse-entered {
         & .blue-border-btn {
          border-color: transparent;
          color: $dark-grey-color;
         }
      }
-}
-.optional-equipment__card_type {
-    margin-bottom: 20px;
-    &:last-child {
-        margin-bottom: 0;
-    }
 }
 .optional-equipment__card_btns-inner {
     display: flex;
@@ -242,6 +245,11 @@ defineExpose({
     .optional-equipment__card {
         margin-right: 20px;
         width: 29%;
+    }
+    .optional-equipment__mobile-flag-item {
+        & .optional-equipment__card_image-inner {
+            min-height: 450px;
+        }
     }
     .optional-equipment__mobile-flag-item,
     .optional-equipment__other-tents-item {
@@ -266,7 +274,7 @@ defineExpose({
     }
     .optional-equipment__mobile-tents-item {
         & .optional-equipment__card_image-inner {
-            height: 50vw;
+            height: 90vw;
         }
     }
     .optional-equipment__card_type {
@@ -297,6 +305,9 @@ defineExpose({
 @media (max-width:1200px) {
     .optional-equipment__card {
         width: 100%;
+    }
+    .optional-equipment__mobile-tents-item {
+        max-width: 400px;
     }
     .optional-equipment__other-tents-item {
         & .optional-equipment__card_image-inner {
@@ -367,6 +378,10 @@ defineExpose({
         & .optional-equipment__card_type:nth-child(n + 4) {
             display: none;
         }
+    }
+    .optional-equipment__card_type,
+    .optional-equipment__card_link {
+        font-size: 13px;
     }
 }
 </style>

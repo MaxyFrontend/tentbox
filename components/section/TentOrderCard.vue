@@ -1,5 +1,5 @@
 <template>
-    <section class="tent--card section">
+    <section :class="['tent--card section', {'is-touch': isMobileOrTablet}]">
         <div class="container tent--card__container">
             <div class="tent--card__sizes" @mousemove="changeBtnsStyle($event)">
                 <swiper class="tent--card__sizes-slider"
@@ -37,10 +37,12 @@
                             v-motion="{
                                 initial: {
                                     y: '100%',
+                                    opacity:0,
                                     display: 'block',
                                 },
                                 enter: {
                                     y: 0,
+                                    opacity:1,
                                     transition: {
                                         delay: 100,
                                         duration: 600,
@@ -169,11 +171,13 @@
                             <span v-motion="{
                                 initial: {
                                     y: '100%',
+                                    opacity:0,
                                     display: 'block',
                                     visibility: 'hidden',
                                 },
                                 visibleOnce: {
                                     y: 0,
+                                    opacity:1,
                                     visibility: 'visible',
                                     transition: {
                                         delay: 100,
@@ -200,11 +204,13 @@
                             v-motion="{
                                 initial: {
                                     y: '200%',
+                                    opacity:0,
                                     display: 'block',
                                     visibility: 'hidden'
                                 },
                                 visibleOnce: {
                                     y: 0,
+                                    opacity:1,
                                     visibility: 'visible',
                                     transition: {
                                         delay: 100,
@@ -223,11 +229,13 @@
                             v-motion="{
                                 initial: {
                                     y: '200%',
+                                    opacity:0,
                                     display: 'block',
                                     visibility: 'hidden',
                                 },
                                 visibleOnce: {
                                     y: 0,
+                                    opacity:1,
                                     visibility: 'visible',
                                     transition: {
                                         delay: 100,
@@ -274,6 +282,12 @@ const images = [
     image4x8
 ]
 const modules = [Pagination, Mousewheel, A11y]
+/* const { $isMobile, $isTablet} = useNuxtApp()
+const isMobileOrTablet = () => {
+    if($isMobile() || $isTablet()) {
+        return true
+    }
+} */
 const requestFormPopupStore = useRequestFormPopupStore()
 const TentOrderSizesStore = useTentOrderSizesStore()
 if (!TentOrderSizesStore.dataFetched) {
@@ -336,6 +350,13 @@ TentOrderSizesStore.$subscribe(() => {
         tentPrice.value = TentOrderSizesStore.sizes[currentSizeIdx.value].price
         tentPrice.value = formatPrice(tentPrice.value)
     }, 200)
+})
+defineProps({
+    isMobileOrTablet: {
+        type: Boolean,
+        required:false,
+        default:false
+    }
 })
 </script>
 <style src="@/assets/scss/tent-card.scss" lang="scss"></style>

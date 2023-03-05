@@ -5,10 +5,12 @@
                 <span v-motion="{
                     initial: {
                         y: '100%',
+                        opacity:0,
                         display: 'block',
                     },
                     visibleOnce: {
                         y: 0,
+                        opacity:1,
                         transition: {
                             delay: 100,
                             duration: 600,
@@ -266,6 +268,9 @@ const requestFormPopupStore = useRequestFormPopupStore()
     }
     .mobile-tents-sizes__item_image {
         height: 50vw;
+    }
+    .mobile-tents-sizes__item_btn {
+        margin-right: 10px;
     }
 }
 @media (max-width:370px) {

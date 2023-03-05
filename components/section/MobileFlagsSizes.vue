@@ -7,7 +7,7 @@
             <p class="section--sub-title mobile-flags-sizes__sub-title">
                 И четыре вида оснований
             </p>
-            <swiper class="mobile-flags-sizes__wrapper mobile-flags-sizes__main"
+            <swiper :class="['mobile-flags-sizes__wrapper mobile-flags-sizes__main', { 'slider-touchmove': sliderTouchStart }]"
                 :modules="modules"
                 @after-init="SwiperMouseControl"
                 :speed="450"
@@ -24,7 +24,7 @@
                         spaceBetween: 0,
                         slidesPerView: 4,
                         allowTouchMove: false,
-                        mousewheel:false
+                        mousewheel: false
                     },
                     900: {
                         slidesPerView: 3,
@@ -33,7 +33,9 @@
                     700: {
                         slidesPerView: 2,
                     }
-                }">
+                }"
+                @TouchStart="TouchStartHandle()"
+                @touchMoveOpposite="touchMoveOppositeHandle()">
                 <swiper-slide class="mobile-flags-sizes__item">
                     <img src="@/assets/img/flags-sizes/wings.png" alt="wings" class="mobile-flags-sizes__item_image">
                     <h3 class="mobile-flags-sizes__item_title card--title"><strong>Крыло —</strong> от 8 500 <span class="ruble">₽</span></h3>
@@ -56,7 +58,7 @@
                 </swiper-slide>
                 <div class="swiper-pagination mobile-flags-sizes__slider-pagination mobile-flags-sizes__main-slider-pagination"></div>
             </swiper>
-            <swiper class="mobile-flags-sizes__wrapper mobile-flags-sizes__additional"
+            <swiper :class="['mobile-flags-sizes__wrapper mobile-flags-sizes__additional', { 'slider-touchmove': sliderTouchStart }]"
                 :modules="modules"
                 @after-init="SwiperMouseControl"
                 :speed="450"
@@ -73,7 +75,7 @@
                         spaceBetween: 0,
                         slidesPerView: 4,
                         allowTouchMove: false,
-                        mousewheel:false
+                        mousewheel: false
                     },
                     900: {
                         slidesPerView: 3,
@@ -82,7 +84,9 @@
                     700: {
                         slidesPerView: 2,
                     }
-                }">
+                }"
+                @TouchStart="TouchStartHandle()"
+                @touchMoveOpposite="touchMoveOppositeHandle()">
                 <swiper-slide class="mobile-flags-sizes__item">
                     <img src="@/assets/img/flags-sizes/plate.png" alt="plate" class="mobile-flags-sizes__item_image">
                     <h3 class="mobile-flags-sizes__item_title card--title"><strong>Пластина —</strong> от 4 500 <span class="ruble">₽</span></h3>
@@ -115,15 +119,25 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import { Pagination, Mousewheel, A11y } from 'swiper'
-import SwiperMouseControl from '@/composables/SwiperMouseControl.js'    
+import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
 import { useRequestFormPopupStore } from '@/store/RequestFormPopupStore'
 const modules = [Pagination, Mousewheel, A11y]
 const requestFormPopupStore = useRequestFormPopupStore()
+const sliderTouchStart = ref(false)
+const TouchStartHandle = () => {
+    sliderTouchStart.value = true
+}
+const touchMoveOppositeHandle = () => {
+    sliderTouchStart.value = false
+}
 </script>
 
 <style lang="scss">
 .mobile-flags-sizes__wrapper {
     margin-top: 120px;
+    &.slider-touchmove .swiper-slide {
+        touch-action: pan-x !important;
+    }
 }
 .mobile-flags-sizes__additional {
     margin-top: 100px;

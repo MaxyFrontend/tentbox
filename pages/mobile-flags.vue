@@ -63,10 +63,8 @@ onMounted(() => {
     optionalEquipmentRef.value.optionalEquipmentArr[0].types = ['3,0х3,0', '3,0х4,5', '3,0х6,0', '4,0х4,0']
     optionalEquipmentRef.value.optionalEquipmentArr[0].additionalClass = 'optional-equipment__mobile-tents-item'
     optionalEquipmentRef.value.optionalEquipmentArr[0].image = mobileTentsImage
+    optionalEquipmentRef.value.optionalEquipmentArr[0].pathTo = '/mobile-tents'
 })
-// console.log(optionalEquipmentRef.value)
-/* optionalEquipmentRef.optionalEquipment.value[0].title = 'Мобильные флаги'
-optionalEquipmentRef.optionalEquipment.value[0].subTitle = 'Быстросборные виндеры в четырех формах' */
 </script>
 
 <style lang="scss"></style>

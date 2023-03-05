@@ -11,7 +11,7 @@
                                 <ul class="mobile-menu__sub-menu_list">
                                     <nuxt-link to="/mobile-tents" class="mobile-menu__sub-menu_link">Мобильные шатры</nuxt-link>
                                     <nuxt-link to="/mobile-flags" class="mobile-menu__sub-menu_link">Мобильные флаги</nuxt-link>
-                                    <nuxt-link to="/" class="mobile-menu__sub-menu_link">Аксессуары</nuxt-link>
+                                    <nuxt-link to="/accessories" class="mobile-menu__sub-menu_link">Аксессуары</nuxt-link>
                                     <nuxt-link to="/" class="mobile-menu__sub-menu_link">Пагоды</nuxt-link>
                                     <nuxt-link to="/" class="mobile-menu__sub-menu_link">Модульные зонты</nuxt-link>
                                 </ul>
@@ -62,13 +62,6 @@ function subMenuFunc(e) {
             contactsSubMenuVisible.value = !contactsSubMenuVisible.value;
             catalogSubMenuVisible.value = false
         }
-/*         document.addEventListener('click', function clickOutFunc(e) {
-            if (!currentEl.contains(e.target) && e.target.closest('.mobile-menu__nav_list_item') !== catalogListItem.value && e.target.closest('.mobile-menu__nav_list_item') !== contactsListItem.value) {
-                contactsSubMenuVisible.value = false
-                catalogSubMenuVisible.value = false
-                document.removeEventListener('click', clickOutFunc)
-            }
-        }) */
     }
 }
 mobileMenuStore.$subscribe(() => {

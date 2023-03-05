@@ -124,17 +124,27 @@
     .black--btn {
         padding: 22px;
     }
+    .swiper-pagination.swiper-pagination-progressbar {
+        height: 2px !important;
+    }
     .swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
         top: 245px;
     }
 }
 @media (max-width:370px) {
+    .section {
+        padding: 35px 0;
+    }
     .section--title {
         font-size: 24px;
         line-height: 28px;
     }
+    .section--sub-title {
+        font-size: 14px;
+        line-height: 18px;
+    }
     .primary--title {
-        font-size: 24px;
+        font-size: 22px;
         line-height: 28px;
     }
     .primary--sub-title {

@@ -1,5 +1,5 @@
 <template>
-    <section class="tent--card tent-rent-card section">
+    <section :class="['tent--card section', {'is-touch': isMobileOrTablet}]">
         <div class="container tent--card__container">
             <div class="tent--card__sizes" @mousemove="changeBtnsStyle($event)">
                 <swiper class="tent--card__sizes-slider"
@@ -9,7 +9,7 @@
                     :slides-per-view="'auto'"
                     :space-between="20"
                     :mousewheel="true"
-                    :slides-offset-after="20"
+                    :slides-offset-after="0"
                     :long-swipes="true"
                     :pagination="{
                         el: '.tent--card__size-slider-pagination',
@@ -32,15 +32,17 @@
             </div>
             <div class="tent--card__main-info tent-rent-card__main-info">
                 <div class="tent--card__main-info_column tent--card__main-info_left-column">
-                    <h2 class="tent--card__name overflow--hidden">
+                    <h2 class="tent--card__name tent--card__name-full overflow--hidden">
                         <span
                             v-motion="{
                                 initial: {
                                     y: '100%',
+                                    opacity:0,
                                     display: 'block',
                                 },
                                 enter: {
                                     y: 0,
+                                    opacity:1,
                                     transition: {
                                         delay: 100,
                                         duration: 600,
@@ -48,6 +50,26 @@
                                 }
                             }">
                             Аренда шатра {{ currentSize }} м
+                        </span>
+                    </h2>
+                    <h2 class="tent--card__name tent--card__name-short overflow--hidden">
+                        <span
+                            v-motion="{
+                                initial: {
+                                    y: '100%',
+                                    opacity:0,
+                                    display: 'block',
+                                },
+                                enter: {
+                                    y: 0,
+                                    opacity:1,
+                                    transition: {
+                                        delay: 100,
+                                        duration: 600,
+                                    }
+                                }
+                            }">
+                            Шатер {{ currentSize }}м
                         </span>
                     </h2>
                     <p class="tent--card__description">
@@ -126,11 +148,13 @@
                             <span v-motion="{
                                 initial: {
                                     y: '100%',
+                                    opacity:0,
                                     display: 'block',
                                     visibility: 'hidden',
                                 },
                                 visibleOnce: {
                                     y: 0,
+                                    opacity:1,
                                     visibility: 'visible',
                                     transition: {
                                         delay: 100,
@@ -158,10 +182,12 @@
                                 initial: {
                                     y: '200%',
                                     display: 'block',
+                                    opacity:0,
                                     visibility: 'hidden'
                                 },
                                 visibleOnce: {
                                     y: 0,
+                                    opacity:1,
                                     visibility: 'visible',
                                     transition: {
                                         delay: 100,
@@ -180,11 +206,13 @@
                             v-motion="{
                                 initial: {
                                     y: '200%',
+                                    opacity:0,
                                     display: 'block',
                                     visibility: 'hidden',
                                 },
                                 visibleOnce: {
                                     y: 0,
+                                    opacity:1,
                                     visibility: 'visible',
                                     transition: {
                                         delay: 100,
@@ -225,6 +253,12 @@ const images = [
     image4x8
 ]
 const modules = [Pagination, Mousewheel, A11y]
+/* const { $isMobile, $isTablet} = useNuxtApp()
+const isMobileOrTablet = () => {
+    if($isMobile() || $isTablet()) {
+        return true
+    }
+} */
 const requestFormPopupStore = useRequestFormPopupStore()
 const TentRentSizesStore = useTentRentSizesStore()
 if (!TentRentSizesStore.dataFetched) {
@@ -281,6 +315,13 @@ TentRentSizesStore.$subscribe((mutation) => {
         tentPrice.value = TentRentSizesStore.sizes[currentSizeIdx.value].price
         tentPrice.value = formatPrice(tentPrice.value)
     }, 200)
+})
+defineProps({
+    isMobileOrTablet: {
+        type: Boolean,
+        required:false,
+        default:false
+    }
 })
 </script>
 

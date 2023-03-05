@@ -8,12 +8,16 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "^3.1.2"
+    "@nuxtjs/device": "^3.1.0",
+    "nuxt": "^3.1.2",
+    "vite-plugin-imagemin": "^0.6.1"
   },
   "dependencies": {
     "@nuxt/image": "^0.7.1",
     "@pinia/nuxt": "^0.4.6",
     "@vueuse/motion": "^2.0.0-beta.25",
+    "imagemin-webp": "^8.0.0",
+    "mobile-detect": "^1.4.5",
     "pinia": "^2.0.30",
     "sass": "^1.58.0",
     "swiper": "^9.0.3"

@@ -1,3 +1,4 @@
+import viteImagemin from 'vite-plugin-imagemin'
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
@@ -22,7 +23,36 @@ export default defineNuxtConfig({
               additionalData: '@use "@/assets/scss/_variables.scss" as *;'
             }
           }
-        }
+        },
+        plugins: [
+          viteImagemin({
+            gifsicle: {
+              optimizationLevel: 7,
+              interlaced: false,
+            },
+            optipng: {
+              optimizationLevel: 7,
+            },
+            mozjpeg: {
+              quality: 80,
+            },
+            pngquant: {
+              quality: [0.8, 0.9],
+              speed: 4,
+            },
+            svgo: {
+              plugins: [
+                {
+                  name: 'removeViewBox',
+                },
+                {
+                  name: 'removeEmptyAttrs',
+                  active: false,
+                },
+              ],
+            },
+          }),
+        ]
       },
       nitro: {
         prerender: {

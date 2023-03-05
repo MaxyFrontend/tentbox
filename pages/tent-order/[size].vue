@@ -1,6 +1,7 @@
 <template>
     <Breadcrumbs :items="breadcrumbs" Class="card--breadcrumbs" />
-    <SectionTentOrderCard v-if="IsPageExist" />
+    <Breadcrumbs :items="mobileBreadcrumbs" Class="card--breadcrumbs card--breadcrumbs-mobile" />
+    <SectionTentOrderCard v-if="IsPageExist" :isMobileOrTablet="isMobileOrTablet" />
     <section v-else>
         <div class="container">
             <h1>Этого размера не существует</h1>
@@ -30,17 +31,34 @@ IsPageExist.value = isPageExistFunc()
 const breadcrumbs = [
     {
         path: '/',
-        name: 'ГЛАВНАЯ'
+        name: 'Главная'
     },
     {
         path: '/mobile-tents',
         name: 'Мобильные шатры'
     },
     {
-        path: '/tent-order',
-        name: 'ПОКУПКА ШАТРА'
+        path: `/tent-order/${size}`,
+        name: 'Покупка шатра'
     },
 ]
+const mobileBreadcrumbs = [
+    {
+        path: '/mobile-tents',
+        name: 'Назад',
+    },
+    {
+        path: `/tent-order/${size}`,
+        name: 'Покупка шатра'
+    },
+]
+const isMobileOrTablet = ref(false)
+onMounted(() => {
+    const { $isMobile, $isTablet } = useNuxtApp()
+        if ($isMobile() || $isTablet()) {
+            return isMobileOrTablet.value = true
+        }
+})
 </script>
 
 <style lang="scss"></style>

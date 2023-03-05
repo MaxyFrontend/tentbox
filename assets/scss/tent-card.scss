@@ -14,13 +14,13 @@
     width: fit-content;
     touch-action: pan-x !important;
 }
-.tent--card__size_link {
+/* .tent--card__size_link {
     &:active {
         border-color: $blue-color;
         background: $blue-color;
         color: #fff;
     }
-}
+} */
 .swiper-pagination.tent--card__size-slider-pagination {
     margin-top: 17px;
     height: 2px;
@@ -57,6 +57,9 @@
     line-height: 60px;
     color: $dark-grey-color;
     margin-bottom: 12px;
+}
+.tent--card__name-short {
+    display: none;
 }
 .tent--card__description {
     width: 100%;
@@ -125,6 +128,7 @@
     align-items: center;
     flex-wrap: wrap;
     flex: 1 1 auto;
+    gap:20px 0;
 }
 .tent--card__frame_btns-inner {
     display: flex;
@@ -153,26 +157,37 @@
     transition: 0.2s ease;
 }
 .tent--card__additional_btn {
-    &.is-choosen,
-    &.is-choosen:focus {
+    &.is-choosen {
         border-color: $blue-color;
         color: $blue-color;
-    }
-    &:focus {
-        color: $dark-grey-color;
-        border-color: #BDBDBD;
-        & .tent--card__options_btn_price{
-            color: #888888;
-        }
     }
     &.is-choosen .tent--card__options_btn_price,
-    &:hover .tent--card__options_btn_price,
-    &.is-choosen:focus .tent--card__options_btn_price{
+    &:hover .tent--card__options_btn_price{
         color: $blue-color;
     }
-    &:active {
-        border-color: $blue-color;
-        color: $blue-color;
+}
+.is-touch {
+    & .tent--card__additional_btn {
+        &.grey-border-btn:hover {
+            color: inherit;
+            border-color: #BDBDBD;
+        }
+        &.is-choosen.grey-border-btn {
+            border-color: $blue-color;
+            color: $blue-color;
+        }
+        &.is-choosen {
+            border-color: $blue-color;
+            color: $blue-color;
+        }
+        & .tent--card__options_btn_price,
+        & .tent--card__tent-type_btn_additional-price{
+            color: #888888;
+        }
+        &.is-choosen .tent--card__options_btn_price,
+        &.is-choosen .tent--card__tent-type_btn_additional-price{
+            color: $blue-color;
+        }
     }
 }
 .tent--card__tent-type_btn_additional-price {
@@ -392,6 +407,13 @@
     .tent--card__total-price {
         grid-template-columns: 100px 1fr;
     }
+    .tent--card__total-price .tent--card__additional_item_name {
+        padding: 15px 0;
+    }
+    .tent--card__total-price_value {
+        font-size: 32px;
+        line-height: 38px;
+    }
 }
 @media (max-width:1300px) {
     .tent--card__name {
@@ -463,6 +485,9 @@
     flex-wrap: wrap;
 }
 @media (max-width:700px) {
+    .tent--card {
+        padding-top: 50px;
+    }
     .tent--card__additional_item {
         flex-direction: column;
         margin-bottom: 58px;
@@ -476,7 +501,6 @@
     }
     .tent--card__additional_item_description {
         max-width: 100%;
-        margin-top: 18px;
     }
     .tent--card__total-price_value {
         width: 100%;
@@ -498,6 +522,14 @@
     }
 }
 @media (max-width:550px) {
+    .tent--card__name {
+        &.tent--card__name-full {
+            display: none;
+        }
+        &.tent--card__name-short {
+            display: block;
+        }
+    }
     .tent--card__tent-type_btn {
         flex-basis: 100%;
         max-width: none;
@@ -506,13 +538,27 @@
         flex-basis: 100%;
         max-width: none;
     }
+    .tent--card__days_btn {
+        &:last-child {
+            display: none;
+        }
+    }
 }
 @media (max-width:370px) {
+    .tent--card__sizes {
+        margin-bottom: 25px;
+    }
+    .tent--card__params {
+        margin-top: 40px;
+    }
     .tent--card__additional {
-        margin-top: 50px;
+        margin-top: 40px;
     }
     .tent--card__additional_item {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
+    }
+    .tent--card__additional_item_name {
+        margin-bottom: 15px;
     }
     .tent--card__name {
         font-size: 28px;
@@ -527,15 +573,28 @@
         font-size: 14px;
         line-height: 20px;
     }
+    .tent--card__tent-type_colors {
+        margin-top: 20px;
+    }
+    .tent--card__tent-type_color {
+        width: 80px;
+        height: 32px;
+    }
+    .swiper-pagination.tent--card__colors-slider-pagination {
+        margin-top: 16px;
+    }
     .tent--card__params_item {
         margin-bottom: 15px;
     }
     .tent--card__total-price_value {
-        font-size: 32px;
-        line-height: 38px;
+        font-size: 28px;
+        line-height: 34px;
+    }
+    .tent--card__contact-info {
+        margin-top: 30px;
     }
     .tent--card__contact-info_btn {
         font-size: 14px;
-        padding: 18px;
+        padding: 16px;
     }
 }

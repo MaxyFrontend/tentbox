@@ -5,10 +5,12 @@
                 <span v-motion="{
                     initial: {
                         y: '100%',
+                        opacity:0,
                         display: 'block',
                     },
                     visibleOnce: {
                         y: 0,
+                        opacity:1,
                         transition: {
                             delay: 100,
                             duration: 600,

@@ -1,5 +1,5 @@
 <template>
-    <swiper class="advantages"
+    <swiper :class="['advantages', Class]"
         :modules="modules"
         @after-init="SwiperMouseControl"
         :mousewheel="true"
@@ -44,6 +44,10 @@ defineProps({
         type: Array,
         required: false,
         default: []
+    },
+    Class: {
+        type:String,
+        required:false
     }
 })
 </script>
@@ -68,6 +72,12 @@ defineProps({
         margin-right: 0;
     }
 }
+.accessories-primary__advantages {
+    & .advantages__item:nth-child(2) {
+        width: fit-content;
+        max-width: 170px;
+    }
+}
 .advantages__item_name {
     position: relative;
     font-weight: 500;
@@ -84,6 +94,7 @@ defineProps({
     }
 }
 .advantages__item_value {
+    max-width: 120px;
     font-weight: 400;
     font-size: 16px;
     line-height: 18px;

@@ -5,10 +5,12 @@
                 <span v-motion="{
                     initial: {
                         y: '100%',
+                        opacity:0,
                         display: 'block',
                     },
                     visibleOnce: {
                         y: 0,
+                        opacity:1,
                         transition: {
                             delay: 100,
                             duration: 400,
@@ -208,7 +210,7 @@
 }
 @media (max-width:370px) {
     .questions__wrapper {
-        margin-top: 50px;
+        margin-top: 40px;
     }
     .questions__item_title {
         font-size: 18px;

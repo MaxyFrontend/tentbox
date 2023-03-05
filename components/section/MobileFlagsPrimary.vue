@@ -1,5 +1,5 @@
 <template>
-    <section class="section mobile-flags-primary">
+    <section class="primary--section mobile-flags-primary">
         <div class="container mobile-flags-primary__container">
             <h1 class="primary--title mobile-flags-primary__title">Собственное производство и лучшие поставщики</h1>
             <p class="primary--sub-title mobile-flags-primary__sub-title">

@@ -1,7 +1,7 @@
 <template>
     <div class="mobile-tents-promo" id="mobile-tents">
         <nuxt-link to="/mobile-tents" class="mobile-tents-promo__image-inner image-inner--hover">
-            <img src="@/assets/img/yandex-tent.jpg" width="1650" alt="tents-promo" class="mobile-tents-promo__image">
+                <img src="@/assets/img/yandex-tent.jpg" width="1650" alt="tents-promo" class="mobile-tents-promo__image">
             <client-only>
                 <IconArrowRight Class="mobile-tents-promo__icon" :Animate="true" />
             </client-only>
@@ -10,10 +10,12 @@
             <span v-motion="{
                 initial: {
                     y: '50%',
+                    opacity:0,
                     display:'block',
                 },
                 visibleOnce: {
                     y: 0,
+                    opacity:1,
                     transition: {
                         delay: 100,
                         duration: 600,

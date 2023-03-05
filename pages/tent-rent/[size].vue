@@ -1,6 +1,7 @@
 <template>
     <Breadcrumbs :items="breadcrumbs" Class="card--breadcrumbs" />
-    <SectionTentRentCard v-if="IsPageExist" />
+    <Breadcrumbs :items="mobileBreadcrumbs" Class="card--breadcrumbs card--breadcrumbs-mobile" />
+    <SectionTentRentCard v-if="IsPageExist" :isMobileOrTablet="isMobileOrTablet" />
     <section v-else>
         <div class="container">
             <h1>Этого размера не существует</h1>
@@ -38,44 +39,59 @@ const breadcrumbs = [
         name: 'Мобильные шатры'
     },
     {
-        path: '/tent-rent',
+        path: `/tent-rent/${size}`,
+        name: 'Аренда шатра'
+    },
+]
+const mobileBreadcrumbs = [
+    {
+        path: '/mobile-tents',
+        name: 'Назад',
+    },
+    {
+        path: `/tent-rent/${size}`,
         name: 'Аренда шатра'
     },
 ]
 const clients = [
-            {
-                title: 'Полноцветная запечатка шатров',
-                text: 'Общий бюджет  —  200 000 ₽',
-                img: fullColorImprintImage
-            },
-            {
-                title: 'Нанесение логотипов на фризы крыш',
-                text: 'Общий бюджет  —  30 000 ₽',
-                img: logosDrawingImage
-            },
-            {
-                title: 'Нанесение логотипов на фризы крыш',
-                text: 'Общий бюджет  —  10 000 ₽',
-                img: logosDrawing2Image
-            },
-            {
-                title: 'Полноцветная запечатка шатров',
-                text: 'Общий бюджет  —  200 000 ₽',
-                img: fullColorImprintImage
-            },
-            {
-                title: 'Нанесение логотипов на фризы крыш',
-                text: 'Общий бюджет  —  30 000 ₽',
-                img: logosDrawingImage
-            },
-            {
-                title: 'Нанесение логотипов на фризы крыш',
-                text: 'Общий бюджет  —  10 000 ₽',
-                img: logosDrawing2Image
-            }
-        ]
+    {
+        title: 'Полноцветная запечатка шатров',
+        text: 'Общий бюджет  —  200 000 ₽',
+        img: fullColorImprintImage
+    },
+    {
+        title: 'Нанесение логотипов на фризы крыш',
+        text: 'Общий бюджет  —  30 000 ₽',
+        img: logosDrawingImage
+    },
+    {
+        title: 'Нанесение логотипов на фризы крыш',
+        text: 'Общий бюджет  —  10 000 ₽',
+        img: logosDrawing2Image
+    },
+    {
+        title: 'Полноцветная запечатка шатров',
+        text: 'Общий бюджет  —  200 000 ₽',
+        img: fullColorImprintImage
+    },
+    {
+        title: 'Нанесение логотипов на фризы крыш',
+        text: 'Общий бюджет  —  30 000 ₽',
+        img: logosDrawingImage
+    },
+    {
+        title: 'Нанесение логотипов на фризы крыш',
+        text: 'Общий бюджет  —  10 000 ₽',
+        img: logosDrawing2Image
+    }
+]
+const isMobileOrTablet = ref(false)
+onMounted(() => {
+    const { $isMobile, $isTablet } = useNuxtApp()
+        if ($isMobile() || $isTablet()) {
+            return isMobileOrTablet.value = true
+        }
+})
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
