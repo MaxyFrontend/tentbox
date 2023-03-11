@@ -59,7 +59,11 @@
                 @touchMoveOpposite="touchMoveOppositeHandle()">
                 <swiper-slide class="mobile-tents-sizes__item">
                     <div class="mobile-tents-sizes__item_image-inner">
-                        <img src="@/assets/img/tents-sizes/four-x-four.png" alt="four-x-four" class="mobile-tents-sizes__item_image">
+                        <picture>
+                            <source srcset="@/assets/img/tents-sizes/four-x-four.webp" type="image/webp">
+                            <source srcset="@/assets/img/tents-sizes/four-x-four.png" type="image/png">
+                            <img src="@/assets/img/tents-sizes/four-x-four.png" alt="four-x-four" class="mobile-tents-sizes__item_image">
+                        </picture>
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
                         <strong class="mobile-tents-sizes__item_title-value">3,0x3,0м</strong> <span class="mobile-tents-sizes__item_price">от 70 000 <span class="ruble">₽</span></span>
@@ -71,7 +75,11 @@
                 </swiper-slide>
                 <swiper-slide class="mobile-tents-sizes__item">
                     <div class="mobile-tents-sizes__item_image-inner">
-                        <img src="@/assets/img/tents-sizes/four-x-six.png" alt="four-x-six" class="mobile-tents-sizes__item_image">
+                        <picture>
+                            <source srcset="@/assets/img/tents-sizes/four-x-six.webp" type="image/webp">
+                            <source srcset="@/assets/img/tents-sizes/four-x-six.png" type="image/png">
+                            <img src="@/assets/img/tents-sizes/four-x-six.png" alt="four-x-six" class="mobile-tents-sizes__item_image">
+                        </picture>
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
                         <strong class="mobile-tents-sizes__item_title-value">3,0x4,5м</strong> <span class="mobile-tents-sizes__item_price">от 85 000 <span class="ruble">₽</span></span>
@@ -83,7 +91,11 @@
                 </swiper-slide>
                 <swiper-slide class="mobile-tents-sizes__item">
                     <div class="mobile-tents-sizes__item_image-inner">
-                        <img src="@/assets/img/tents-sizes/four-x-eight.png" alt="four-x-eight" class="mobile-tents-sizes__item_image">
+                        <picture>
+                            <source srcset="@/assets/img/tents-sizes/four-x-eight.webp" type="image/webp">
+                            <source srcset="@/assets/img/tents-sizes/four-x-eight.png" type="image/png">
+                            <img src="@/assets/img/tents-sizes/four-x-eight.png" alt="four-x-eight" class="mobile-tents-sizes__item_image">
+                        </picture>
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
                         <strong class="mobile-tents-sizes__item_title-value">3,0x6,0м</strong> <span class="mobile-tents-sizes__item_price">от 115 000 <span class="ruble">₽</span></span>
@@ -95,7 +107,11 @@
                 </swiper-slide>
                 <swiper-slide class="mobile-tents-sizes__item">
                     <div class="mobile-tents-sizes__item_image-inner">
-                        <img src="@/assets/img/tents-sizes/four-x-four.png" alt="four-x-four" class="mobile-tents-sizes__item_image">
+                        <picture>
+                            <source srcset="@/assets/img/tents-sizes/four-x-four.webp" type="image/webp">
+                            <source srcset="@/assets/img/tents-sizes/four-x-four.png" type="image/png">
+                            <img src="@/assets/img/tents-sizes/four-x-four.png" alt="four-x-four" class="mobile-tents-sizes__item_image">
+                        </picture>
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
                         <strong class="mobile-tents-sizes__item_title-value">4,0x4,0м</strong> <span class="mobile-tents-sizes__item_price">от 85 000 <span class="ruble">₽</span></span>
@@ -107,7 +123,11 @@
                 </swiper-slide>
                 <swiper-slide class="mobile-tents-sizes__item">
                     <div class="mobile-tents-sizes__item_image-inner">
-                        <img src="@/assets/img/tents-sizes/four-x-six.png" alt="four-x-six" class="mobile-tents-sizes__item_image">
+                        <picture>
+                            <source srcset="@/assets/img/tents-sizes/four-x-six.webp" type="image/webp">
+                            <source srcset="@/assets/img/tents-sizes/four-x-six.png" type="image/png">
+                            <img src="@/assets/img/tents-sizes/four-x-six.png" alt="four-x-six" class="mobile-tents-sizes__item_image">
+                        </picture>
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
                         <strong class="mobile-tents-sizes__item_title-value">4,0x6,0м</strong> <span class="mobile-tents-sizes__item_price">от 120 000 <span class="ruble">₽</span></span>
@@ -119,7 +139,11 @@
                 </swiper-slide>
                 <swiper-slide class="mobile-tents-sizes__item">
                     <div class="mobile-tents-sizes__item_image-inner">
-                        <img src="@/assets/img/tents-sizes/four-x-eight.png" alt="four-x-eight" class="mobile-tents-sizes__item_image">
+                        <picture>
+                            <source srcset="@/assets/img/tents-sizes/four-x-eight.webp" type="image/webp">
+                            <source srcset="@/assets/img/tents-sizes/four-x-eight.png" type="image/png">
+                            <img src="@/assets/img/tents-sizes/four-x-eight.png" alt="four-x-eight" class="mobile-tents-sizes__item_image">
+                        </picture>
                     </div>
                     <h4 class="mobile-tents-sizes__item_title">
                         <strong class="mobile-tents-sizes__item_title-value">4,0x8,0м</strong> <span class="mobile-tents-sizes__item_price">от 135 000 <span class="ruble">₽</span></span>
@@ -160,9 +184,6 @@ const requestFormPopupStore = useRequestFormPopupStore()
 <style lang="scss">
 .mobile-tents-sizes__wrapper {
     margin-top: 120px;
-    &.slider-touchmove .mobile-tents-sizes__item {
-        touch-action: pan-x !important;
-    }
 }
 .mobile-tents-sizes__item {
     display: flex;
@@ -183,7 +204,6 @@ const requestFormPopupStore = useRequestFormPopupStore()
     max-height: 250px;
     object-fit: fill;
     object-position: center center;
-    touch-action: pan-x !important;
 }
 .mobile-tents-sizes__item_title {
     display: flex;

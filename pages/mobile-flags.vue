@@ -60,10 +60,27 @@ const optionalEquipmentRef = ref('')
 onMounted(() => {
     optionalEquipmentRef.value.optionalEquipmentArr[0].title = 'Мобильные шатры'
     optionalEquipmentRef.value.optionalEquipmentArr[0].subTitle = 'Монтаж за 2 минуты, компактное хранение и удобная транспортировка'
-    optionalEquipmentRef.value.optionalEquipmentArr[0].types = ['3,0х3,0', '3,0х4,5', '3,0х6,0', '4,0х4,0']
+    optionalEquipmentRef.value.optionalEquipmentArr[0].types = [
+        {
+            name:'3,0х3,0',
+            path:'/tent-order/3x3/'
+        },
+        {
+            name:'3,0х4,5',
+            path:'/tent-order/3x4/'
+        },
+        {
+            name:'3,0х6,0',
+            path:'/tent-order/3x6/'
+        },
+        {
+            name:'4,0х4,0',
+            path:'/tent-order/4x4/'
+        },
+    ]
     optionalEquipmentRef.value.optionalEquipmentArr[0].additionalClass = 'optional-equipment__mobile-tents-item'
     optionalEquipmentRef.value.optionalEquipmentArr[0].image = mobileTentsImage
-    optionalEquipmentRef.value.optionalEquipmentArr[0].pathTo = '/mobile-tents'
+    optionalEquipmentRef.value.optionalEquipmentArr[0].pathTo = '/tent-order/3x3/'
 })
 </script>
 

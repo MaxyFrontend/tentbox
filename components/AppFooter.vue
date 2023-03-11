@@ -26,15 +26,15 @@
                                 <a href="/accessories">Аксессуары</a>
                             </li>
                             <li class="nav-list__item footer__nav_list_item">
-                                <a href="#other-tents">Пагоды</a>
+                                <button type="button" @click="requestFormPopupStore.open()">Пагоды</button>
                             </li>
                         </ul>
                         <ul class="footer__nav_list">
                             <li class="nav-list__item footer__nav_list_item">
-                                <a href="#mobile-umbrellas">Мобильные зонты</a>
+                                <button type="button" @click="requestFormPopupStore.open()">Мобильные зонты</button>
                             </li>
                             <li class="nav-list__item footer__nav_list_item">
-                                <nuxt-link to="/tent-rent">Аренда</nuxt-link>
+                                <nuxt-link to="/tent-rent/3x3/">Аренда</nuxt-link>
                             </li>
                         </ul>
                     </nav>
@@ -65,7 +65,8 @@
 </template>
 
 <script setup>
-
+import { useRequestFormPopupStore } from '@/store/RequestFormPopupStore'
+const requestFormPopupStore = useRequestFormPopupStore()
 </script>
 
 <style lang="scss">
@@ -111,8 +112,12 @@
     font-weight: 400;
     color: $dark-grey-color;
     margin-bottom: 26px;
-    & a:hover {
+    & a:hover,
+    & button:hover {
         text-decoration: underline;
+    }
+    & button {
+        color: $dark-grey-color;
     }
     &:last-child {
         margin-bottom: 0;
@@ -132,7 +137,7 @@
     position: relative;
     flex-basis: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
     margin-top: 60px;
 }

@@ -1,91 +1,97 @@
 <template>
-    <section class="section some-new">
+    <section class="section some-new" id="some-new">
         <div class="container some-new__container">
             <h2 class="section--title some-new__title overflow--hidden">
                 <span v-motion="{
                     initial: {
                         y: '100%',
-                        opacity:0,
-                        display:'block',
+                        opacity: 0,
+                        display: 'block',
                     },
                     visibleOnce: {
                         y: 0,
-                        opacity:1,
+                        opacity: 1,
                         transition: {
                             delay: 100,
                             duration: 600,
                         }
                     }
                 }">
-                {{ sectionTitle }}
+                    {{ sectionTitle }}
                 </span>
             </h2>
             <p class="section--sub-title some-new__sub-title">
                 {{ sectionSubTitle }}
             </p>
-            <div class="some-new__wrapper">
-                <swiper
-                    :modules="modules"
-                    @after-init="SwiperMouseControl"
-                    :speed="450"
-                    :slides-per-view="1"
-                    :space-between="30"
-                    :allow-touch-move="true"
-                    :mousewheel="true"
-                    :pagination="{
-                        el: '.some-new__slider-pagination',
-                        type: 'progressbar',
-                    }"
-                    :breakpoints="{
-                        1200: {
-                            slidesPerView: 'auto'
-                        },
-                        1000: {
-                            slidesPerView: 1.6
-                        },
-                        700: {
-                            slidesPerView: 1.3
-                        }
-                    }">
-                    <swiper-slide class="some-new__card some-new__cleaning-card">
-                        <nuxt-link to="/" class="some-new__card_image-inner card--image-inner">
-                            <img src="@/assets/img/tents/tent-1-full.png" alt="tent-white" class="some-new__card_image card--image card--image-full">
-                            <client-only>
-                                <IconPlus Color="$grey-color" Class="some-new__card_image-inner_icon card--icon" :Animate="true" />
-                            </client-only>
-                            <div class="some-new__card_image-inner_caption">ТВОШ</div>
-                        </nuxt-link>
-                        <nuxt-link to="/" class="some-new__card_title card--title slider--card-title">Чистка тентов</nuxt-link>
-                        <p class="some-new__card_sub-title card--sub-title">
-                            TentWashing или ТВОШ - наше новое направление по чистке крыш и стен из полиэстера. Сделаем всё сами в пять шагов:
-                        </p>
-                        <ul class="some-new__card_steps-list">
-                            <li class="some-new__card_step">Заберем</li>
-                            <li class="some-new__card_step">Очистим</li>
-                            <li class="some-new__card_step">Просушим</li>
-                            <li class="some-new__card_step">Сложим</li>
-                            <li class="some-new__card_step">Вернем</li>
-                        </ul>
+            <swiper :class="['some-new__wrapper', { 'slider-touchmove': sliderTouchStart }]"
+                :modules="modules"
+                @swiper="getSwiperInstance"
+                @after-init="SwiperMouseControl"
+                @TouchStart="TouchStartHandle()"
+                @touchMoveOpposite="touchMoveOppositeHandle()"
+                :speed="450"
+                :slides-per-view="1"
+                :space-between="30"
+                :allow-touch-move="true"
+                :mousewheel="true"
+                :pagination="{
+                    el: '.some-new__slider-pagination',
+                    type: 'progressbar',
+                }"
+                :breakpoints="{
+                    1200: {
+                        slidesPerView: 'auto'
+                    },
+                    1000: {
+                        slidesPerView: 1.6
+                    },
+                    700: {
+                        slidesPerView: 1.3
+                    }
+                }">
+                <swiper-slide class="some-new__card some-new__cleaning-card">
+                    <div class="some-new__card_image-inner card--image-inner" @click="requestFormPopupStore.open()">
+                        <img src="@/assets/img/tents/tent-1-full.png" alt="tent-white" class="some-new__card_image card--image card--image-full">
+                        <client-only>
+                            <IconPlus Color="$grey-color" Class="some-new__card_image-inner_icon card--icon" :Animate="true" />
+                        </client-only>
+                        <div class="some-new__card_image-inner_caption">ТВОШ</div>
+                    </div>
+                    <h4 class="some-new__card_title card--title slider--card-title" @click="requestFormPopupStore.open()">Чистка тентов</h4>
+                    <p class="some-new__card_sub-title card--sub-title">
+                        TentWashing или ТВОШ - наше новое направление по чистке крыш и стен из полиэстера. Сделаем всё сами в пять шагов:
+                    </p>
+                    <ul class="some-new__card_steps-list">
+                        <li class="some-new__card_step">Заберем</li>
+                        <li class="some-new__card_step">Очистим</li>
+                        <li class="some-new__card_step">Просушим</li>
+                        <li class="some-new__card_step">Сложим</li>
+                        <li class="some-new__card_step">Вернем</li>
+                    </ul>
+                    <div class="some-new__card_btns-inner">
                         <button class="blue-border-btn some-new__card_btn" @click="requestFormPopupStore.open()">Заказать чистку</button>
-                    </swiper-slide>
-                    <swiper-slide class="some-new__card some-new__light-card">
-                        <nuxt-link to="/" class="some-new__card_image-inner card--image-inner">
-                            <img src="@/assets/img/tents/tent-black-light.png" alt="tent-white" class="some-new__card_image card--image">
-                            <client-only>
-                                <IconArrowRight Color="#fff" Class="some-new__card_image-inner_icon card--icon" :Animate="true" />
-                            </client-only>
-                            <div class="some-new__card_image-inner_caption">СВЕТ</div>
-                        </nuxt-link>
-                        <nuxt-link to="/" class="some-new__card_title card--title slider--card-title">Модульное освещение</nuxt-link>
-                        <p class="some-new__card_sub-title card--sub-title">
-                            Легкие светодиодные модули, чтоб работать даже вечером.<br>
-                            Для всех типоразмеров шатров
-                        </p>
-                        <nuxt-link to="/" class="blue-border-btn some-new__card_btn">Подробнее</nuxt-link>
-                    </swiper-slide>
-                    <div class="swiper-pagination some-new__slider-pagination tents-slider--progressbar"></div>
-                </swiper>
-            </div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide class="some-new__card some-new__light-card">
+                    <div class="some-new__card_image-inner card--image-inner" @click="requestFormPopupStore.open()">
+                        <img src="@/assets/img/tents/tent-black-light.png" alt="tent-white" class="some-new__card_image card--image">
+                        <client-only>
+                            <IconArrowRight Color="#fff" Class="some-new__card_image-inner_icon card--icon" :Animate="true" />
+                        </client-only>
+                        <div class="some-new__card_image-inner_caption">СВЕТ</div>
+                    </div>
+                    <h4 class="some-new__card_title card--title slider--card-title" @click="requestFormPopupStore.open()">Модульное освещение</h4>
+                    <p class="some-new__card_sub-title card--sub-title">
+                        Легкие светодиодные модули, чтоб работать даже вечером.<br>
+                        Для всех типоразмеров шатров
+                    </p>
+                    <div class="some-new__card_btns-inner" @mousemove="changeBtnsStyle($event)">
+                        <button type="button" class="blue-border-btn some-new__card_btn btn--hover current--btn-active" @click="addOption()">Добавить в заказ</button>
+                        <button type="button" class="some-new__card_btn no-border-btn btn--hover" @click="requestFormPopupStore.open()">Заказать отдельно</button>
+                    </div>
+                </swiper-slide>
+                <div class="swiper-pagination some-new__slider-pagination tents-slider--progressbar"></div>
+            </swiper>
         </div>
     </section>
 </template>
@@ -93,13 +99,33 @@
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Mousewheel, A11y } from 'swiper'
+import { useTentOrderSizesStore } from '@/store/TentOrderSizesStore';
 import { useRequestFormPopupStore } from '@/store/RequestFormPopupStore'
+import changeBtnsStyle from '@/composables/ChangeBtnsStyle.js';
 import 'swiper/css/pagination';
 import 'swiper/css/a11y';
 import 'swiper/css';
 import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
 const requestFormPopupStore = useRequestFormPopupStore()
 const modules = [Pagination, Mousewheel, A11y]
+const getSwiperInstance = (swiper) => {
+    let count = 1;
+    for (let slide of swiper.slidesEl.children) {
+        let slideNum = document.createElement('span')
+        slideNum.classList.add('slider__card_num')
+        slideNum.classList.add('some-new__card_num')
+        slideNum.textContent = `${count}/${swiper.slidesEl.children.length}`
+        slide.querySelector('.card--image-inner').appendChild(slideNum)
+        count++
+    }
+}
+const sliderTouchStart = ref(false)
+const TouchStartHandle = () => {
+    sliderTouchStart.value = true
+}
+const touchMoveOppositeHandle = () => {
+    sliderTouchStart.value = false
+}
 defineProps({
     sectionTitle: {
         type: String,
@@ -112,6 +138,17 @@ defineProps({
         default: 'Для мобильных шатров'
     },
 })
+const TentOrderSizesStore = useTentOrderSizesStore()
+const addOption = () => {
+    TentOrderSizesStore.sizes[0].additional.options[6].choosen = true
+    TentOrderSizesStore.calcOptionsPrice(0)
+    TentOrderSizesStore.calcPrice(0)
+    navigateTo('/tent-order/3x3/')
+}
+if (!TentOrderSizesStore.dataFetched) {
+    await TentOrderSizesStore.fetchData()
+    TentOrderSizesStore.dataFetched = true
+}
 </script>
 
 <style lang="scss">
@@ -137,7 +174,6 @@ defineProps({
     padding-top: 40px;
     display: flex;
     justify-content: flex-end;
-    touch-action: pan-x !important;
     background: #F2F2F2;
     z-index: 10;
 }
@@ -151,6 +187,9 @@ defineProps({
         -webkit-text-fill-color: transparent;
         background-clip: text;
         text-fill-color: transparent;
+    }
+    & .some-new__card_num {
+        color: #FDFDFD;
     }
 }
 .some-new__card_image.card--image-full {
@@ -169,13 +208,14 @@ defineProps({
 }
 .some-new__card_sub-title {
     max-width: 625px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
 .some-new__card_steps-list {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 12px 0;
+    margin-top: 12px;
 }
 .some-new__card_step {
     position: relative;
@@ -191,8 +231,15 @@ defineProps({
         display: none;
     }
 }
-.some-new__card_btn {
+.some-new__card_btns-inner {
+    display: flex;
     margin-top: 30px;
+    &.mouse-entered {
+        & .blue-border-btn {
+            border-color: transparent;
+            color: $dark-grey-color;
+        }
+    }
 }
 .swiper-pagination.some-new__slider-pagination {
     display: none;
@@ -258,4 +305,11 @@ defineProps({
         left: 10px;
     }
 }
-</style>
+@media (max-width:400px) {
+    .some-new__card_btn {
+        &:nth-child(n + 2) {
+            display: none;
+        }
+    }
+}
+</style> 

@@ -165,31 +165,6 @@ const touchMoveOppositeHandle = () => {
         font-weight: 500;
     }
 }
-.mobile-flags-sizes__item_btn {}
-.blue-border-btn {}
-@media (min-width:1200px) {
-    .mobile-flags-sizes__wrapper {
-        & .swiper-wrapper {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 100px 60px;
-        }
-    }
-}
-@media (min-width:1350px) {
-    .mobile-flags-sizes__wrapper {
-        & .swiper-wrapper {
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        }
-    }
-}
-@media (min-width:1600px) {
-    .mobile-flags-sizes__wrapper {
-        & .swiper-wrapper {
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        }
-    }
-}
 @media (max-width:1200px) {
     .mobile-flags-sizes__main {
         margin-top: 35px;

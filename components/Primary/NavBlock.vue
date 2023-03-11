@@ -27,19 +27,19 @@
                 <a href="#mobile-tents">Шатры</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item btn--hover">
-                <a href="#mobile-flags">Флаги</a>
+                <a href="#optional-equipment">Флаги</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item btn--hover">
-                <a href="#pagodas">Пагоды</a>
+                <a href="#optional-equipment">Пагоды</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item btn--hover">
-                <a href="#mobile-umbrellas">Зонты</a>
+                <a href="#optional-equipment">Зонты</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item btn--hover">
-                <a href="#promo-accessories">Аксессуары</a>
+                <a href="#optional-equipment">Аксессуары</a>
             </swiper-slide>
             <swiper-slide class="primary__nav_list-item primary__nav_list-item_highlited btn--hover">
-                <nuxt-link to="/new">Новинки</nuxt-link>
+                <a href="#some-new">Новинки</a>
             </swiper-slide>
         </swiper>
         <div class="swiper-pagination primary__nav_slider-pagination"></div>

@@ -15,16 +15,19 @@
                         }
                     }
                 }">
-                {{ sectionTitle }}
+                    {{ sectionTitle }}
                 </span>
             </h2>
             <p class="section--sub-title service__sub-title">
                 {{ sectionSubTitle }}
             </p>
-            <div class="service__wrapper">
+            <div :class="['service__wrapper', { 'slider-touchmove': sliderTouchStart }]">
                 <swiper
                     :modules="modules"
+                    @swiper="getSwiperInstance"
                     @after-init="SwiperMouseControl"
+                    @TouchStart="TouchStartHandle()"
+                    @touchMoveOpposite="touchMoveOppositeHandle()"
                     :speed="450"
                     :slides-per-view="1"
                     :space-between="30"
@@ -46,14 +49,14 @@
                         }
                     }">
                     <swiper-slide class="service__card service__cleaning-card">
-                        <nuxt-link to="/" class="service__card_image-inner card--image-inner">
+                        <div class="service__card_image-inner card--image-inner" @click="requestFormPopupStore.open()">
                             <img src="@/assets/img/tents/tent-1-full.png" alt="tent-white" class="service__card_image card--image card--image-full">
                             <client-only>
                                 <IconPlus Color="$grey-color" Class="service__card_image-inner_icon card--icon" :Animate="true" />
                             </client-only>
                             <div class="service__card_image-inner_caption">ТВОШ</div>
-                        </nuxt-link>
-                        <h4 class="service__card_title card--title slider--card-title">Чистка тентов</h4>
+                        </div>
+                        <h4 class="service__card_title card--title slider--card-title" @click="requestFormPopupStore.open()">Чистка тентов</h4>
                         <p class="service__card_sub-title card--sub-title">
                             TentWashing или ТВОШ - наше новое направление по чистке крыш и стен из полиэстера. Сделаем всё сами в пять шагов:
                         </p>
@@ -64,22 +67,24 @@
                             <li class="service__card_step">Сложим</li>
                             <li class="service__card_step">Вернем</li>
                         </ul>
-                        <button class="blue-border-btn service__card_btn" @click="requestFormPopupStore.open()">Заказать чистку</button>
+                        <div class="some-new__card_btns-inner">
+                            <button class="blue-border-btn some-new__card_btn" @click="requestFormPopupStore.open()">Заказать чистку</button>
+                        </div>
                     </swiper-slide>
                     <swiper-slide class="service__card service__light-card">
-                        <nuxt-link to="/" class="service__card_image-inner card--image-inner">
+                        <div class="service__card_image-inner card--image-inner" @click="requestFormPopupStore.open()">
                             <img src="@/assets/img/tents/spare-parts.png" alt="spare-parts" class="service__card_image card--image">
                             <client-only>
                                 <IconPlus Color="#fff" Class="service__card_image-inner_icon card--icon" :Animate="true" />
                             </client-only>
                             <div class="service__card_image-inner_caption">ДОП</div>
-                        </nuxt-link>
-                        <h4 class="service__card_title card--title slider--card-title">Запасные элементы</h4>
+                        </div>
+                        <h4 class="service__card_title card--title slider--card-title" @click="requestFormPopupStore.open()">Запасные элементы</h4>
                         <p class="service__card_sub-title card--sub-title">
                             Любые элементы шатра можно докупить, поменять <br>
                             и доукомплектовать
                         </p>
-                        <nuxt-link to="/" class="blue-border-btn service__card_btn">Заказать элемент</nuxt-link>
+                        <button type="button" class="blue-border-btn service__card_btn" @click="requestFormPopupStore.open()">Заказать элемент</button>
                     </swiper-slide>
                     <div class="swiper-pagination service__slider-pagination tents-slider--progressbar"></div>
                 </swiper>
@@ -98,6 +103,24 @@ import 'swiper/css';
 import SwiperMouseControl from '@/composables/SwiperMouseControl.js'
 const requestFormPopupStore = useRequestFormPopupStore()
 const modules = [Pagination, Mousewheel, A11y]
+const getSwiperInstance = (swiper) => {
+    let count = 1;
+    for (let slide of swiper.slidesEl.children) {
+        let slideNum = document.createElement('span')
+        slideNum.classList.add('slider__card_num')
+        slideNum.classList.add('service__card_num')
+        slideNum.textContent = `${count}/${swiper.slidesEl.children.length}`
+        slide.querySelector('.service__card_image-inner').appendChild(slideNum)
+        count++
+    }
+}
+const sliderTouchStart = ref(false)
+const TouchStartHandle = () => {
+    sliderTouchStart.value = true
+}
+const touchMoveOppositeHandle = () => {
+    sliderTouchStart.value = false
+}
 defineProps({
     sectionTitle: {
         type: String,

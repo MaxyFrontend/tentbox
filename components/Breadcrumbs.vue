@@ -70,11 +70,6 @@ defineProps({
         display: none;
     }
 }
-@media (max-width:1900px) {
-    .breadcrumbs {
-      //  margin-top: 7%;
-    }
-}
 @media (max-width:1300px) {
     .breadcrumbs {
         margin-bottom: 30px;
@@ -92,6 +87,7 @@ defineProps({
     .breadcrumbs-list__item {
         font-size: 16px;
         line-height: 20px;
+        letter-spacing: inherit;
         & a {
             padding: 0;
             text-transform: none;

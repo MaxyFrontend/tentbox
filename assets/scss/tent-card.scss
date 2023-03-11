@@ -162,7 +162,11 @@
         color: $blue-color;
     }
     &.is-choosen .tent--card__options_btn_price,
-    &:hover .tent--card__options_btn_price{
+    &:hover .tent--card__options_btn_price,
+    &:hover .tent--card__tent-type_btn_additional-price{
+        color: $blue-color;
+    }
+    &.is-choosen .tent--card__tent-type_btn_additional-price {
         color: $blue-color;
     }
 }
@@ -234,6 +238,7 @@
     min-width: 220px;
     text-align: left;
     margin-right: 0;
+    padding: 10px 16px;
 }
 .tent--card__color_btn {
     &.is-choosen {
@@ -271,54 +276,48 @@
     line-height: 45px;
     color: $dark-grey-color;
     margin-bottom: 0;
-    &.price-animate>span {
-        -webkit-animation: spinit 0.3s ease-out;
-        -moz-animation: spinit 0.3s ease-out;
-        animation: spinit 0.3s ease-out;
+    &.price-slide-up>span {
+        -webkit-animation: slideUp 0.15s ease-out;
+        -moz-animation: slideUp 0.15s ease-out;
+        animation: slideUp 0.15s ease-out;
+    }
+    &.price-slide-up-from-down>span {
+        -webkit-animation: slideUpFromDown 0.15s ease;
+        -moz-animation: slideUpFromDown 0.15s ease;
+        animation: slideUpFromDown 0.15s ease;
     }
 }
-@keyframes shake {
-    0% {
-        transform: translateY(0px);
-    }
-    100% {
-        transform: translateY(-50px);
-    }
-}
-@-webkit-keyframes spinit {
+/* @-webkit-keyframes slideUp {
     0% {
         transform: translateY(0px);
         opacity: 1;
     }
-    50% {
+    100% {
         transform: translateY(-100%);
         opacity: 0;
     }
-    100% {
-        transform: translateY(0%);
-    }
 }
-@-moz-keyframes spinit {
+@-moz-keyframes slideUp {
     0% {
         transform: translateY(0px);
         opacity: 1;
     }
-    50% {
+    100% {
         transform: translateY(-100%);
         opacity: 0;
     }
-    100% {
-        transform: translateY(0%);
-    }
-}
-@keyframes spinit {
+} */
+@keyframes slideUp {
     0% {
         transform: translateY(0px);
-        opacity: 1;
     }
-    50% {
+    100% {
         transform: translateY(-100%);
-        opacity: 0;
+    }
+}
+@keyframes slideUpFromDown {
+    0% {
+        transform: translateY(100%);
     }
     100% {
         transform: translateY(0%);

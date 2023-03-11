@@ -129,7 +129,7 @@
                     <div class="tent--card__additional_item_content tent--card__options_content">
                         <button :class="['tent--card__options_btn grey-border-btn tent--card__additional_btn', { 'is-choosen': TentRentSizesStore.sizes[currentSizeIdx].additional.options[idx].choosen }]" v-for="(option, idx) in data.additional.options" :key="idx" @click="chooseOptionFunc(idx)">
                             <div class="tent--card__options_btn_name">{{ option.name }}</div>
-                            <div class="tent--card__options_btn_price">{{ option.priceText }}</div>
+                            <div class="tent--card__options_btn_price">{{ option.priceText }} <span class="ruble">₽</span></div>
                         </button>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                 <div class="tent--card__additional_item tent--card__total-price">
                     <p class="tent--card__additional_item_name">Цена</p>
                     <div class="tent--card__additional_item_content">
-                        <p :class="['tent--card__total-price_value overflow--hidden', { 'price-animate': priceAnimate }]">
+                        <p :class="['tent--card__total-price_value overflow--hidden', { 'price-slide-up': priceSlideUp }, {'price-slide-up-from-down': priceSlideUpFromDown}]">
                             <span v-motion="{
                                 initial: {
                                     y: '100%',
@@ -220,7 +220,7 @@
                                     }
                                 }
                             }">
-                            <nuxt-link to="/tent-order" class="tent--card__contact-info_btn tent--card__contact-info_order-link grey-border-btn tent--card__additional_btn">
+                            <nuxt-link :to="orderSizeLink" class="tent--card__contact-info_btn tent--card__contact-info_order-link grey-border-btn tent--card__additional_btn">
                                 Купить
                             </nuxt-link>
                         </div>
@@ -253,12 +253,6 @@ const images = [
     image4x8
 ]
 const modules = [Pagination, Mousewheel, A11y]
-/* const { $isMobile, $isTablet} = useNuxtApp()
-const isMobileOrTablet = () => {
-    if($isMobile() || $isTablet()) {
-        return true
-    }
-} */
 const requestFormPopupStore = useRequestFormPopupStore()
 const TentRentSizesStore = useTentRentSizesStore()
 if (!TentRentSizesStore.dataFetched) {
@@ -279,6 +273,24 @@ const getCurrentSize = () => {
     }
 }
 getCurrentSize()
+const { data: orderTentData } = await useFetch('/api/tent-order-sizes')
+const orderSizes = orderTentData.value.data
+const orderSizeLink = ref('')
+const getLinkToTentRent = () => {
+    let count = 0
+    let bool = false
+    for(let orderSize of orderSizes) {
+        count++
+        if(orderSize.path === size) {
+            bool = true
+            return orderSizeLink.value = `/tent-order/${size}/`
+        }
+        if(count === orderSizes.length && !bool) {
+            return orderSizeLink.value = '/tent-order/3x3/'
+        }
+    }
+}
+getLinkToTentRent()
 const { data } = await useFetch(`/api/tent-rent-sizes-params/${currentSizeIdx.value}`)
 const formatPrice = (int) => {
     return int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -305,11 +317,16 @@ const chooseColorFunc = (idx) => {
     TentRentSizesStore.calcPrice(currentSizeIdx.value)
 }
 const tentPrice = ref(formatPrice(TentRentSizesStore.sizes[currentSizeIdx.value].price))
-const priceAnimate = ref(false)
-TentRentSizesStore.$subscribe((mutation) => {
-    priceAnimate.value = true
+const priceSlideUp = ref(false)
+const priceSlideUpFromDown = ref(false)
+TentRentSizesStore.$subscribe(() => {
+    priceSlideUp.value = true
     setTimeout(() => {
-        priceAnimate.value = false
+        priceSlideUp.value = false
+        priceSlideUpFromDown.value = true
+    }, 150)
+    setTimeout(() => {
+        priceSlideUpFromDown.value = false
     }, 300)
     setTimeout(() => {
         tentPrice.value = TentRentSizesStore.sizes[currentSizeIdx.value].price
@@ -327,12 +344,14 @@ defineProps({
 
 <style src="@/assets/scss/tent-card.scss" lang="scss"></style>
 <style lang="scss">
-.tent-rent-card__main-info {
-    & .tent--card__main-info_right-column {
-        width: 40%;
-    }
-}
 .tent-rent-card__additional {
     margin-top: 40px;
+}
+.tent-rent-card__main-info {
+    & .tent--card__main-info_right-column {
+        & .tent--card__main-info_image {
+            max-height: 350px;
+        }
+    }
 }
 </style>

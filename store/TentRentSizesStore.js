@@ -25,7 +25,9 @@ export const useTentRentSizesStore = defineStore('TentRentSizesStore', {
                 }
                 for (let i = 0; i < size.additional.options.length; i++) {
                     if(i === 0) {
-                        size.additional.options[i].choosen = true
+                        if(size.additional.options[i].price === 0) {
+                           size.additional.options[i].choosen = true
+                        }
                     }
                     else {
                         size.additional.options[i].choosen = false

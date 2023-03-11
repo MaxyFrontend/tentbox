@@ -2,7 +2,7 @@
     <Breadcrumbs :items="breadcrumbs" />
     <SectionMobileTentsPrimary />
     <SectionMobileTentsSizes />
-    <SectionOurClients />
+    <SectionOurClients sectionShortTitle="Для мероприятий" />
     <SectionSomeNew sectionSubTitle="И очень полезное" />
     <SectionQuestions />
     <SectionQuickChoose sectionTitle="Следующий шаг" sectionSubTitle="Какая у вас задача" />

@@ -65,6 +65,9 @@ defineProps({
     max-width: 130px;
     &:last-child {
         max-width: 150px;
+        & .advantages__item_value {
+            max-width: 150px;
+        }
     }
     margin-right: 90px;
     touch-action: pan-x !important;

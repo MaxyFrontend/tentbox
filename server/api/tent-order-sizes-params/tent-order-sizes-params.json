@@ -54,12 +54,12 @@
             "types": [
                 {
                     "name": "Oxford 600D (Вьетнам)",
-                    "priceText": "+ 0 000 ₽",
+                    "priceText": "+ 0 000",
                     "price": 0
                 },
                 {
                     "name": "Rivertex (Италия)",
-                    "priceText": "+ 14 000 ₽",
+                    "priceText": "+ 14 000",
                     "price": 14000
                 }
             ],
@@ -122,37 +122,37 @@
             "options":[
                 {
                     "name":"Комплект стен 3,0х3,0м",
-                    "priceText":"+ 20 000 ₽",
+                    "priceText":"+ 20 000",
                     "price": 20000
                 },
                 {
                     "name":"Доп. крыша 3,0х3,0м",
-                    "priceText":"+ 14 000 ₽",
+                    "priceText":"+ 14 000",
                     "price": 14000
                 },
                 {
                     "name":"Брендирование тента",
-                    "priceText":"от 5 000 ₽/м2",
+                    "priceText":"от 5 000/м2",
                     "price": 5000
                 },
                 {
                     "name":"4 утяжелителя по 30кг",
-                    "priceText":"+ 24 000 ₽",
+                    "priceText":"+ 24 000",
                     "price": 24000
                 },
                 {
                     "name":"Модульный пол 3,0х3,0м",
-                    "priceText":"+ 40 000 ₽",
+                    "priceText":"+ 40 000",
                     "price": 40000
                 },
                 {
                     "name":"Жесткий бокс",
-                    "priceText":"+ 7 000 ₽",
+                    "priceText":"+ 7 000",
                     "price": 7000
                 },
                 {
                     "name":"Модульное освещение",
-                    "priceText":"+ 7 000 ₽",
+                    "priceText":"+ 7 000",
                     "price": 7000
                 }
             ]
@@ -214,12 +214,12 @@
             "types": [
                 {
                     "name": "Oxford 600D (Вьетнам)",
-                    "priceText": "+ 0 000 ₽",
+                    "priceText": "+ 0 000",
                     "price": 0
                 },
                 {
                     "name": "Rivertex (Италия)",
-                    "priceText": "+ 14 000 ₽",
+                    "priceText": "+ 14 000",
                     "price": 14000
                 }
             ],
@@ -282,37 +282,37 @@
             "options":[
                 {
                     "name":"Комплект стен 3,0х4,5м",
-                    "priceText":"+ 24 000 ₽",
+                    "priceText":"+ 24 000",
                     "price": 24000
                 },
                 {
                     "name":"Доп. крыша 3,0х4,5м",
-                    "priceText":"+ 14 000 ₽",
+                    "priceText":"+ 14 000",
                     "price": 23000
                 },
                 {
                     "name":"Брендирование тента",
-                    "priceText":"от 5 000 ₽/м2",
+                    "priceText":"от 5 000/м2",
                     "price": 5000
                 },
                 {
                     "name":"4 утяжелителя по 30кг",
-                    "priceText":"+ 32 000 ₽",
+                    "priceText":"+ 32 000",
                     "price": 32000
                 },
                 {
                     "name":"Модульный пол 3,0х4,5м",
-                    "priceText":"+ 85 000 ₽",
+                    "priceText":"+ 85 000",
                     "price": 85000
                 },
                 {
                     "name":"Жесткий бокс",
-                    "priceText":"+ 7 000 ₽",
+                    "priceText":"+ 7 000",
                     "price": 7000
                 },
                 {
                     "name":"Модульное освещение",
-                    "priceText":"+ 7 000 ₽",
+                    "priceText":"+ 7 000",
                     "price": 7000
                 }
             ]
@@ -374,12 +374,12 @@
             "types": [
                 {
                     "name": "Oxford 600D (Вьетнам)",
-                    "priceText": "+ 0 000 ₽",
+                    "priceText": "+ 0 000",
                     "price": 0
                 },
                 {
                     "name": "Rivertex (Италия)",
-                    "priceText": "+ 14 000 ₽",
+                    "priceText": "+ 14 000",
                     "price": 14000
                 }
             ],
@@ -442,37 +442,37 @@
             "options":[
                 {
                     "name":"Комплект стен 3,0х6,0м",
-                    "priceText":"+ 30 000 ₽",
+                    "priceText":"+ 30 000",
                     "price": 30000
                 },
                 {
                     "name":"Доп. крыша 3,0х6,0м",
-                    "priceText":"+ 25 000 ₽",
+                    "priceText":"+ 25 000",
                     "price": 25000
                 },
                 {
                     "name":"Брендирование тента",
-                    "priceText":"от 5 000 ₽/м2",
+                    "priceText":"от 5 000/м2",
                     "price": 5000
                 },
                 {
                     "name":"6 утяжелителей по 30кг",
-                    "priceText":"+ 48 000 ₽",
+                    "priceText":"+ 48 000",
                     "price": 48000
                 },
                 {
                     "name":"Модульный пол 3,0х6,0м",
-                    "priceText":"+ 110 000 ₽",
+                    "priceText":"+ 110 000",
                     "price": 110000
                 },
                 {
                     "name":"Жесткий бокс",
-                    "priceText":"+ 7 000 ₽",
+                    "priceText":"+ 7 000",
                     "price": 7000
                 },
                 {
                     "name":"Модульное освещение",
-                    "priceText":"+ 7 000 ₽",
+                    "priceText":"+ 7 000",
                     "price": 7000
                 }
             ]
@@ -534,12 +534,12 @@
             "types": [
                 {
                     "name": "Oxford 600D (Вьетнам)",
-                    "priceText": "+ 0 000 ₽",
+                    "priceText": "+ 0 000",
                     "price": 0
                 },
                 {
                     "name": "Rivertex (Италия)",
-                    "priceText": "+ 14 000 ₽",
+                    "priceText": "+ 14 000",
                     "price": 14000
                 }
             ],
@@ -602,37 +602,37 @@
             "options":[
                 {
                     "name":"ККомплект стен 4,0х4,0м",
-                    "priceText":"+ 24 000 ₽",
+                    "priceText":"+ 24 000",
                     "price": 24000
                 },
                 {
                     "name":"Доп. крыша 4,0х4,0м",
-                    "priceText":"+ 26 000 ₽",
+                    "priceText":"+ 26 000",
                     "price": 26000
                 },
                 {
                     "name":"Брендирование тента",
-                    "priceText":"от 5 000 ₽/м2",
+                    "priceText":"от 5 000/м2",
                     "price": 5000
                 },
                 {
                     "name":"4 утяжелителя по 30кг",
-                    "priceText":"+ 32 000 ₽",
+                    "priceText":"+ 32 000",
                     "price": 32000
                 },
                 {
                     "name":"Модульный пол 4,0х4,0м",
-                    "priceText":"+ 95 000 ₽",
+                    "priceText":"+ 95 000",
                     "price": 95000
                 },
                 {
                     "name":"Жесткий бокс",
-                    "priceText":"+ 9 000 ₽",
+                    "priceText":"+ 9 000",
                     "price": 9000
                 },
                 {
                     "name":"Модульное освещение",
-                    "priceText":"+ 9 000 ₽",
+                    "priceText":"+ 9 000",
                     "price": 9000
                 }
             ]
@@ -694,12 +694,12 @@
             "types": [
                 {
                     "name": "Oxford 600D (Вьетнам)",
-                    "priceText": "+ 0 000 ₽",
+                    "priceText": "+ 0 000",
                     "price": 0
                 },
                 {
                     "name": "Rivertex (Италия)",
-                    "priceText": "+ 14 000 ₽",
+                    "priceText": "+ 14 000",
                     "price": 14000
                 }
             ],
@@ -762,37 +762,37 @@
             "options":[
                 {
                     "name":"Комплект стен 4,0х6,0м",
-                    "priceText":"+ 28 000 ₽",
+                    "priceText":"+ 28 000",
                     "price": 28000
                 },
                 {
                     "name":"Доп. крыша 4,0х6,0м",
-                    "priceText":"+ 32 000 ₽",
+                    "priceText":"+ 32 000",
                     "price": 32000
                 },
                 {
                     "name":"Брендирование тента",
-                    "priceText":"от 5 000 ₽/м2",
+                    "priceText":"от 5 000/м2",
                     "price": 5000
                 },
                 {
                     "name":"4 утяжелителя по 30кг",
-                    "priceText":"+ 32 000 ₽",
+                    "priceText":"+ 32 000",
                     "price": 32000
                 },
                 {
                     "name":"Модульный пол 4,0х6,0м",
-                    "priceText":"+ 115 000 ₽",
+                    "priceText":"+ 115 000",
                     "price": 115000
                 },
                 {
                     "name":"Жесткий бокс",
-                    "priceText":"+ 9 000 ₽",
+                    "priceText":"+ 9 000",
                     "price": 9000
                 },
                 {
                     "name":"Модульное освещение",
-                    "priceText":"+ 9 000 ₽",
+                    "priceText":"+ 9 000",
                     "price": 9000
                 }
             ]
@@ -854,12 +854,12 @@
             "types": [
                 {
                     "name": "Oxford 600D (Вьетнам)",
-                    "priceText": "+ 0 000 ₽",
+                    "priceText": "+ 0 000",
                     "price": 0
                 },
                 {
                     "name": "Rivertex (Италия)",
-                    "priceText": "+ 14 000 ₽",
+                    "priceText": "+ 14 000",
                     "price": 14000
                 }
             ],
@@ -922,37 +922,37 @@
             "options":[
                 {
                     "name":"Комплект стен 4,0х8,0м",
-                    "priceText":"+ 36 000 ₽",
+                    "priceText":"+ 36 000",
                     "price": 36000
                 },
                 {
                     "name":"Доп. крыша 4,0х8,0м",
-                    "priceText":"+ 35 000 ₽",
+                    "priceText":"+ 35 000",
                     "price": 35000
                 },
                 {
                     "name":"Брендирование тента",
-                    "priceText":"от 5 000 ₽/м2",
+                    "priceText":"от 5 000/м2",
                     "price": 5000
                 },
                 {
                     "name":"6 утяжелителей по 30кг",
-                    "priceText":"+ 24 000 ₽",
+                    "priceText":"+ 24 000",
                     "price": 24000
                 },
                 {
                     "name":"Модульный пол 4,0х8,0м",
-                    "priceText":"+ 145 000 ₽",
+                    "priceText":"+ 145 000",
                     "price": 145000
                 },
                 {
                     "name":"Жесткий бокс",
-                    "priceText":"+ 9 000 ₽",
+                    "priceText":"+ 9 000",
                     "price": 9000
                 },
                 {
                     "name":"Модульное освещение",
-                    "priceText":"+ 9 000 ₽",
+                    "priceText":"+ 9 000",
                     "price": 9000
                 }
             ]

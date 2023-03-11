@@ -1,13 +1,16 @@
 <template>
-    <section class="section tents-branding">
+    <section class="section tents-branding" id="branding">
         <div class="container tents-branding__container">
             <h2 class="section--title tents-branding__title">Брендинг шатров</h2>
             <p class="section--sub-title tents-branding__sub-title">
                 И разработка дизайна
             </p>
-            <swiper class="tents-branding__wrapper"
+            <swiper :class="['tents-branding__wrapper', { 'slider-touchmove': sliderTouchStart }]"
                 :modules="modules"
+                @swiper="getSwiperInstance"
                 @after-init="SwiperMouseControl"
+                @TouchStart="TouchStartHandle()"
+                @touchMoveOpposite="touchMoveOppositeHandle()"
                 :speed="450"
                 :slides-per-view="1"
                 :space-between="30"
@@ -30,7 +33,11 @@
                 }">
                 <swiper-slide class="tents-branding__item tents-branding__item-flat">
                     <div class="tents-branding__item_image-inner card--image-inner" @click="requestFormPopupStore.open()">
-                        <img src="@/assets/img/branding/flat.png" alt="flat" class="tents-branding__item_image card--image tents-branding__item-flat_image">
+                        <picture>
+                            <source srcset="@/assets/img/branding/flat.webp" type="image/webp">
+                            <source srcset="@/assets/img/branding/flat.png" type="image/png">
+                            <img src="@/assets/img/branding/flat.png" alt="flat" class="tents-branding__item_image card--image tents-branding__item-volumetric_image">
+                        </picture>
                         <span class="tents-branding__item_image-inner_caption">2d</span>
                     </div>
                     <h3 class="card--title slider--card-title tents-branding__item_title" @click="requestFormPopupStore.open()">Визуализация в плоскости</h3>
@@ -44,7 +51,11 @@
                 </swiper-slide>
                 <swiper-slide class="tents-branding__item tents-branding__item-volumetric">
                     <div class="tents-branding__item_image-inner card--image-inner" @click="requestFormPopupStore.open()">
-                        <img src="@/assets/img/branding/volumetric.png" alt="volumetric" class="tents-branding__item_image card--image tents-branding__item-volumetric_image">
+                        <picture>
+                            <source srcset="@/assets/img/branding/volumetric.webp" type="image/webp">
+                            <source srcset="@/assets/img/branding/volumetric.png" type="image/png">
+                            <img src="@/assets/img/branding/volumetric.png" alt="volumetric" class="tents-branding__item_image card--image tents-branding__item-volumetric_image">
+                        </picture>
                         <span class="tents-branding__item_image-inner_caption">3d</span>
                     </div>
                     <h3 class="card--title slider--card-title tents-branding__item_title" @click="requestFormPopupStore.open()">Визуализация в объеме</h3>
@@ -86,6 +97,24 @@ import 'swiper/css/a11y';
 import 'swiper/css';
 const requestFormPopupStore = useRequestFormPopupStore()
 const modules = [Pagination, Mousewheel, A11y]
+const getSwiperInstance = (swiper) => {
+    let count = 1;
+    for (let slide of swiper.slidesEl.children) {
+        let slideNum = document.createElement('span')
+        slideNum.classList.add('slider__card_num')
+        slideNum.classList.add('tents-branding__item_num')
+        slideNum.textContent = `${count}/${swiper.slidesEl.children.length}`
+        slide.querySelector('.tents-branding__item_image-inner').appendChild(slideNum)
+        count++
+    }
+}
+const sliderTouchStart = ref(false)
+const TouchStartHandle = () => {
+    sliderTouchStart.value = true
+}
+const touchMoveOppositeHandle = () => {
+    sliderTouchStart.value = false
+}
 const samples = [
     {
         name: 'Шаблон 3,0x3,0м'
@@ -131,6 +160,9 @@ const samples = [
     max-height: 330px;
     max-width: none;
     z-index: 10;
+    & picture {
+        height: 100%;
+    }
 }
 .tents-branding__item_image {
     align-self: flex-end;
@@ -273,8 +305,7 @@ const samples = [
     }
     .tents-branding__item_image {
         width: 90%;
-        transform: translateX(20%);
-        margin-right: 0;
+        margin-right: -20%;
     }
     .tents-branding__for-designer {
         display: none;

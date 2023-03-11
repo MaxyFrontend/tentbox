@@ -118,7 +118,7 @@
                                     { 'is-choosen': TentOrderSizesStore.sizes[currentSizeIdx].additional.types[idx].choosen }]"
                                 @click="chooseTypeFunc(idx)">
                                 {{ type.name }}
-                                <div class="tent--card__tent-type_btn_additional-price"> {{ type.priceText }} </div>
+                                <div class="tent--card__tent-type_btn_additional-price"> {{ type.priceText }} <span class="ruble">₽</span> </div>
                             </button>
                         </div>
                         <swiper class="tent--card__tent-type_colors"
@@ -160,15 +160,15 @@
                     <div class="tent--card__additional_item_content tent--card__options_content">
                         <button :class="['tent--card__options_btn grey-border-btn tent--card__additional_btn', { 'is-choosen': TentOrderSizesStore.sizes[currentSizeIdx].additional.options[idx].choosen }]" v-for="(option, idx) in data.additional.options" :key="idx" @click="chooseOptionFunc(idx)">
                             <div class="tent--card__options_btn_name">{{ option.name }}</div>
-                            <div class="tent--card__options_btn_price">{{ option.priceText }}</div>
+                            <div class="tent--card__options_btn_price">{{ option.priceText }} <span class="ruble">₽</span></div>
                         </button>
                     </div>
                 </div>
                 <div class="tent--card__additional_item tent--card__total-price">
                     <p class="tent--card__additional_item_name">Цена</p>
                     <div class="tent--card__additional_item_content">
-                        <p :class="['tent--card__total-price_value overflow--hidden', { 'price-animate': priceAnimate }]">
-                            <span v-motion="{
+                        <p :class="['tent--card__total-price_value overflow--hidden', { 'price-slide-up': priceSlideUp }, {'price-slide-up-from-down': priceSlideUpFromDown}]">
+                            <span class="tent--card__total-price_current" v-motion="{
                                 initial: {
                                     y: '100%',
                                     opacity:0,
@@ -243,7 +243,7 @@
                                     }
                                 }
                             }">
-                            <nuxt-link to="/tent-rent" class="tent--card__contact-info_btn tent--card__contact-info_order-link grey-border-btn tent--card__additional_btn">
+                            <nuxt-link :to="rentSizeLink" class="tent--card__contact-info_btn tent--card__contact-info_order-link grey-border-btn tent--card__additional_btn">
                                 Взять в аренду
                             </nuxt-link>
                         </div>
@@ -282,12 +282,6 @@ const images = [
     image4x8
 ]
 const modules = [Pagination, Mousewheel, A11y]
-/* const { $isMobile, $isTablet} = useNuxtApp()
-const isMobileOrTablet = () => {
-    if($isMobile() || $isTablet()) {
-        return true
-    }
-} */
 const requestFormPopupStore = useRequestFormPopupStore()
 const TentOrderSizesStore = useTentOrderSizesStore()
 if (!TentOrderSizesStore.dataFetched) {
@@ -308,6 +302,24 @@ const getCurrentSize = () => {
     }
 }
 getCurrentSize()
+const { data: rentTentData } = await useFetch('/api/tent-rent-sizes')
+const rentSizes = rentTentData.value.data
+const rentSizeLink = ref('')
+const getLinkToTentRent = () => {
+    let count = 0
+    let bool = false
+    for(let rentSize of rentSizes) {
+        count++
+        if(rentSize.path === size) {
+            bool = true
+            return rentSizeLink.value = `/tent-rent/${size}/`
+        }
+        if(count === rentSizes.length && !bool) {
+            return rentSizeLink.value = '/tent-rent/3x3/'
+        }
+    }
+}
+getLinkToTentRent()
 const { data } = await useFetch(`/api/tent-order-sizes-params/${currentSizeIdx.value}`)
 const formatPrice = (int) => {
     return int.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
@@ -340,11 +352,16 @@ const chooseColorFunc = (idx) => {
     TentOrderSizesStore.sizes[currentSizeIdx.value].additional.colors[idx].choosen = true
 }
 const tentPrice = ref(formatPrice(TentOrderSizesStore.sizes[currentSizeIdx.value].price))
-const priceAnimate = ref(false)
+const priceSlideUp = ref(false)
+const priceSlideUpFromDown = ref(false)
 TentOrderSizesStore.$subscribe(() => {
-    priceAnimate.value = true
+    priceSlideUp.value = true
     setTimeout(() => {
-        priceAnimate.value = false
+        priceSlideUp.value = false
+        priceSlideUpFromDown.value = true
+    }, 150)
+    setTimeout(() => {
+        priceSlideUpFromDown.value = false
     }, 300)
     setTimeout(() => {
         tentPrice.value = TentOrderSizesStore.sizes[currentSizeIdx.value].price

@@ -17,7 +17,7 @@
                         </div>
                     </li>
                     <li class="nav-list__item header__nav_list_item">
-                        <nuxt-link to="/tent-rent">АРЕНДА</nuxt-link>
+                        <nuxt-link to="/tent-rent/3x3/">АРЕНДА</nuxt-link>
                     </li>
                     <li class="nav-list__item header__nav_list_item nav-list__item_dropdown-trigger">
                         <span>КОНТАКТЫ</span>
@@ -74,6 +74,7 @@ const requestFormPopupStore = useRequestFormPopupStore()
     position: relative;
     padding: 30px 0;
     z-index: 600;
+    background: #FAFAFA;
     &.mobile-menu-visible {
         position: fixed;
         top: 0;
@@ -356,7 +357,6 @@ const requestFormPopupStore = useRequestFormPopupStore()
         top: 0;
         left: 0;
         width: 100%;
-        background: #fff;
     }
 }
 @media (max-width:700px) {

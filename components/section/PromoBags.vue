@@ -34,28 +34,44 @@
                 @touchMoveOpposite="touchMoveOppositeHandle()"
                 >
                 <swiper-slide class="promo-bags__item">
-                    <img src="@/assets/img/promo-bags/canvas-bag.png" alt="canvas-bag" class="promo-bags__item_image">
+                    <picture>
+                        <source srcset="@/assets/img/promo-bags/canvas-bag.webp" type="image/webp">
+                        <source srcset="@/assets/img/promo-bags/canvas-bag.png" type="image/png">
+                        <img src="@/assets/img/promo-bags/canvas-bag.png" alt="canvas-bag" class="promo-bags__item_image">
+                    </picture>
                     <h4 class="promo-bags__item_title card--title">
                         <strong>Холщовые —</strong> от 2 500 <span class="ruble">₽</span>/шт
                     </h4>
                     <button class="promo-bags__item_btn blue-border-btn" @click="requestFormPopupStore.open()">Заказать</button>
                 </swiper-slide>
                 <swiper-slide class="promo-bags__item">
-                    <img src="@/assets/img/promo-bags/polyester-bag.png" alt="polyester-bag" class="promo-bags__item_image">
+                    <picture>
+                        <source srcset="@/assets/img/promo-bags/polyester-bag.webp" type="image/webp">
+                        <source srcset="@/assets/img/promo-bags/polyester-bag.png" type="image/png">
+                        <img src="@/assets/img/promo-bags/polyester-bag.png" alt="polyester-bag" class="promo-bags__item_image">
+                    </picture>
                     <h4 class="promo-bags__item_title card--title">
                         <strong>Полиэстеровые —</strong> от 2 000 <span class="ruble">₽</span>/шт
                     </h4>
                     <button class="promo-bags__item_btn blue-border-btn" @click="requestFormPopupStore.open()">Заказать</button>
                 </swiper-slide>
                 <swiper-slide class="promo-bags__item">
-                    <img src="@/assets/img/promo-bags/calico-bag.png" alt="calico-bag" class="promo-bags__item_image">
+                    <picture>
+                        <source srcset="@/assets/img/promo-bags/calico-bag.webp" type="image/webp">
+                        <source srcset="@/assets/img/promo-bags/calico-bag.png" type="image/png">
+                        <img src="@/assets/img/promo-bags/calico-bag.png" alt="calico-bag" class="promo-bags__item_image">
+                    </picture>
                     <h4 class="promo-bags__item_title card--title">
                         <strong>Бязевые —</strong> от 2 000 <span class="ruble">₽</span>/шт
                     </h4>
                     <button class="promo-bags__item_btn blue-border-btn" @click="requestFormPopupStore.open()">Заказать</button>
                 </swiper-slide>
                 <swiper-slide class="promo-bags__item">
-                    <img src="@/assets/img/promo-bags/jeans-bag.png" alt="jeans-bag" class="promo-bags__item_image">
+                    <picture>
+                        <source srcset="@/assets/img/promo-bags/jeans-bag.webp" type="image/webp">
+                        <source srcset="@/assets/img/promo-bags/jeans-bag.png" type="image/png">
+                        <img src="@/assets/img/promo-bags/jeans-bag.png" alt="jeans-bag" class="promo-bags__item_image">
+                    </picture>
                     <h4 class="promo-bags__item_title card--title">
                         <strong>Джинсовые —</strong> от 4 500 <span class="ruble">₽</span>/шт
                     </h4>

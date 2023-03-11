@@ -24,6 +24,7 @@ html {
 .logo {
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .nav--list {
     display: flex;
@@ -49,6 +50,9 @@ html {
     color: $grey-color;
     margin: 5px auto 0;
     text-align: center;
+}
+.primary--section {
+    padding-bottom: 75px;
 }
 .primary--title {
     font-weight: 700;
@@ -177,6 +181,7 @@ html {
     line-height: 27px;
     color: $dark-grey-color;
     margin: 26px 0 12px;
+    cursor: pointer;
     &::before {
         content: "";
         position: absolute;
@@ -220,6 +225,12 @@ html {
 .card--image-inner {
     height: 17vw;
     max-height: 246px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    & picture {
+        width: 100%;
+    }
 }
 .card--image {
     transform: translateY(4px);
@@ -249,12 +260,27 @@ html {
         border-radius: 1px;
     }
 }
+.swiper.slider-touchmove {
+    & .swiper-slide {
+        touch-action: pan-x !important;
+    }
+}
 .swiper-pagination.swiper-pagination-progressbar.tents-slider--progressbar {
     position: absolute;
     top: 265px;
     bottom: auto;
     left: 0;
     width: 100%;
+    display: none;
+}
+.slider__card_num {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: $grey-color;
     display: none;
 }
 .card--icon {

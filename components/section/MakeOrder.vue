@@ -1,5 +1,5 @@
 <template>
-    <section class="section make-order">
+    <section class="make-order">
         <div class="container make-order__container">
             <div class="make-order__wrapper">
                 <div class="make-order__btn-wrapper overflow--hidden">
@@ -37,6 +37,9 @@ const requestFormPopupStore = useRequestFormPopupStore()
 </script>
 
 <style lang="scss">
+.make-order {
+    padding:150px 0 130px;
+}
 .make-order__wrapper {
     width: 100%;
     max-width: 335px;
@@ -57,7 +60,20 @@ const requestFormPopupStore = useRequestFormPopupStore()
         text-decoration: underline;
     }
 }
+@media (max-width:1600px) {
+    .make-order {
+        padding: 130px 0 120px;
+    }
+}
+@media (max-width:1300px) {
+    .make-order {
+        padding: 100px 0 120px;
+    }
+}
 @media (max-width:700px) {
+    .make-order {
+        padding: 30px 0 120px;
+    }
     .make-order__description {
         font-size: 16px;
         line-height: 20px;
@@ -69,6 +85,9 @@ const requestFormPopupStore = useRequestFormPopupStore()
     }
 }
 @media (max-width:370px) {
+    .make-order {
+        padding: 30px 0 90px;
+    }
     .make-order__description {
         font-size: 15px;
         line-height: 19px;
