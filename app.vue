@@ -1,6 +1,7 @@
 <template>
   <AppHeader />
   <main class="main">
+    <LoadingIndicator />
     <NuxtPage />
     <SectionMakeOrder></SectionMakeOrder>
   </main>
