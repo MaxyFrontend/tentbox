@@ -12,8 +12,8 @@
                             <nuxt-link to="/mobile-tents" class="nav-list__item_dropdown_link">Мобильные шатры</nuxt-link>
                             <nuxt-link to="/mobile-flags" class="nav-list__item_dropdown_link">Мобильные флаги</nuxt-link>
                             <nuxt-link to="/accessories" class="nav-list__item_dropdown_link">Аксессуары</nuxt-link>
-                            <nuxt-link to="#other-tents" class="nav-list__item_dropdown_link">Пагоды</nuxt-link>
-                            <nuxt-link to="#mobile-umbrellas" class="nav-list__item_dropdown_link">Мобильные зонты</nuxt-link>
+                            <button type="button" @click="requestFormPopupStore.open()" class="nav-list__item_dropdown_link">Пагоды</button>
+                            <button type="button" @click="requestFormPopupStore.open()" class="nav-list__item_dropdown_link">Мобильные зонты</button>
                         </div>
                     </li>
                     <li class="nav-list__item header__nav_list_item">
@@ -170,12 +170,14 @@ const requestFormPopupStore = useRequestFormPopupStore()
     font-family: 'DINPro';
 }
 .nav-list__item_dropdown_link {
+    width: 100%;
     display: block;
     font-size: 18px;
     line-height: 22px;
     font-weight: 400;
     padding: 7px 0;
     margin: 0 auto;
+    text-align: left;
     color: $grey-color;
     &:hover {
         font-weight: 500;
